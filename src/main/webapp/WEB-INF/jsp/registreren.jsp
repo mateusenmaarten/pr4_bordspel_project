@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label>PostCode</label>
+                    <label>Postcode</label>
                     <input type="text" class="form-control" placeholder="Postcode">
                 </div>
 
@@ -63,12 +63,12 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Wachtwoord1</label>
+                    <label>Wachtwoord</label>
                     <input type="password" class="form-control" placeholder="Wachtwoord">
                 </div>
 
                 <div class="form-group">
-                    <label>Wachtwoord2</label>
+                    <label>Herhaal wachtwoord</label>
                     <input type="password" class="form-control" placeholder="Herhaal Wachtwoord">
                 </div>
 
