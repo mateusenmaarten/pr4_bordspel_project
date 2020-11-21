@@ -14,16 +14,25 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
 <body>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">WebSiteName</a>
+            <a class="navbar-brand" href="#">Bordspellen Winkel</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">NaamVanWinkel</a></li>
+            <li class="active"><a href="#">Home</a></li>
             <li><a href="#">Bordspellen</a></li>
-            <li><a href="#">Page 2</a></li>
-            <li><a href="#">Login</a></li>
+            <li><a href="#">Huren of Kopen</a></li>
+        </ul>
+        <form class="navbar-form navbar-left" action="/action_page.php">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Zoek Bordspel">
+            </div>
+            <button type="submit" class="btn btn-default">Search</button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Registreren</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Inloggen</a></li>
         </ul>
     </div>
 </nav>
