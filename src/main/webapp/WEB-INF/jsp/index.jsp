@@ -9,6 +9,7 @@
     </title>
 </head>
 <body>
+<jsp:include page="Navigationbar.jsp"/>
     <p>
         test test Dit is de laatste versie
 
