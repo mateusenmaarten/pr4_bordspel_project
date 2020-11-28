@@ -30,7 +30,7 @@ public class MainController {
         Long id = Long.parseLong((request.getParameter("id")));
         Bordspel bordspel = bordspelService.getBordspelById(id);
         model.addAttribute("bordspel", bordspel);
-        return "/bordspelNaam";
+        return "bordspelNaam";
     }
 
 }

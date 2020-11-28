@@ -1,3 +1,4 @@
+<%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Bordspel" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 
@@ -15,6 +16,15 @@
 <p>
     test test dit is de laatste versie
     test test dit is een push van hans geeeertttsss
+
+    <a href="/bordspelNaam?id=1">Bordspelnaam</a>
+    <h1>
+        Beschrijving
+    </h1>
+    <%
+        Bordspel bordspel = (Bordspel) request.getAttribute("bordspel");
+        out.print("<p>Beschrijving bordspel: " + bordspel.getBeschrijving() + "</p>");
+    %>
 </p>
 </body>
 </html>

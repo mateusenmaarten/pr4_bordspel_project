@@ -14,17 +14,20 @@ public class BordspelServiceImpl implements BordspelService {
     BordspelRepository bordspelRepository;
 
     @Override
-    public Bordspel getBordspelById(long id) {
+    public Bordspel getBordspelById(long id)
+    {
         return bordspelRepository.getOne(id);
     }
 
     @Override
-    public List<Bordspel> getBordspellen() {
+    public List<Bordspel> getBordspellen()
+    {
         return bordspelRepository.findAll();
     }
 
     @Override
-    public Bordspel addBordspel(Bordspel bordspel) {
+    public Bordspel addBordspel(Bordspel bordspel)
+    {
         return bordspelRepository.save(bordspel);
     }
 }
