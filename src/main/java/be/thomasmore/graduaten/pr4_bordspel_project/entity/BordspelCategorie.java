@@ -3,40 +3,41 @@ package be.thomasmore.graduaten.pr4_bordspel_project.entity;
 import javax.persistence.*;
 
 @Entity
+@Table(name="BordspelCategorie",schema = "java")
 public class BordspelCategorie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long bordspelCategorieID;
+    private long BordspelCategorieID;
 
     @ManyToOne
-    private Categorie categorie;
+    private Categorie Categorie;
     @ManyToOne
-    private Bordspel bordspel;
+    private Bordspel Bordspel;
 
     public BordspelCategorie() {
     }
 
     public long getBordspelCategorieID() {
-        return bordspelCategorieID;
+        return BordspelCategorieID;
     }
 
     public void setBordspelCategorieID(long bordspelCategorieID) {
-        this.bordspelCategorieID = bordspelCategorieID;
+        this.BordspelCategorieID = bordspelCategorieID;
     }
 
     public Categorie getCategorie() {
-        return categorie;
+        return Categorie;
     }
 
     public void setCategorie(Categorie categorie) {
-        this.categorie = categorie;
+        this.Categorie = categorie;
     }
 
     public Bordspel getBordspel() {
-        return bordspel;
+        return Bordspel;
     }
 
     public void setBordspel(Bordspel bordspel) {
-        this.bordspel = bordspel;
+        this.Bordspel = bordspel;
     }
 }

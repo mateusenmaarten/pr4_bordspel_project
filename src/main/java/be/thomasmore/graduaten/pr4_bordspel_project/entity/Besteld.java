@@ -4,62 +4,63 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@Table(name="Besteld",schema = "java")
 public class Besteld {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long besteldID;
+    private long BesteldID;
 
-    private LocalDate afhaalDatum;
-
-    @ManyToOne
-    private TypeBesteld typeBesteld;
+    private LocalDate AfhaalDatum;
 
     @ManyToOne
-    private Gebruiker gebruiker;
+    private TypeBesteld TypeBesteld;
 
     @ManyToOne
-    private Bordspel bordspel;
+    private Gebruiker Gebruiker;
+
+    @ManyToOne
+    private Bordspel Bordspel;
 
     public Besteld() {
     }
 
     public long getBesteldID() {
-        return besteldID;
+        return BesteldID;
     }
 
     public void setBesteldID(long besteldID) {
-        this.besteldID = besteldID;
+        this.BesteldID = besteldID;
     }
 
     public LocalDate getAfhaalDatum() {
-        return afhaalDatum;
+        return AfhaalDatum;
     }
 
     public void setAfhaalDatum(LocalDate afhaalDatum) {
-        this.afhaalDatum = afhaalDatum;
+        this.AfhaalDatum = afhaalDatum;
     }
 
     public TypeBesteld getTypeBesteld() {
-        return typeBesteld;
+        return TypeBesteld;
     }
 
     public void setTypeBesteld(TypeBesteld typeBesteld) {
-        this.typeBesteld = typeBesteld;
+        this.TypeBesteld = typeBesteld;
     }
 
     public Gebruiker getGebruiker() {
-        return gebruiker;
+        return Gebruiker;
     }
 
     public void setGebruiker(Gebruiker gebruiker) {
-        this.gebruiker = gebruiker;
+        this.Gebruiker = gebruiker;
     }
 
     public Bordspel getBordspel() {
-        return bordspel;
+        return Bordspel;
     }
 
     public void setBordspel(Bordspel bordspel) {
-        this.bordspel = bordspel;
+        this.Bordspel = bordspel;
     }
 }

@@ -1,45 +1,44 @@
 package be.thomasmore.graduaten.pr4_bordspel_project.entity;
 
-import org.w3c.dom.Text;
-
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name="Categorie",schema = "java")
 public class Categorie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String categorieNaam;
+    private String CategorieNaam;
 
     //@Column(name = "CategorieID")
-    private long categorieID;
+    private long CategorieID;
 
     @OneToMany
-    private List<BordspelCategorie> bordspelCategorieList;
+    private List<BordspelCategorie> BordspelCategorieList;
 
     public Categorie() {
 
     }
 
     public long getCategorieID() {
-        return categorieID;
+        return CategorieID;
     }
 
     public void setCategorieID(long categorieID) {
-        this.categorieID = categorieID;
+        this.CategorieID = categorieID;
     }
 
     public List<BordspelCategorie> getBordspelCategorieList() {
-        return bordspelCategorieList;
+        return BordspelCategorieList;
     }
 
     public void setBordspelCategorieList(List<BordspelCategorie> bordspelCategorieList) {
-        this.bordspelCategorieList = bordspelCategorieList;
+        this.BordspelCategorieList = bordspelCategorieList;
     }
 
 
     public String getCategorieNaam() {
-        return categorieNaam;
+        return CategorieNaam;
     }
 
     public void setCategorieNaam(String categorieNaam) {

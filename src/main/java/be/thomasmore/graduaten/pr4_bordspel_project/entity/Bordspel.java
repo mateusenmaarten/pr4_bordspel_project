@@ -5,6 +5,7 @@ import java.text.DecimalFormat;
 import java.util.List;
 
 @Entity
+@Table(name="Bordspel",schema = "java")
 public class Bordspel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

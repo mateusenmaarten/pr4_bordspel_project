@@ -4,37 +4,38 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name="TypeBesteld",schema = "java")
 public class TypeBesteld {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long typeBesteldID;
-    private String beschrijving;
+    private long TypeBesteldID;
+    private String Beschrijving;
     @OneToMany
-    private List<Besteld> besteldList;
+    private List<Besteld> BesteldList;
     public TypeBesteld() {
     }
 
     public List<Besteld> getBesteldList() {
-        return besteldList;
+        return BesteldList;
     }
 
     public void setBesteldList(List<Besteld> besteldList) {
-        this.besteldList = besteldList;
+        this.BesteldList = besteldList;
     }
 
     public long getTypeBesteldID() {
-        return typeBesteldID;
+        return TypeBesteldID;
     }
 
     public void setTypeBesteldID(long typeBesteldID) {
-        this.typeBesteldID = typeBesteldID;
+        this.TypeBesteldID = typeBesteldID;
     }
 
     public String getBeschrijving() {
-        return beschrijving;
+        return Beschrijving;
     }
 
     public void setBeschrijving(String beschrijving) {
-        this.beschrijving = beschrijving;
+        this.Beschrijving = beschrijving;
     }
 }
