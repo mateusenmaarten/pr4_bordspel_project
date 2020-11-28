@@ -14,7 +14,7 @@ public class Bordspel {
     private DecimalFormat Prijs;
     private int AantalSpelers;
     private int MinLeeftijd;
-    private int Speeltijd;
+    private int Speelduur;
     private String Taal;
     private String Beschrijving;
     private String Uitgever;
@@ -69,59 +69,59 @@ public class Bordspel {
     }
 
     public long getBordspelID() {
-        return bordspelID;
+        return BordspelID;
     }
 
     public void setBordspelID(long bordspelID) {
-        this.bordspelID = bordspelID;
+        this.BordspelID = bordspelID;
     }
 
     public String getNaam() {
-        return naam;
+        return Naam;
     }
 
     public void setNaam(String naam) {
-        this.naam = naam;
+        this.Naam = naam;
     }
 
     public String getFoto() {
-        return foto;
+        return Foto;
     }
 
     public void setFoto(String foto) {
-        this.foto = foto;
+        this.Foto = foto;
     }
 
     public DecimalFormat getPrijs() {
-        return prijs;
+        return Prijs;
     }
 
     public void setPrijs(DecimalFormat prijs) {
-        this.prijs = prijs;
+        this.Prijs = prijs;
     }
 
     public int getAantalSpelers() {
-        return aantalSpelers;
+        return AantalSpelers;
     }
 
     public void setAantalSpelers(int aantalSpelers) {
-        this.aantalSpelers = aantalSpelers;
+        this.AantalSpelers = aantalSpelers;
     }
 
     public int getMinLeeftijd() {
-        return minLeeftijd;
+        return MinLeeftijd;
     }
 
     public void setMinLeeftijd(int minLeeftijd) {
-        this.minLeeftijd = minLeeftijd;
+        this.MinLeeftijd = minLeeftijd;
     }
 
-    public int getSpeeltijd() {
-        return speeltijd;
+    public int getSpeelduur() {
+        return Speelduur;
     }
 
-    public void setSpeeltijd(int speeltijd) {
-        this.speeltijd = speeltijd;
+    public void setSpeelduur(int speelduur) {
+        this.Speelduur = speelduur;
     }
 
     public String getTaal() {
@@ -141,10 +141,10 @@ public class Bordspel {
     }
 
     public String getUitgever() {
-        return uitgever;
+        return Uitgever;
     }
 
     public void setUitgever(String uitgever) {
-        this.uitgever = uitgever;
+        this.Uitgever = uitgever;
     }
 }
