@@ -1,4 +1,4 @@
-package repository;
+package be.thomasmore.graduaten.pr4_bordspel_project.repository;
 
 import be.thomasmore.graduaten.pr4_bordspel_project.entity.Bordspel;
 import org.springframework.data.jpa.repository.JpaRepository;

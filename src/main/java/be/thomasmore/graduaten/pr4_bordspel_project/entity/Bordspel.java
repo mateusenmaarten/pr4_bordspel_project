@@ -8,16 +8,16 @@ import java.util.List;
 public class Bordspel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long bordspelID;
-    private String naam;
-    private String foto;
-    private DecimalFormat prijs;
-    private int aantalSpelers;
-    private int minLeeftijd;
-    private int speeltijd;
+    private long BordspelID;
+    private String Naam;
+    private String Foto;
+    private DecimalFormat Prijs;
+    private int AantalSpelers;
+    private int MinLeeftijd;
+    private int Speeltijd;
     private String Taal;
-    private String beschrijving;
-    private String uitgever;
+    private String Beschrijving;
+    private String Uitgever;
 
     @OneToMany
     private List<Review> reviewList;
@@ -133,11 +133,11 @@ public class Bordspel {
     }
 
     public String getBeschrijving() {
-        return beschrijving;
+        return Beschrijving;
     }
 
-    public void setBeschrijving(String beschrijving) {
-        this.beschrijving = beschrijving;
+    public void setBeschrijving(String Beschrijving) {
+        this.Beschrijving = Beschrijving;
     }
 
     public String getUitgever() {

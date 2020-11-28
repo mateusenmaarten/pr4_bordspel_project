@@ -1,9 +1,9 @@
-package Service;
+package be.thomasmore.graduaten.pr4_bordspel_project.service;
 
 import be.thomasmore.graduaten.pr4_bordspel_project.entity.Bordspel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.BordspelRepository;
+import be.thomasmore.graduaten.pr4_bordspel_project.repository.BordspelRepository;
 
 import java.util.List;
 
