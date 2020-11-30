@@ -89,6 +89,10 @@
                                     type="submit"
                                     value="Login"
                                     class="btn btn-primary btn-block"/>
+                            <span id="register" class="form-group float-none">
+                    <label class="mr-2 mt-2">New User?</label>
+                    <a href="#">Create an account.</a>
+                    </span>
                         </form>
                     </div>
                 </div>
