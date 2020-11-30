@@ -24,6 +24,9 @@ public class MainController {
     @RequestMapping("/about")
     public String about() {return "about";}
 
+    @RequestMapping("/login")
+    public String login() {return "login";}
+
     @RequestMapping("/products")
     public String products() {return "products";}
 
