@@ -28,5 +28,6 @@ public class MainController {
     public String registreren() {return "registreren";}
 
     //Maarten : zie Slides 8 Backend - slide 22
+    //testversie voor te testen
 
 }
