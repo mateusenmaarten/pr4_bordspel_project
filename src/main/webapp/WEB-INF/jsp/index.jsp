@@ -1,4 +1,5 @@
 <%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Bordspel" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -117,6 +118,11 @@
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero,
                     veniam.
                 </p>
+<%--                <% List<Bordspel> lijst = (List<Bordspel>) request.getAttribute("spellen");--%>
+<%--                for(Bordspel spel: lijst){--%>
+<%--                    out.print("<p>Naam spel: " + spel.getNaam() + "</p>");--%>
+<%--                }--%>
+<%--                %>--%>
             </div>
             <div class="col-md-4 mb-4 text-center">
                 <i class="fas fa-cart-plus fa-3x mb-2"></i>

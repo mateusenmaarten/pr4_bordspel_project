@@ -4,41 +4,39 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="Categorie",schema = "java")
+@Table(name="Categorie", schema = "java")
 public class Categorie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String CategorieNaam;
-
-    //@Column(name = "CategorieID")
-    private long CategorieID;
+    private long id;
+    private String categorieNaam;
 
     @OneToMany
-    private List<BordspelCategorie> BordspelCategorieList;
+    private List<BordspelCategorie> bordspelCategorieList;
 
     public Categorie() {
 
     }
 
-    public long getCategorieID() {
-        return CategorieID;
+    public long getId() {
+        return id;
     }
 
-    public void setCategorieID(long categorieID) {
-        this.CategorieID = categorieID;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public List<BordspelCategorie> getBordspelCategorieList() {
-        return BordspelCategorieList;
+        return bordspelCategorieList;
     }
 
     public void setBordspelCategorieList(List<BordspelCategorie> bordspelCategorieList) {
-        this.BordspelCategorieList = bordspelCategorieList;
+        this.bordspelCategorieList = bordspelCategorieList;
     }
 
 
     public String getCategorieNaam() {
-        return CategorieNaam;
+        return categorieNaam;
     }
 
     public void setCategorieNaam(String categorieNaam) {

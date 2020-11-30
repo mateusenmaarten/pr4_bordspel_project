@@ -3,12 +3,12 @@ package be.thomasmore.graduaten.pr4_bordspel_project.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="Review",schema = "java")
+@Table(name="Review", schema = "java")
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long ReviewID;
-    private String Beschrijving;
+    private long id;
+    private String beschrijving;
 
     @ManyToOne
     private Gebruiker gebruiker;
@@ -19,20 +19,20 @@ public class Review {
     public Review() {
     }
 
-    public long getReviewID() {
-        return ReviewID;
+    public long getId() {
+        return id;
     }
 
-    public void setReviewID(long reviewID) {
-        this.ReviewID = reviewID;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getBeschrijving() {
-        return Beschrijving;
+        return beschrijving;
     }
 
     public void setBeschrijving(String beschrijving) {
-        this.Beschrijving = beschrijving;
+        this.beschrijving = beschrijving;
     }
 
     public Gebruiker getGebruiker() {

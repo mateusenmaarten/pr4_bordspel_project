@@ -10,6 +10,7 @@ import be.thomasmore.graduaten.pr4_bordspel_project.service.BordspelService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.Console;
+import java.util.List;
 
 @Controller
 public class MainController {
@@ -18,6 +19,9 @@ public class MainController {
 
     @RequestMapping("/")
     public String index(){
+//        List<Bordspel> spellen = bordspelService.getBordspellen();
+//        model.addAttribute("spellen",spellen);
+
         return "index";
     }
 

@@ -5,20 +5,20 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name="Gebruiker",schema = "java")
+@Table(name="Gebruiker", schema = "java")
 public class Gebruiker {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long GebruikerID;
-    private String Voornaam;
-    private String Achternaam;
-    private String Email;
-    private LocalDate GeboorteDatum;
-    private String Woonplaats;
-    private String Postcode;
-    private String Straat;
-    private String Huisnummer;
-    private boolean IsAdmin;
+    private long id;
+    private String voornaam;
+    private String achternaam;
+    private String email;
+    private LocalDate geboorteDatum;
+    private String woonplaats;
+    private String postcode;
+    private String straat;
+    private String huisnummer;
+    private boolean isAdmin;
 
     @OneToMany
     private List<Review> reviewList;
@@ -45,83 +45,83 @@ public class Gebruiker {
         this.besteldList = besteldList;
     }
 
-    public long getGebruikerID() {
-        return GebruikerID;
+    public long getId() {
+        return id;
     }
 
-    public void setGebruikerID(long gebruikerID) {
-        this.GebruikerID = gebruikerID;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getVoornaam() {
-        return Voornaam;
+        return voornaam;
     }
 
     public void setVoornaam(String voornaam) {
-        this.Voornaam = voornaam;
+        this.voornaam = voornaam;
     }
 
     public String getAchternaam() {
-        return Achternaam;
+        return achternaam;
     }
 
     public void setAchternaam(String achternaam) {
-        this.Achternaam = achternaam;
+        this.achternaam = achternaam;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        this.Email = email;
+        this.email = email;
     }
 
     public LocalDate getGeboorteDatum() {
-        return GeboorteDatum;
+        return geboorteDatum;
     }
 
     public void setGeboorteDatum(LocalDate geboorteDatum) {
-        this.GeboorteDatum = geboorteDatum;
+        this.geboorteDatum = geboorteDatum;
     }
 
     public String getWoonplaats() {
-        return Woonplaats;
+        return woonplaats;
     }
 
     public void setWoonplaats(String woonplaats) {
-        this.Woonplaats = woonplaats;
+        this.woonplaats = woonplaats;
     }
 
     public String getPostcode() {
-        return Postcode;
+        return postcode;
     }
 
     public void setPostcode(String postcode) {
-        this.Postcode = postcode;
+        this.postcode = postcode;
     }
 
     public String getStraat() {
-        return Straat;
+        return straat;
     }
 
     public void setStraat(String straat) {
-        this.Straat = straat;
+        this.straat = straat;
     }
 
     public String getHuisnummer() {
-        return Huisnummer;
+        return huisnummer;
     }
 
     public void setHuisnummer(String huisnummer) {
-        this.Huisnummer = huisnummer;
+        this.huisnummer = huisnummer;
     }
 
     public boolean isAdmin() {
-        return IsAdmin;
+        return isAdmin;
     }
 
     public void setAdmin(boolean admin) {
-        IsAdmin = admin;
+        isAdmin = admin;
     }
 }

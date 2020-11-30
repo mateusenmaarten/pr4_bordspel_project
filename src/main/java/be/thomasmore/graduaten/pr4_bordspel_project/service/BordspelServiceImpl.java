@@ -22,7 +22,7 @@ public class BordspelServiceImpl implements BordspelService {
     @Override
     public List<Bordspel> getBordspellen()
     {
-        return bordspelRepository.findAll();
+        return bordspelRepository.findAllboardgames();
     }
 
     @Override

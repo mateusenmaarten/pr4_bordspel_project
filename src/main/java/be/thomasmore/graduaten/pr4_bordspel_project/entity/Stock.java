@@ -3,13 +3,13 @@ package be.thomasmore.graduaten.pr4_bordspel_project.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="Stock",schema = "java")
+@Table(name = "Stock", schema = "java")
 public class Stock {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long StockID;
-    private int AantalVerkoop;
-    private int AantalVerhuur;
+    private long id;
+    private int aantalVerkoop;
+    private int aantalVerhuur;
 
     @OneToOne
     private Bordspel bordspel;
@@ -17,28 +17,28 @@ public class Stock {
     public Stock() {
     }
 
-    public long getStockID() {
-        return StockID;
+    public long getId() {
+        return id;
     }
 
-    public void setStockID(long stockID) {
-        this.StockID = stockID;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public int getAantalVerkoop() {
-        return AantalVerkoop;
+        return aantalVerkoop;
     }
 
     public void setAantalVerkoop(int aantalVerkoop) {
-        this.AantalVerkoop = aantalVerkoop;
+        this.aantalVerkoop = aantalVerkoop;
     }
 
     public int getAantalVerhuur() {
-        return AantalVerhuur;
+        return aantalVerhuur;
     }
 
     public void setAantalVerhuur(int aantalVerhuur) {
-        this.AantalVerhuur = aantalVerhuur;
+        this.aantalVerhuur = aantalVerhuur;
     }
 
     public Bordspel getBordspel() {

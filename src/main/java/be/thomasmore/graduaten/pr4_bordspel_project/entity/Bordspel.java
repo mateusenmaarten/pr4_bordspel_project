@@ -1,24 +1,27 @@
 package be.thomasmore.graduaten.pr4_bordspel_project.entity;
-
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import javax.persistence.*;
 import java.text.DecimalFormat;
 import java.util.List;
 
 @Entity
-@Table(name="Bordspel",schema = "java")
+@Table(name="Bordspel", schema = "java")
 public class Bordspel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long BordspelID;
-    private String Naam;
-    private String Foto;
-    private DecimalFormat Prijs;
-    private int AantalSpelers;
-    private int MinLeeftijd;
-    private int Speelduur;
-    private String Taal;
-    private String Beschrijving;
-    private String Uitgever;
+    private long id;
+    private String naam;
+    private String foto;
+    private DecimalFormat prijs;
+    private String aantalSpelers;
+    private int minLeeftijd;
+    private String speelduur;
+    private String taal;
+    private String beschrijving;
+    private String uitgever;
 
     @OneToMany
     private List<Review> reviewList;
@@ -29,7 +32,8 @@ public class Bordspel {
     @OneToMany
     private List<BordspelCategorie> bordspelCategorieList;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "stock_id", referencedColumnName = "id")
     private Stock stock;
 
 
@@ -69,83 +73,83 @@ public class Bordspel {
         this.stock = stock;
     }
 
-    public long getBordspelID() {
-        return BordspelID;
+    public long getId() {
+        return id;
     }
 
-    public void setBordspelID(long bordspelID) {
-        this.BordspelID = bordspelID;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getNaam() {
-        return Naam;
+        return naam;
     }
 
     public void setNaam(String naam) {
-        this.Naam = naam;
+        this.naam = naam;
     }
 
     public String getFoto() {
-        return Foto;
+        return foto;
     }
 
     public void setFoto(String foto) {
-        this.Foto = foto;
+        this.foto = foto;
     }
 
     public DecimalFormat getPrijs() {
-        return Prijs;
+        return prijs;
     }
 
     public void setPrijs(DecimalFormat prijs) {
-        this.Prijs = prijs;
+        this.prijs = prijs;
     }
 
-    public int getAantalSpelers() {
-        return AantalSpelers;
+    public String getAantalSpelers() {
+        return aantalSpelers;
     }
 
-    public void setAantalSpelers(int aantalSpelers) {
-        this.AantalSpelers = aantalSpelers;
+    public void setAantalSpelers(String aantalSpelers) {
+        this.aantalSpelers = aantalSpelers;
     }
 
     public int getMinLeeftijd() {
-        return MinLeeftijd;
+        return minLeeftijd;
     }
 
     public void setMinLeeftijd(int minLeeftijd) {
-        this.MinLeeftijd = minLeeftijd;
+        this.minLeeftijd = minLeeftijd;
     }
 
-    public int getSpeelduur() {
-        return Speelduur;
+    public String getSpeelduur() {
+        return speelduur;
     }
 
-    public void setSpeelduur(int speelduur) {
-        this.Speelduur = speelduur;
+    public void setSpeelduur(String speelduur) {
+        this.speelduur = speelduur;
     }
 
     public String getTaal() {
-        return Taal;
+        return taal;
     }
 
     public void setTaal(String taal) {
-        Taal = taal;
+        this.taal = taal;
     }
 
     public String getBeschrijving() {
-        return Beschrijving;
+        return beschrijving;
     }
 
     public void setBeschrijving(String Beschrijving) {
-        this.Beschrijving = Beschrijving;
+        this.beschrijving = Beschrijving;
     }
 
     public String getUitgever() {
-        return Uitgever;
+        return uitgever;
     }
 
     public void setUitgever(String uitgever) {
-        this.Uitgever = uitgever;
+        this.uitgever = uitgever;
     }
 }
