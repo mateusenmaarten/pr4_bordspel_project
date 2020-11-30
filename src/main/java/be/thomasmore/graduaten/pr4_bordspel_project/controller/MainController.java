@@ -25,12 +25,17 @@ public class MainController {
         return "index";
     }
 
+    @RequestMapping("/about")
+    public String about() {return "about";}
+
     @RequestMapping("/login")
     public String login() {return "login";}
 
-    @RequestMapping("/registreren")
-    public String registreren() {return "registreren";}
+    @RequestMapping("/products")
+    public String products() {return "products";}
 
+    @RequestMapping("/contact")
+    public String contact() {return "contact";}
     //Maarten : zie Slides 8 Backend - slide 22
     //testversie voor te testen
 
