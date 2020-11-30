@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: wimst
   Date: 30/11/2020
-  Time: 20:53
+  Time: 23:20
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -32,7 +32,7 @@
 
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a href="/index" id="naam" class="navbar-brand">Board Games</a>
+        <a href="index.html" id="naam" class="navbar-brand">Board Games</a>
         <button
                 class="navbar-toggler"
                 data-toggle="collapse"
@@ -43,16 +43,16 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a href="/" class="nav-link">Home</a>
+                    <a href="index.html" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/about" class="nav-link">About Us</a>
+                    <a href="about.html" class="nav-link">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/products" class="nav-link">Producten</a>
+                    <a href="products.html" class="nav-link">Producten</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/login" class="nav-link">Login</a>
+                    <a href="login.html" class="nav-link">Login</a>
                 </li>
             </ul>
         </div>
@@ -67,16 +67,20 @@
 </section>
 
 <!-- LOGIN -->
-<section id="login">
+<div id="login">
     <div class="container">
         <div class="row">
             <div class="col-md-6 mx-auto">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Account Login</h4>
+                        <h4>Register Your Account</h4>
                     </div>
                     <div class="card-body">
-                        <form action="/index">
+                        <form action="/">
+                            <div class="form-group">
+                                <label for="Name">Name</label>
+                                <input type="text" class="form-control" />
+                            </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="text" class="form-control" />
@@ -85,24 +89,28 @@
                                 <label for="password">Password</label>
                                 <input type="password" class="form-control" />
                             </div>
+                            <div class="form-group">
+                                <label for="password">Confirm Password</label>
+                                <input type="password" class="form-control" />
+                            </div>
                             <input
                                     type="submit"
-                                    value="Login"
+                                    value="Sign up"
                                     class="btn btn-primary btn-block"/>
-                            <div id="register" class="form-group text-center">
-                    <label class="mr-2 mt-2">New User?</label>
-                    <a href="/register">Create an account.</a>
-                    </div>
+                            <div class="form-group text-center">
+                                <label class="mr-2 mt-2 ">Already have an account?</label>
+                                <a href="/login">Sign in.</a>
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <!-- FOOTER -->
-<footer id="main-footer" class="bg-dark text-white p-5 fixed-bottom">
+<footer id="main-footer" class="bg-dark text-white p-3 mt-5">
     <div class="container">
         <div class="row">
             <div class="col">

@@ -31,6 +31,9 @@ public class MainController {
     @RequestMapping("/login")
     public String login() {return "login";}
 
+    @RequestMapping("/register")
+    public String register() {return "register";}
+
     @RequestMapping("/products")
     public String products() {return "products";}
 
