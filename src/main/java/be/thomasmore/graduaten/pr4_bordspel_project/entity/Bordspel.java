@@ -1,10 +1,5 @@
 package be.thomasmore.graduaten.pr4_bordspel_project.entity;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import javax.persistence.*;
-import java.text.DecimalFormat;
 import java.util.List;
 
 @Entity
@@ -14,7 +9,7 @@ public class Bordspel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String naam;
-    private String foto;
+    private String image_path;
     private double prijs;
     private String aantalSpelers;
     private int minLeeftijd;
@@ -89,12 +84,12 @@ public class Bordspel {
         this.naam = naam;
     }
 
-    public String getFoto() {
-        return foto;
+    public String getImagePath() {
+        return image_path;
     }
 
-    public void setFoto(String foto) {
-        this.foto = foto;
+    public void setImagePath(String image_path) {
+        this.image_path = image_path;
     }
 
     public double getPrijs() {
