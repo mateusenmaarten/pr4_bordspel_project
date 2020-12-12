@@ -28,7 +28,7 @@
 <body>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a href="index.html" id="naam" class="navbar-brand">Board Games</a>
+        <a href="/" id="naam" class="navbar-brand">Board Games</a>
         <button
                 class="navbar-toggler"
                 data-toggle="collapse"
@@ -39,16 +39,16 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="/" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="about.html" class="nav-link">About Us</a>
+                    <a href="/about" class="nav-link">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a href="products.html" class="nav-link">Producten</a>
+                    <a href="/products" class="nav-link">Producten</a>
                 </li>
                 <li class="nav-item">
-                    <a href="login.html" class="nav-link">Login</a>
+                    <a href="/login" class="nav-link">Login</a>
                 </li>
             </ul>
         </div>

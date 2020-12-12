@@ -32,7 +32,7 @@
 
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a href="/index" id="naam" class="navbar-brand">Board Games</a>
+        <a href="/" id="naam" class="navbar-brand">Board Games</a>
         <button
                 class="navbar-toggler"
                 data-toggle="collapse"
