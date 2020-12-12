@@ -15,7 +15,7 @@ public class Bordspel {
     private long id;
     private String naam;
     private String foto;
-    private DecimalFormat prijs;
+    private double prijs;
     private String aantalSpelers;
     private int minLeeftijd;
     private String speelduur;
@@ -97,11 +97,11 @@ public class Bordspel {
         this.foto = foto;
     }
 
-    public DecimalFormat getPrijs() {
+    public double getPrijs() {
         return prijs;
     }
 
-    public void setPrijs(DecimalFormat prijs) {
+    public void setPrijs(double prijs) {
         this.prijs = prijs;
     }
 

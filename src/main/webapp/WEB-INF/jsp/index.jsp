@@ -28,6 +28,7 @@
 </head>
 
 <body>
+
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
     <div class="container">
         <a href="/index" id="naam" class="navbar-brand">Board Games</a>
@@ -118,11 +119,7 @@
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero,
                     veniam.
                 </p>
-<%--                <% List<Bordspel> lijst = (List<Bordspel>) request.getAttribute("spellen");--%>
-<%--                for(Bordspel spel: lijst){--%>
-<%--                    out.print("<p>Naam spel: " + spel.getNaam() + "</p>");--%>
-<%--                }--%>
-<%--                %>--%>
+
             </div>
             <div class="col-md-4 mb-4 text-center">
                 <i class="fas fa-cart-plus fa-3x mb-2"></i>
@@ -209,7 +206,11 @@
         </div>
     </div>
 </section>
-
+<% List<Bordspel> lijst = (List<Bordspel>) request.getAttribute("spellen");
+    for(Bordspel spel: lijst){
+        out.print("<p>Naam spel: " + spel.getNaam() + "</p>");
+    }
+%>
 <!-- FOOTER -->
 <footer id="main-footer" class="text-center p-4">
     <div class="container">
