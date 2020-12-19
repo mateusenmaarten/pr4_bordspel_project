@@ -72,6 +72,7 @@
     GebruikerError gebruikerError = (GebruikerError) request.getAttribute(GebruikerError.NAME);
 %>
 <!-- LOGIN -->
+
 <div id="login">
     <div class="container">
         <div class="card col-md-6 mx-auto">
@@ -131,12 +132,12 @@
                                 %>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="password">Confirm Password</label>
-                                <input type="password" class="form-control" />
-                            </div>
-                        </div>
+<%--                        <div class="col-md-6">--%>
+<%--                            <div class="form-group">--%>
+<%--                                <label for="password">Confirm Password</label>--%>
+<%--                                <input type="password" class="form-control" />--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
                     </div>
 
                     <div class="row">

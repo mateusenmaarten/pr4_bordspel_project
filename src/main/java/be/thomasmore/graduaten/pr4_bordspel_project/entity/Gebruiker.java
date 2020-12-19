@@ -44,14 +44,16 @@ public class Gebruiker {
 
 //    public Gebruiker(){
 //        this.voornaam ="";
+//        this.wachtwoord="";
 //        this.achternaam = "";
 //        this.email = "";
 //        this.geboorteDatum = null;
 //        this.woonplaats = "";
-//        this.postcode = null;
+//        this.postcode = "";
 //        this.straat = "";
 //        this.huisnummer = "";
 //        this.isAdmin = false;
+//
 //    }
 
     public Gebruiker(String voornaam, String achternaam, String email,

@@ -5,7 +5,7 @@ import be.thomasmore.graduaten.pr4_bordspel_project.entity.Bordspel;
 import be.thomasmore.graduaten.pr4_bordspel_project.entity.Gebruiker;
 import be.thomasmore.graduaten.pr4_bordspel_project.entity.GebruikerError;
 import be.thomasmore.graduaten.pr4_bordspel_project.service.GebruikerService;
-import com.sun.org.apache.xpath.internal.operations.Mod;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +20,8 @@ import java.util.List;
 public class MainController {
     @Autowired
     BordspelService bordspelService;
+
+    @Autowired
     GebruikerService service;
 
     @RequestMapping("/")
@@ -37,7 +39,15 @@ public class MainController {
     public String login() {return "login";}
 
     @RequestMapping("/register")
-    public String register() {return "register";}
+    public String register(Model model)
+    {
+
+        model.addAttribute(Gebruiker.NAME, new Gebruiker());
+
+        model.addAttribute(GebruikerError.NAME, new GebruikerError());
+
+        return "register";
+    }
 
     @RequestMapping("/products")
     public String products() {return "products";}
@@ -119,11 +129,11 @@ public class MainController {
         if (gebruikerError.hasErrors) {
             model.addAttribute(Gebruiker.NAME, gebruiker);
             model.addAttribute(GebruikerError.NAME, gebruikerError);
-            return "register";
+            return "/register";
         } else {
             service.addGebruiker(gebruiker);
             model.addAttribute("gebruikers", service.getGebruikers());
-            return "index";
+            return "/index";
         }
 
     }
