@@ -32,7 +32,7 @@
 
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a href="/" id="naam" class="navbar-brand">Board Games</a>
+        <a href="index.html" id="naam" class="navbar-brand">WebShop</a>
         <button
                 class="navbar-toggler"
                 data-toggle="collapse"
@@ -43,16 +43,16 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a href="/index" class="nav-link">Home</a>
+                    <a href="index.html" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/about" class="nav-link">About Us</a>
+                    <a href="about.html" class="nav-link">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/products" class="nav-link">Producten</a>
+                    <a href="producten.html" class="nav-link">Producten</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/login" class="nav-link">Login</a>
+                    <a href="login.html" class="nav-link">Login</a>
                 </li>
             </ul>
         </div>
@@ -69,76 +69,137 @@
 <!-- LOGIN -->
 <div id="login">
     <div class="container">
-        <div class="row">
-            <div class="col-md-6 mx-auto">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Register Your Account</h4>
-                    </div>
-                    <div class="card-body">
-                        <form action="/">
+        <div class="card col-md-6 mx-auto">
+            <div class="row">
+                <div class="card-header col-md-12 text-center">
+                    <h4>Register Your Account</h4>
+                </div>
+            </div>
+            <div class="card-body">
+                <form action="index.html">
+                    <div class="row">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label for="Name">Name</label>
+                                <label for="First Name">First Name</label>
                                 <input type="text" class="form-control" />
                             </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="Name">Last Name</label>
+                                <input type="text" class="form-control" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="text" class="form-control" />
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="password">Password</label>
                                 <input type="password" class="form-control" />
                             </div>
+                        </div>
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="password">Confirm Password</label>
                                 <input type="password" class="form-control" />
                             </div>
-                            <input
-                                    type="submit"
-                                    value="Sign up"
-                                    class="btn btn-primary btn-block"/>
-                            <div class="form-group text-center">
-                                <label class="mr-2 mt-2 ">Already have an account?</label>
-                                <a href="/login">Sign in.</a>
-                            </div>
-                        </form>
+                        </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="Geboortedatum">Geboortedatum</label>
+                                <input type="text" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="Geboortedatum">Postcode</label>
+                                <input type="text" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label for="Woonplaats">Woonplaats</label>
+                                <input type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <label for="Straat">Straat</label>
+                                <input type="text" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="Huisnummer">Huisnummer</label>
+                                <input type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <input
+                            type="submit"
+                            value="Sign up"
+                            class="btn btn-primary btn-block"/>
+                    <div class="form-group text-center">
+                        <label class="mr-2 mt-2">Already have an account?</label>
+                        <a href="#">Sign in.</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="main-footer" class="text-center p-3 fixed-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p>Copyright &copy; <span id="year"></span> Board Games</p>
                 </div>
             </div>
         </div>
-    </div>
+    </footer>
+
+    <script
+            src="http://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"
+    ></script>
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"
+    ></script>
+    <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+            integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+            crossorigin="anonymous"
+    ></script>
+
+    <script>
+        // Get the current year for the copyright
+        $("#year").text(new Date().getFullYear());
+    </script>
 </div>
-
-<!-- FOOTER -->
-<footer id="main-footer" class="text-center p-3 fixed-bottom">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <p>Copyright &copy; <span id="year"></span> Board Games</p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<script
-        src="http://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"
-></script>
-<script
-        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"
-></script>
-<script
-        src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-        crossorigin="anonymous"
-></script>
-
-<script>
-    // Get the current year for the copyright
-    $("#year").text(new Date().getFullYear());
-</script>
 </body>
 </html>
