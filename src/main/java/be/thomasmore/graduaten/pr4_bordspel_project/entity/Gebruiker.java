@@ -2,11 +2,31 @@ package be.thomasmore.graduaten.pr4_bordspel_project.entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 @Entity
 @Table(name="Gebruiker", schema = "java")
 public class Gebruiker {
+
+    static LocalDate date = LocalDate.now();
+    static Boolean bool = false;
+
+    public static final String NAME = "gebruiker";
+    public static final String VOORNAAM = "Voornaam";
+    public static final String FAMILIENAAM = "Achternaam";
+    public static final String EMAIL = "Email";
+
+    public static final String GEBOORTEDATUM = date.format(DateTimeFormatter.ofPattern("EEEE, MMMM dd, yyyyy"));
+
+    public static final String WOONPLAATS = "Woonplaats";
+    public static final String POSTCODE = "Postcode";
+    public static final String STRAAT = "Straat";
+    public static final String HUISNUMMER = "Huisnummer";
+    public static final Boolean ISADMIN = bool;
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -26,8 +46,22 @@ public class Gebruiker {
     @OneToMany
     private List<Besteld> besteldList;
 
-    public Gebruiker() {
+    public Gebruiker(String voornaam, String achternaam, String email,
+                     LocalDate geboorteDatum, String woonplaats, String postcode,
+                     String straat, String huisnummer, boolean isAdmin)
+    {
+        this.voornaam = voornaam;
+        this.achternaam = achternaam;
+        this.email = email;
+        this.geboorteDatum = geboorteDatum;
+        this.woonplaats = woonplaats;
+        this.postcode = postcode;
+        this.straat = straat;
+        this.huisnummer = huisnummer;
+        this.isAdmin = isAdmin;
     }
+
+
 
     public List<Review> getReviewList() {
         return reviewList;
