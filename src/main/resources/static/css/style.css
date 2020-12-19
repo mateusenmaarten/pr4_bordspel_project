@@ -60,3 +60,6 @@ body {
     background: #fff;
     color: #333;
 }
+#login {
+    min-height: 750px;
+}
