@@ -14,6 +14,8 @@ import be.thomasmore.graduaten.pr4_bordspel_project.service.BordspelService;
 
 
 import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Controller
@@ -58,7 +60,7 @@ public class MainController {
     //testversie voor te testen
 
 
-    @RequestMapping
+    @RequestMapping("/processRegisterForm")
     public String processRegisterForm(HttpServletRequest request, Model model){
 
         GebruikerError gebruikerError = new GebruikerError();
@@ -92,35 +94,43 @@ public class MainController {
         }
 
         String geboortedatum = request.getParameter(Gebruiker.GEBOORTEDATUM);
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("M/d/yyyy");
+        LocalDate datum = LocalDate.parse(geboortedatum, dateFormat);
+        gebruiker.setGeboorteDatum(datum);
         if (geboortedatum.isEmpty()){
-            gebruikerError.geboorteDatum = "U moet een geboortedatum invullen";
+            gebruikerError.geboorteDatum = "U moet een geboortedatum invullen (M/d/yy)";
             gebruikerError.hasErrors = true;
         }
 
         String woonplaats = request.getParameter(Gebruiker.WOONPLAATS);
+        gebruiker.setWoonplaats(woonplaats);
         if (geboortedatum.isEmpty()){
             gebruikerError.woonplaats = "U moet een woonplaats invullen";
             gebruikerError.hasErrors = true;
         }
 
         String postcode = request.getParameter(Gebruiker.POSTCODE);
+        gebruiker.setPostcode(postcode);
         if (geboortedatum.isEmpty()){
             gebruikerError.postcode = "U moet een postcode invullen";
             gebruikerError.hasErrors = true;
         }
 
         String straat = request.getParameter(Gebruiker.STRAAT);
+        gebruiker.setStraat(straat);
         if (geboortedatum.isEmpty()){
             gebruikerError.straat = "U moet een straat invullen";
             gebruikerError.hasErrors = true;
         }
 
         String huisnummer = request.getParameter(Gebruiker.HUISNUMMER);
+        gebruiker.setHuisnummer(huisnummer);
         if (geboortedatum.isEmpty()){
             gebruikerError.huisnummer = "U moet een huisnummer invullen";
             gebruikerError.hasErrors = true;
         }
         String wachtwoord = request.getParameter(Gebruiker.WACHTWOORD);
+        gebruiker.setWachtwoord(wachtwoord);
         if (wachtwoord.isEmpty()){
             gebruikerError.wachtwoord = "U moet een wachtwoord invullen";
             gebruikerError.hasErrors = true;

@@ -3,11 +3,11 @@ package be.thomasmore.graduaten.pr4_bordspel_project.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="Review", schema = "java")
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private String beschrijving;
 
     @ManyToOne

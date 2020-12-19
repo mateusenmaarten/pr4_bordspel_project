@@ -3,7 +3,6 @@ package be.thomasmore.graduaten.pr4_bordspel_project.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Stock", schema = "java")
 public class Stock {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

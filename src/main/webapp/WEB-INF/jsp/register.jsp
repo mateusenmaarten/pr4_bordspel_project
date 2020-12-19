@@ -82,12 +82,17 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="index.html">
+                <form action="/processRegisterForm">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="<%=Gebruiker.VOORNAAM%>"><%=Gebruiker.VOORNAAM%></label>
-                                <input class="form-control" type="text" id="<%=Gebruiker.VOORNAAM%>" name="<%=Gebruiker.VOORNAAM%>" value="<%=gebruiker.getVoornaam()%>">
+                                <input
+                                        class="form-control<%out.print(gebruikerError.voornaam != null ? " is-invalid" : "");%>"
+                                        type="text"
+                                        id="<%=Gebruiker.VOORNAAM%>"
+                                        name="<%=Gebruiker.VOORNAAM%>"
+                                        value="<%=gebruiker.getVoornaam() == null ? "" : gebruiker.getVoornaam()%>">
                                 <%
                                     if (gebruikerError.voornaam != null) {
                                         out.print("<span style='color: red;'>" + gebruikerError.voornaam + "</span>");
@@ -98,7 +103,12 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="<%=Gebruiker.ACHTERNAAM%>"><%=Gebruiker.ACHTERNAAM%></label>
-                                <input class="form-control" type="text" id="<%=Gebruiker.ACHTERNAAM%>" name="<%=Gebruiker.ACHTERNAAM%>" value="<%=gebruiker.getAchternaam()%>">
+                                <input
+                                        class="form-control<%out.print(gebruikerError.achternaam != null ? " is-invalid" : "");%>"
+                                        type="text"
+                                        id="<%=Gebruiker.ACHTERNAAM%>"
+                                        name="<%=Gebruiker.ACHTERNAAM%>"
+                                        value="<%=gebruiker.getAchternaam()== null ? "" : gebruiker.getAchternaam()%>">
                                 <%
                                     if (gebruikerError.achternaam != null) {
                                         out.print("<span style='color: red;'>" + gebruikerError.achternaam + "</span>");
@@ -111,7 +121,13 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="<%=Gebruiker.EMAIL%>"><%=Gebruiker.EMAIL%></label>
-                                <input class="form-control" type="text" id="<%=Gebruiker.EMAIL%>" name="<%=Gebruiker.EMAIL%>" value="<%=gebruiker.getEmail()%>">
+                                <input
+                                        class="form-control<%out.print(gebruikerError.email != null ? " is-invalid" : "");%>"
+                                        type="text"
+                                        id="<%=Gebruiker.EMAIL%>"
+                                        name="<%=Gebruiker.EMAIL%>"
+                                        value="<%=gebruiker.getEmail()== null ? "" : gebruiker.getEmail()%>"
+                                        required>
                                 <%
                                     if (gebruikerError.email != null) {
                                         out.print("<span style='color: red;'>" + gebruikerError.email + "</span>");
@@ -124,10 +140,16 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="<%=Gebruiker.WACHTWOORD%>"><%=Gebruiker.WACHTWOORD%></label>
-                                <input class="form-control" type="text" id="<%=Gebruiker.WACHTWOORD%>" name="<%=Gebruiker.WACHTWOORD%>" value="<%=gebruiker.getWachtwoord()%>">
+                                <input
+                                        class="form-control<%out.print(gebruikerError.wachtwoord != null ? " is-invalid" : "");%>"
+                                        type="text"
+                                        id="<%=Gebruiker.WACHTWOORD%>"
+                                        name="<%=Gebruiker.WACHTWOORD%>"
+                                        value="<%=gebruiker.getWachtwoord()== null ? "" : gebruiker.getWachtwoord()%>"
+                                        required>
                                 <%
-                                    if (gebruikerError != null) {
-                                        out.print("<span style='color: red;'>" + gebruikerError.voornaam + "</span>");
+                                    if (gebruikerError.wachtwoord != null) {
+                                        out.print("<span style='color: red;'>" + gebruikerError.wachtwoord + "</span>");
                                     }
                                 %>
                             </div>
@@ -144,9 +166,14 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="<%=Gebruiker.GEBOORTEDATUM%>"><%=Gebruiker.GEBOORTEDATUM%></label>
-                                <input class="form-control" type="text" id="<%=Gebruiker.GEBOORTEDATUM%>" name="<%=Gebruiker.GEBOORTEDATUM%>" value="<%=gebruiker.getGeboorteDatum()%>">
+                                <input
+                                        class="form-control<%out.print(gebruikerError.geboorteDatum != null ? " is-invalid" : "");%>"
+                                        type="text"
+                                        id="<%=Gebruiker.GEBOORTEDATUM%>"
+                                        name="<%=Gebruiker.GEBOORTEDATUM%>"
+                                        value="<%=gebruiker.getGeboorteDatum()== null ? "" : gebruiker.getGeboorteDatum()%>">
                                 <%
-                                    if (gebruikerError != null) {
+                                    if (gebruikerError.geboorteDatum != null) {
                                         out.print("<span style='color: red;'>" + gebruikerError.geboorteDatum + "</span>");
                                     }
                                 %>
@@ -156,9 +183,14 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="<%=Gebruiker.POSTCODE%>"><%=Gebruiker.POSTCODE%></label>
-                                <input class="form-control" type="text" id="<%=Gebruiker.POSTCODE%>" name="<%=Gebruiker.POSTCODE%>" value="<%=gebruiker.getPostcode()%>">
+                                <input
+                                        class="form-control<%out.print(gebruikerError.postcode != null ? " is-invalid" : "");%>"
+                                        type="text"
+                                        id="<%=Gebruiker.POSTCODE%>"
+                                        name="<%=Gebruiker.POSTCODE%>"
+                                        value="<%=gebruiker.getPostcode()== null ? "" : gebruiker.getPostcode()%>">
                                 <%
-                                    if (gebruikerError != null) {
+                                    if (gebruikerError.postcode != null) {
                                         out.print("<span style='color: red;'>" + gebruikerError.postcode + "</span>");
                                     }
                                 %>
@@ -168,9 +200,14 @@
                         <div class="col-md-5">
                             <div class="form-group">
                                 <label for="<%=Gebruiker.WOONPLAATS%>"><%=Gebruiker.WOONPLAATS%></label>
-                                <input class="form-control" type="text" id="<%=Gebruiker.WOONPLAATS%>" name="<%=Gebruiker.WOONPLAATS%>" value="<%=gebruiker.getWoonplaats()%>">
+                                <input
+                                        class="form-control<%out.print(gebruikerError.woonplaats != null ? " is-invalid" : "");%>"
+                                        type="text"
+                                        id="<%=Gebruiker.WOONPLAATS%>"
+                                        name="<%=Gebruiker.WOONPLAATS%>"
+                                        value="<%=gebruiker.getWoonplaats()== null ? "" : gebruiker.getWoonplaats()%>">
                                 <%
-                                    if (gebruikerError != null) {
+                                    if (gebruikerError.woonplaats != null) {
                                         out.print("<span style='color: red;'>" + gebruikerError.woonplaats + "</span>");
                                     }
                                 %>
@@ -181,9 +218,14 @@
                         <div class="col-md-9">
                             <div class="form-group">
                                 <label for="<%=Gebruiker.STRAAT%>"><%=Gebruiker.STRAAT%></label>
-                                <input class="form-control" type="text" id="<%=Gebruiker.STRAAT%>" name="<%=Gebruiker.STRAAT%>" value="<%=gebruiker.getStraat()%>">
+                                <input
+                                        class="form-control<%out.print(gebruikerError.straat != null ? " is-invalid" : "");%>"
+                                        type="text"
+                                        id="<%=Gebruiker.STRAAT%>"
+                                        name="<%=Gebruiker.STRAAT%>"
+                                        value="<%=gebruiker.getStraat()== null ? "" : gebruiker.getStraat()%>">
                                 <%
-                                    if (gebruikerError != null) {
+                                    if (gebruikerError.straat != null) {
                                         out.print("<span style='color: red;'>" + gebruikerError.straat + "</span>");
                                     }
                                 %>
@@ -192,9 +234,14 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="<%=Gebruiker.HUISNUMMER%>"><%=Gebruiker.HUISNUMMER%></label>
-                                <input class="form-control" type="text" id="<%=Gebruiker.HUISNUMMER%>" name="<%=Gebruiker.HUISNUMMER%>" value="<%=gebruiker.getHuisnummer()%>">
+                                <input
+                                        class="form-control<%out.print(gebruikerError.huisnummer != null ? " is-invalid" : "");%>"
+                                        type="text"
+                                        id="<%=Gebruiker.HUISNUMMER%>"
+                                        name="<%=Gebruiker.HUISNUMMER%>"
+                                        value="<%=gebruiker.getHuisnummer()== null ? "" : gebruiker.getHuisnummer()%>">
                                 <%
-                                    if (gebruikerError != null) {
+                                    if (gebruikerError.huisnummer != null) {
                                         out.print("<span style='color: red;'>" + gebruikerError.huisnummer + "</span>");
                                     }
                                 %>
