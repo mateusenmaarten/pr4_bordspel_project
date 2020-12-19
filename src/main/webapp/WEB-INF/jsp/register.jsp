@@ -5,6 +5,8 @@
   Time: 23:20
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Gebruiker" %>
+<%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.GebruikerError" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,7 +67,10 @@
         <div class="row"></div>
     </div>
 </section>
-
+<%
+    Gebruiker gebruiker = (Gebruiker) request.getAttribute(Gebruiker.NAME);
+    GebruikerError gebruikerError = (GebruikerError) request.getAttribute(GebruikerError.NAME);
+%>
 <!-- LOGIN -->
 <div id="login">
     <div class="container">
@@ -80,33 +85,50 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="First Name">First Name</label>
-                                <input type="text" class="form-control" />
+                                <label for="<%=Gebruiker.VOORNAAM%>"><%=Gebruiker.VOORNAAM%></label>
+                                <input class="form-control" type="text" id="<%=Gebruiker.VOORNAAM%>" name="<%=Gebruiker.VOORNAAM%>" value="<%=gebruiker.getVoornaam()%>">
+                                <%
+                                    if (gebruikerError.voornaam != null) {
+                                        out.print("<span style='color: red;'>" + gebruikerError.voornaam + "</span>");
+                                    }
+                                %>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="Name">Last Name</label>
-                                <input type="text" class="form-control" />
+                                <label for="<%=Gebruiker.ACHTERNAAM%>"><%=Gebruiker.ACHTERNAAM%></label>
+                                <input class="form-control" type="text" id="<%=Gebruiker.ACHTERNAAM%>" name="<%=Gebruiker.ACHTERNAAM%>" value="<%=gebruiker.getAchternaam()%>">
+                                <%
+                                    if (gebruikerError.achternaam != null) {
+                                        out.print("<span style='color: red;'>" + gebruikerError.achternaam + "</span>");
+                                    }
+                                %>
                             </div>
                         </div>
-
                     </div>
-
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="text" class="form-control" />
+                                <label for="<%=Gebruiker.EMAIL%>"><%=Gebruiker.EMAIL%></label>
+                                <input class="form-control" type="text" id="<%=Gebruiker.EMAIL%>" name="<%=Gebruiker.EMAIL%>" value="<%=gebruiker.getEmail()%>">
+                                <%
+                                    if (gebruikerError.email != null) {
+                                        out.print("<span style='color: red;'>" + gebruikerError.email + "</span>");
+                                    }
+                                %>
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" class="form-control" />
+                                <label for="<%=Gebruiker.WACHTWOORD%>"><%=Gebruiker.WACHTWOORD%></label>
+                                <input class="form-control" type="text" id="<%=Gebruiker.WACHTWOORD%>" name="<%=Gebruiker.WACHTWOORD%>" value="<%=gebruiker.getWachtwoord()%>">
+                                <%
+                                    if (gebruikerError != null) {
+                                        out.print("<span style='color: red;'>" + gebruikerError.voornaam + "</span>");
+                                    }
+                                %>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -120,38 +142,61 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="Geboortedatum">Geboortedatum</label>
-                                <input type="text" class="form-control" />
+                                <label for="<%=Gebruiker.GEBOORTEDATUM%>"><%=Gebruiker.GEBOORTEDATUM%></label>
+                                <input class="form-control" type="text" id="<%=Gebruiker.GEBOORTEDATUM%>" name="<%=Gebruiker.GEBOORTEDATUM%>" value="<%=gebruiker.getGeboorteDatum()%>">
+                                <%
+                                    if (gebruikerError != null) {
+                                        out.print("<span style='color: red;'>" + gebruikerError.geboorteDatum + "</span>");
+                                    }
+                                %>
                             </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="Geboortedatum">Postcode</label>
-                                <input type="text" class="form-control" />
+                                <label for="<%=Gebruiker.POSTCODE%>"><%=Gebruiker.POSTCODE%></label>
+                                <input class="form-control" type="text" id="<%=Gebruiker.POSTCODE%>" name="<%=Gebruiker.POSTCODE%>" value="<%=gebruiker.getPostcode()%>">
+                                <%
+                                    if (gebruikerError != null) {
+                                        out.print("<span style='color: red;'>" + gebruikerError.postcode + "</span>");
+                                    }
+                                %>
                             </div>
                         </div>
 
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label for="Woonplaats">Woonplaats</label>
-                                <input type="text" class="form-control" />
+                                <label for="<%=Gebruiker.WOONPLAATS%>"><%=Gebruiker.WOONPLAATS%></label>
+                                <input class="form-control" type="text" id="<%=Gebruiker.WOONPLAATS%>" name="<%=Gebruiker.WOONPLAATS%>" value="<%=gebruiker.getWoonplaats()%>">
+                                <%
+                                    if (gebruikerError != null) {
+                                        out.print("<span style='color: red;'>" + gebruikerError.woonplaats + "</span>");
+                                    }
+                                %>
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-md-9">
                             <div class="form-group">
-                                <label for="Straat">Straat</label>
-                                <input type="text" class="form-control" />
+                                <label for="<%=Gebruiker.STRAAT%>"><%=Gebruiker.STRAAT%></label>
+                                <input class="form-control" type="text" id="<%=Gebruiker.STRAAT%>" name="<%=Gebruiker.STRAAT%>" value="<%=gebruiker.getStraat()%>">
+                                <%
+                                    if (gebruikerError != null) {
+                                        out.print("<span style='color: red;'>" + gebruikerError.straat + "</span>");
+                                    }
+                                %>
                             </div>
                         </div>
-
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="Huisnummer">Huisnummer</label>
-                                <input type="text" class="form-control" />
+                                <label for="<%=Gebruiker.HUISNUMMER%>"><%=Gebruiker.HUISNUMMER%></label>
+                                <input class="form-control" type="text" id="<%=Gebruiker.HUISNUMMER%>" name="<%=Gebruiker.HUISNUMMER%>" value="<%=gebruiker.getHuisnummer()%>">
+                                <%
+                                    if (gebruikerError != null) {
+                                        out.print("<span style='color: red;'>" + gebruikerError.huisnummer + "</span>");
+                                    }
+                                %>
                             </div>
                         </div>
                     </div>

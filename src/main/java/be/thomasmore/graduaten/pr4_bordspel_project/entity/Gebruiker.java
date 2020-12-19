@@ -11,22 +11,16 @@ import java.util.List;
 @Table(name="Gebruiker", schema = "java")
 public class Gebruiker {
 
-    static LocalDate date = LocalDate.now();
-    static Boolean bool = false;
-
     public static final String NAME = "gebruiker";
     public static final String VOORNAAM = "Voornaam";
     public static final String ACHTERNAAM = "Achternaam";
     public static final String EMAIL = "Email";
-
-    public static final String GEBOORTEDATUM = date.format(DateTimeFormatter.ofPattern("EEEE, MMMM dd, yyyyy"));
-
+    public static final String WACHTWOORD = "Wachtwoord";
+    public static final String GEBOORTEDATUM = "GeboorteDatum";
     public static final String WOONPLAATS = "Woonplaats";
     public static final String POSTCODE = "Postcode";
     public static final String STRAAT = "Straat";
     public static final String HUISNUMMER = "Huisnummer";
-    public static final Boolean ISADMIN = bool;
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,6 +28,7 @@ public class Gebruiker {
     private String voornaam;
     private String achternaam;
     private String email;
+    private String wachtwoord;
     private LocalDate geboorteDatum;
     private String woonplaats;
     private String postcode;
@@ -61,7 +56,7 @@ public class Gebruiker {
 
     public Gebruiker(String voornaam, String achternaam, String email,
                      LocalDate geboorteDatum, String woonplaats, String postcode,
-                     String straat, String huisnummer, boolean isAdmin)
+                     String straat, String huisnummer, boolean isAdmin, String wachtwoord)
     {
         this.voornaam = voornaam;
         this.achternaam = achternaam;
@@ -72,6 +67,7 @@ public class Gebruiker {
         this.straat = straat;
         this.huisnummer = huisnummer;
         this.isAdmin = isAdmin;
+        this.wachtwoord = wachtwoord;
     }
 
     public Gebruiker(){
@@ -109,6 +105,10 @@ public class Gebruiker {
     public void setVoornaam(String voornaam) {
         this.voornaam = voornaam;
     }
+
+    public String getWachtwoord(){return wachtwoord;}
+
+    public void  setWachtwoord(String wachtwoord){this.wachtwoord = wachtwoord;}
 
     public String getAchternaam() {
         return achternaam;

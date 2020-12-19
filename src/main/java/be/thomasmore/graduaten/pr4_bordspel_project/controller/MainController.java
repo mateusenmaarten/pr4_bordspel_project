@@ -110,6 +110,11 @@ public class MainController {
             gebruikerError.huisnummer = "U moet een huisnummer invullen";
             gebruikerError.hasErrors = true;
         }
+        String wachtwoord = request.getParameter(Gebruiker.WACHTWOORD);
+        if (wachtwoord.isEmpty()){
+            gebruikerError.wachtwoord = "U moet een wachtwoord invullen";
+            gebruikerError.hasErrors = true;
+        }
 
         if (gebruikerError.hasErrors) {
             model.addAttribute(Gebruiker.NAME, gebruiker);

@@ -9,6 +9,7 @@ public class GebruikerError {
     public String voornaam;
     public String achternaam;
     public String email;
+    public String wachtwoord;
     public String geboorteDatum;
     public String woonplaats;
     public String postcode;
