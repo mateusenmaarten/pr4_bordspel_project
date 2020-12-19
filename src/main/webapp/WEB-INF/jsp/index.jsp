@@ -206,11 +206,7 @@
         </div>
     </div>
 </section>
-<% List<Bordspel> lijst = (List<Bordspel>) request.getAttribute("spellen");
-    for(Bordspel spel: lijst){
-        out.print("<p>Naam spel: " + spel.getNaam() + "</p>");
-    }
-%>
+
 <!-- FOOTER -->
 <footer id="main-footer" class="text-center p-4">
     <div class="container">

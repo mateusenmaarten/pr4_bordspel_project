@@ -1,9 +1,7 @@
 package be.thomasmore.graduaten.pr4_bordspel_project.controller;
 
 
-import be.thomasmore.graduaten.pr4_bordspel_project.entity.Bordspel;
-import be.thomasmore.graduaten.pr4_bordspel_project.entity.Gebruiker;
-import be.thomasmore.graduaten.pr4_bordspel_project.entity.GebruikerError;
+import be.thomasmore.graduaten.pr4_bordspel_project.entity.*;
 import be.thomasmore.graduaten.pr4_bordspel_project.service.GebruikerService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +14,7 @@ import be.thomasmore.graduaten.pr4_bordspel_project.service.BordspelService;
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -65,6 +64,12 @@ public class MainController {
 
         GebruikerError gebruikerError = new GebruikerError();
         Gebruiker gebruiker = new Gebruiker();
+
+        List<Review> reviews = new ArrayList<>();
+        List<Besteld> bestellingen = new ArrayList<>();
+
+        gebruiker.setBesteldList(bestellingen);
+        gebruiker.setReviewList(reviews);
 
         String voornaam = request.getParameter(Gebruiker.VOORNAAM);
             gebruiker.setVoornaam(voornaam);
