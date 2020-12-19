@@ -1,6 +1,7 @@
 package be.thomasmore.graduaten.pr4_bordspel_project.entity;
 
 import javax.persistence.*;
+import javax.servlet.http.PushBuilder;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -15,7 +16,7 @@ public class Gebruiker {
 
     public static final String NAME = "gebruiker";
     public static final String VOORNAAM = "Voornaam";
-    public static final String FAMILIENAAM = "Achternaam";
+    public static final String ACHTERNAAM = "Achternaam";
     public static final String EMAIL = "Email";
 
     public static final String GEBOORTEDATUM = date.format(DateTimeFormatter.ofPattern("EEEE, MMMM dd, yyyyy"));
@@ -46,6 +47,18 @@ public class Gebruiker {
     @OneToMany
     private List<Besteld> besteldList;
 
+//    public Gebruiker(){
+//        this.voornaam ="";
+//        this.achternaam = "";
+//        this.email = "";
+//        this.geboorteDatum = null;
+//        this.woonplaats = "";
+//        this.postcode = null;
+//        this.straat = "";
+//        this.huisnummer = "";
+//        this.isAdmin = false;
+//    }
+
     public Gebruiker(String voornaam, String achternaam, String email,
                      LocalDate geboorteDatum, String woonplaats, String postcode,
                      String straat, String huisnummer, boolean isAdmin)
@@ -61,7 +74,9 @@ public class Gebruiker {
         this.isAdmin = isAdmin;
     }
 
+    public Gebruiker(){
 
+    }
 
     public List<Review> getReviewList() {
         return reviewList;
