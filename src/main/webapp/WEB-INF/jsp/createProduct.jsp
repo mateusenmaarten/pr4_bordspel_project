@@ -1,5 +1,6 @@
 <%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Bordspel" %>
 <%@ page import="java.util.List" %>
+<%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.BordspelError" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,8 +76,11 @@
         </div>
     </div>
 </nav>
-
-<form>
+<%
+    Bordspel bordspel = (Bordspel) request.getAttribute(Bordspel.NAME);
+    BordspelError bordspelError = (BordspelError) request.getAttribute(BordspelError.NAME);
+%>
+<form action="processCreateProductForm">
     <div class="text-danger"></div>
     <div class="m-5">
         <div class="form-group row">
@@ -87,94 +91,168 @@
             <div class="col-8">
                 <div class="form-group row">
                     <div class="col-4">
-                        <label >Naam</label>
+                        <label for="<%=Bordspel.NAAM%>"><%=Bordspel.NAAM%></label>
                     </div>
                     <div class="col-8">
-                        <input class="form-control" />
-                        <span class="text-danger"></span>
+                        <input class="form-control<%out.print(bordspelError.naam != null ? " is-invalid" : "");%>"
+                               type="text"
+                               id="<%=Bordspel.NAAM%>"
+                               name="<%=Bordspel.NAAM%>"
+                               value="<%=bordspel.getNaam() == null ? "" : bordspel.getNaam()%>">
+                        <%
+                            if (bordspelError.naam != null) {
+                                out.print("<span style='color: red;'>" + bordspelError.naam + "</span>");
+                            }
+                        %>
+
                     </div>
 
                 </div>
                 <div class="form-group row">
                     <div class="col-4">
-                        <label >Prijs</label>
+                        <label for="<%=Bordspel.PRIJS%>"><%=Bordspel.PRIJS%></label>
                     </div>
                     <div class="col-8">
-                        <input  class="form-control" />
-                        <span  class="text-danger"></span>
+                        <input class="form-control<%out.print(bordspelError.prijs != null ? " is-invalid" : "");%>"
+                               type="text"
+                               id="<%=Bordspel.PRIJS%>"
+                               name="<%=Bordspel.PRIJS%>"
+                               value="<%=bordspel.getPrijs() == 0.0 ? "" : bordspel.getPrijs()%>">
+                        <%
+                            if (bordspelError.prijs != null) {
+                                out.print("<span style='color: red;'>" + bordspelError.prijs + "</span>");
+                            }
+                        %>
                     </div>
 
                 </div>
                 <div class="form-group row">
                     <div class="col-4">
-                        <label >aantal spelers</label>
+                        <label for="<%=Bordspel.AANTALSPELERS%>"><%=Bordspel.AANTALSPELERS%></label>
                     </div>
                     <div class="col-8">
-                        <input  class="form-control" />
-                        <span  class="text-danger"></span>
+                        <input class="form-control<%out.print(bordspelError.aantalSpelers != null ? " is-invalid" : "");%>"
+                               type="text"
+                               id="<%=Bordspel.AANTALSPELERS%>"
+                               name="<%=Bordspel.AANTALSPELERS%>"
+                               value="<%=bordspel.getAantalSpelers() == null ? "" : bordspel.getAantalSpelers()%>">
+                        <%
+                            if (bordspelError.aantalSpelers != null) {
+                                out.print("<span style='color: red;'>" + bordspelError.aantalSpelers + "</span>");
+                            }
+                        %>
                     </div>
 
                 </div>
                 <div class="form-group row">
                     <div class="col-4">
-                        <label >Foto</label>
+                        <label for="<%=Bordspel.FOTO%>"><%=Bordspel.FOTO%></label>
                     </div>
                     <div class="col-8">
-                        <input type="file" name="files" id="uploadfoto" multiple class="form-control" />
+                        <input class="form-control<%out.print(bordspelError.foto != null ? " is-invalid" : "");%>"
+                               type="text"
+                               id="<%=Bordspel.FOTO%>"
+                               name="<%=Bordspel.FOTO%>"
+                               value="<%=bordspel.getImagePath() == null ? "" : bordspel.getImagePath()%>">
+                        <%
+                            if (bordspelError.foto != null) {
+                                out.print("<span style='color: red;'>" + bordspelError.foto + "</span>");
+                            }
+                        %>
                     </div>
 
                 </div>
                 <div class="form-group row">
                     <div class="col-4">
-                        <label >Minimum Leeftijd</label>
+                        <label for="<%=Bordspel.MINIMUMLEEFTIJD%>"><%=Bordspel.MINIMUMLEEFTIJD%></label>
                     </div>
                     <div class="col-8">
-                        <input  class="form-control" />
-                        <span  class="text-danger"></span>
+                        <input class="form-control<%out.print(bordspelError.minimumLeeftijd != null ? " is-invalid" : "");%>"
+                               type="text"
+                               id="<%=Bordspel.MINIMUMLEEFTIJD%>"
+                               name="<%=Bordspel.MINIMUMLEEFTIJD%>"
+                               value="<%=bordspel.getMinLeeftijd() == 0 ? "" : bordspel.getMinLeeftijd()%>">
+                        <%
+                            if (bordspelError.minimumLeeftijd != null) {
+                                out.print("<span style='color: red;'>" + bordspelError.minimumLeeftijd + "</span>");
+                            }
+                        %>
                     </div>
 
                 </div>
 
                 <div class="form-group row">
                     <div class="col-4">
-                        <label >Speelduur</label>
+                        <label for="<%=Bordspel.SPEELDUUR%>"><%=Bordspel.SPEELDUUR%></label>
                     </div>
                     <div class="col-8">
-                        <input  class="form-control" />
-                        <span  class="text-danger"></span>
+                        <input class="form-control<%out.print(bordspelError.speelduur != null ? " is-invalid" : "");%>"
+                               type="text"
+                               id="<%=Bordspel.SPEELDUUR%>"
+                               name="<%=Bordspel.SPEELDUUR%>"
+                               value="<%=bordspel.getSpeelduur() == null ? "" : bordspel.getSpeelduur()%>">
+                        <%
+                            if (bordspelError.speelduur != null) {
+                                out.print("<span style='color: red;'>" + bordspelError.speelduur + "</span>");
+                            }
+                        %>
                     </div>
 
                 </div>
 
                 <div class="form-group row">
                     <div class="col-4">
-                        <label >Taal</label>
+                        <label for="<%=Bordspel.TAAL%>"><%=Bordspel.TAAL%></label>
                     </div>
                     <div class="col-8">
-                        <input  class="form-control" />
-                        <span  class="text-danger"></span>
+                        <input class="form-control<%out.print(bordspelError.taal != null ? " is-invalid" : "");%>"
+                               type="text"
+                               id="<%=Bordspel.TAAL%>"
+                               name="<%=Bordspel.TAAL%>"
+                               value="<%=bordspel.getTaal() == null ? "" : bordspel.getTaal()%>">
+                        <%
+                            if (bordspelError.taal != null) {
+                                out.print("<span style='color: red;'>" + bordspelError.taal + "</span>");
+                            }
+                        %>
                     </div>
                 </div>
 
 
                     <div class="form-group row">
                         <div class="col-4">
-                            <label >Beschrijving</label>
+                            <label for="<%=Bordspel.BESCHRIJVING%>"><%=Bordspel.BESCHRIJVING%></label>
                         </div>
                         <div class="col-8">
-                            <input  class="form-control" />
-                            <span  class="text-danger"></span>
+                            <input class="form-control<%out.print(bordspelError.beschrijving != null ? " is-invalid" : "");%>"
+                                   type="text"
+                                   id="<%=Bordspel.BESCHRIJVING%>"
+                                   name="<%=Bordspel.BESCHRIJVING%>"
+                                   value="<%=bordspel.getBeschrijving() == null ? "" : bordspel.getBeschrijving()%>">
+                            <%
+                                if (bordspelError.beschrijving != null) {
+                                    out.print("<span style='color: red;'>" + bordspelError.beschrijving + "</span>");
+                                }
+                            %>
                         </div>
 
                     </div>
 
                     <div class="form-group row">
                         <div class="col-4">
-                            <label >Uitgever</label>
+                            <label for="<%=Bordspel.UITGEVER%>"><%=Bordspel.UITGEVER%></label>
                         </div>
                         <div class="col-8">
-                            <input  class="form-control" />
-                            <span  class="text-danger"></span>
+                            <input class="form-control<%out.print(bordspelError.uitgever != null ? " is-invalid" : "");%>"
+                                   type="text"
+                                   id="<%=Bordspel.UITGEVER%>"
+                                   name="<%=Bordspel.UITGEVER%>"
+                                   value="<%=bordspel.getUitgever() == null ? "" : bordspel.getUitgever()%>">
+                            <%
+                                if (bordspelError.uitgever != null) {
+                                    out.print("<span style='color: red;'>" + bordspelError.uitgever + "</span>");
+                                }
+                            %>
                         </div>
 
                     </div>

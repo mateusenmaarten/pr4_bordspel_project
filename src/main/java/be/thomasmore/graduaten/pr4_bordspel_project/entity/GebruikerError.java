@@ -1,6 +1,6 @@
 package be.thomasmore.graduaten.pr4_bordspel_project.entity;
 
-import java.time.LocalDate;
+
 
 public class GebruikerError {
     public static final String NAME = "gebruiker_error";
@@ -15,5 +15,5 @@ public class GebruikerError {
     public String postcode;
     public String straat;
     public String huisnummer;
-//    public String isAdmin;
+
 }

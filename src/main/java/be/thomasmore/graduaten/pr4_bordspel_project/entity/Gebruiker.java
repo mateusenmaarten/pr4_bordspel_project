@@ -43,19 +43,6 @@ public class Gebruiker {
     @OneToMany
     private List<Besteld> besteldList;
 
-//    public Gebruiker(){
-//        this.voornaam ="";
-//        this.wachtwoord="";
-//        this.achternaam = "";
-//        this.email = "";
-//        this.geboorteDatum = null;
-//        this.woonplaats = "";
-//        this.postcode = "";
-//        this.straat = "";
-//        this.huisnummer = "";
-//        this.isAdmin = false;
-//
-//    }
 
     public Gebruiker(String voornaam, String achternaam, String email,
                      LocalDate geboorteDatum, String woonplaats, String postcode,

@@ -65,6 +65,90 @@ public class MainController {
     //testversie voor te testen
 
 
+    @RequestMapping("/processCreateProductForm")
+    public String processCreateProductForm(HttpServletRequest request, Model model) {
+
+        Bordspel bordspel = new Bordspel();
+        BordspelError bordspelError = new BordspelError();
+
+        String naam = request.getParameter(Bordspel.NAAM);
+        bordspel.setNaam(naam);
+        if (naam.isEmpty()) {
+            bordspelError.naam = "Vul een naam in";
+            bordspelError.hasErrors = true;
+        }
+
+        String prijs = request.getParameter(Bordspel.PRIJS);
+        bordspel.setPrijs(Double.parseDouble(prijs));
+        if (prijs.isEmpty()) {
+            bordspelError.prijs = "Vul een prijs in";
+            bordspelError.hasErrors = true;
+        }
+
+        String aantalSpelers = request.getParameter(Bordspel.AANTALSPELERS);
+        bordspel.setAantalSpelers(aantalSpelers);
+        if (aantalSpelers.isEmpty()) {
+            bordspelError.aantalSpelers = "Vul het aantal spelers in";
+            bordspelError.hasErrors = true;
+        }
+
+        String foto = request.getParameter(Bordspel.FOTO);
+        bordspel.setImagePath(foto);
+        if (foto.isEmpty()) {
+            bordspelError.foto = "Vul het aantal spelers in";
+            bordspelError.hasErrors = true;
+        }
+
+        String minimumLeeftijd = request.getParameter(Bordspel.MINIMUMLEEFTIJD);
+        bordspel.setMinLeeftijd(Integer.parseInt(minimumLeeftijd));
+        if (minimumLeeftijd.isEmpty()) {
+            bordspelError.minimumLeeftijd = "Vul een minimum leeftijd in";
+            bordspelError.hasErrors = true;
+        }
+
+        String speelduur = request.getParameter(Bordspel.SPEELDUUR);
+        bordspel.setSpeelduur(speelduur);
+        if (speelduur.isEmpty()) {
+            bordspelError.speelduur = "Vul een speelduur in";
+            bordspelError.hasErrors = true;
+        }
+
+        String taal = request.getParameter(Bordspel.TAAL);
+        bordspel.setTaal(taal);
+        if (taal.isEmpty()) {
+            bordspelError.taal = "Vul een taal in";
+            bordspelError.hasErrors = true;
+        }
+
+        String beschrijving = request.getParameter(Bordspel.BESCHRIJVING);
+        bordspel.setBeschrijving(beschrijving);
+        if (beschrijving.isEmpty()) {
+            bordspelError.beschrijving = "Vul een beschrijving in";
+            bordspelError.hasErrors = true;
+        }
+
+        String uitgever = request.getParameter(Bordspel.UITGEVER);
+        bordspel.setUitgever(uitgever);
+        if (uitgever.isEmpty()) {
+            bordspelError.uitgever = "Vul een uitgever in";
+            bordspelError.hasErrors = true;
+        }
+
+        if (bordspelError.hasErrors) {
+            model.addAttribute(Bordspel.NAME, bordspel);
+            model.addAttribute(BordspelError.NAME, bordspelError);
+            return "/createProduct";
+        } else {
+            bordspelService.addBordspel(bordspel);
+            model.addAttribute("bordspellen", bordspelService.getBordspellen());
+            return "/productenAdmin";
+        }
+
+
+    }
+
+
+
     @RequestMapping("/processRegisterForm")
     public String processRegisterForm(HttpServletRequest request, Model model){
 
@@ -116,9 +200,6 @@ public class MainController {
             gebruikerError.geboorteDatum = "U moet een geboortedatum invullen (Maand/dag/jaar)";
             gebruikerError.hasErrors = true;
         }
-
-
-
 
         String woonplaats = request.getParameter(Gebruiker.WOONPLAATS);
         gebruiker.setWoonplaats(woonplaats);

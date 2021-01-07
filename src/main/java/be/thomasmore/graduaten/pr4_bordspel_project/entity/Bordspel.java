@@ -5,6 +5,18 @@ import java.util.List;
 @Entity
 @Table(name="Bordspel", schema = "java")
 public class Bordspel {
+
+    public static final String NAME = "bordspel";
+    public static final String NAAM = "naam";
+    public static final String PRIJS = "prijs";
+    public static final String AANTALSPELERS = "aantalSpelers";
+    public static final String FOTO = "foto";
+    public static final String MINIMUMLEEFTIJD = "minimumLeeftijd";
+    public static final String SPEELDUUR = "speelduur";
+    public static final String TAAL = "taal";
+    public static final String BESCHRIJVING = "beschrijving";
+    public static final String UITGEVER = "uitgever";
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
