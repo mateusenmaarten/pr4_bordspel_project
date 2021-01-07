@@ -56,6 +56,9 @@ public class MainController {
     @RequestMapping("/productenAdmin")
     public String Producten() {return "productenAdmin";}
 
+    @RequestMapping("/createProduct")
+    public String Create() {return "createProduct";}
+
     @RequestMapping("/contact")
     public String contact() {return "contact";}
     //Maarten : zie Slides 8 Backend - slide 22
