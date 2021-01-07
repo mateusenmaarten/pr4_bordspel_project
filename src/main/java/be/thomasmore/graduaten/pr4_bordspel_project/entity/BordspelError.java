@@ -1,7 +1,10 @@
 package be.thomasmore.graduaten.pr4_bordspel_project.entity;
 
+
+
+
 public class BordspelError {
-    public static final String NAME = "gebruiker_error";
+    public static final String NAME = "bordspel_error";
     public boolean hasErrors;
 
     public String naam;

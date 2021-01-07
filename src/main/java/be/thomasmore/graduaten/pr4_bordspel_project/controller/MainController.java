@@ -54,10 +54,17 @@ public class MainController {
     public String products() {return "products";}
 
     @RequestMapping("/productenAdmin")
-    public String Producten() {return "productenAdmin";}
+    public String Producten() {
+
+        return "productenAdmin";}
 
     @RequestMapping("/createProduct")
-    public String Create() {return "createProduct";}
+    public String Create(Model model) {
+
+        model.addAttribute(Bordspel.NAME, new Bordspel());
+
+        model.addAttribute(BordspelError.NAME, new BordspelError());
+        return "createProduct";}
 
     @RequestMapping("/contact")
     public String contact() {return "contact";}
