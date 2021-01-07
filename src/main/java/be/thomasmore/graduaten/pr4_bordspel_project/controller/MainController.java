@@ -59,6 +59,9 @@ public class MainController {
     @RequestMapping("/createProduct")
     public String Create() {return "createProduct";}
 
+    @RequestMapping("/Details")
+    public String Details() {return "Details";}
+
     @RequestMapping("/contact")
     public String contact() {return "contact";}
     //Maarten : zie Slides 8 Backend - slide 22

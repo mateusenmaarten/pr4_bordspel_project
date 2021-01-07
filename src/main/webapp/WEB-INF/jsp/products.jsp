@@ -77,9 +77,9 @@
                     </div>
                     <div class="card-body">
                         <img src="images/images2.jpg" alt="Monopoly" class="img-fluid mb-4" />
-                        <a href="#" class="btn btn-primary d-block">
+                        <a href="/Details" class="btn btn-primary d-block">
                             <i class="fas fa-shopping-cart mr-2"></i>
-                            Order
+                            Details
                         </a>
                     </div>
                 </div>
@@ -92,9 +92,9 @@
                     </div>
                     <div class="card-body">
                         <img src="images/images3.jpg" alt="Scrabble" class="img-fluid mb-4" />
-                        <a href="#" class="btn btn-primary d-block">
+                        <a href="/Details" class="btn btn-primary d-block">
                             <i class="fas fa-shopping-cart mr-2"></i>
-                            Order
+                            Details
                         </a>
                     </div>
                 </div>
@@ -107,9 +107,9 @@
                     </div>
                     <div class="card-body">
                         <img src="images/images3.jpg" alt="Scrabble" class="img-fluid mb-4" />
-                        <a href="#" class="btn btn-primary d-block">
+                        <a href="/Details" class="btn btn-primary d-block">
                             <i class="fas fa-shopping-cart mr-2"></i>
-                            Order
+                            Details
                         </a>
                     </div>
                 </div>
@@ -124,9 +124,9 @@
                     </div>
                     <div class="card-body">
                         <img src="images/images4.jpg" alt="Monopoly" class="img-fluid mb-4" />
-                        <a href="#" class="btn btn-primary d-block">
+                        <a href="/Details" class="btn btn-primary d-block">
                             <i class="fas fa-shopping-cart mr-2"></i>
-                            Order
+                            Details
                         </a>
                     </div>
                 </div>
@@ -139,8 +139,8 @@
                     </div>
                     <div class="card-body">
                         <img src="images/images5.jpg" alt="Monopoly" class="img-fluid mb-4" />
-                        <a href="#" class="btn btn-primary d-block">
-                            <i class="fas fa-shopping-cart mr-2"></i>Order</a
+                        <a href="/Details" class="btn btn-primary d-block">
+                            <i class="fas fa-shopping-cart mr-2"></i>Details</a
                         >
                     </div>
                 </div>
@@ -153,8 +153,8 @@
                     </div>
                     <div class="card-body">
                         <img src="images/images5.jpg" alt="Monopoly" class="img-fluid mb-4" />
-                        <a href="#" class="btn btn-primary d-block">
-                            <i class="fas fa-shopping-cart mr-2"></i>Order</a
+                        <a href="/Details" class="btn btn-primary d-block">
+                            <i class="fas fa-shopping-cart mr-2"></i>Details</a
                         >
                     </div>
                 </div>
@@ -169,8 +169,8 @@
                     </div>
                     <div class="card-body">
                         <img src="images/images2.jpg" alt="Monopoly" class="img-fluid mb-4" />
-                        <a href="#" class="btn btn-primary d-block">
-                            <i class="fas fa-shopping-cart mr-2"></i>Order</a
+                        <a href="/Details" class="btn btn-primary d-block">
+                            <i class="fas fa-shopping-cart mr-2"></i>Details</a
                         >
                     </div>
                 </div>
@@ -183,8 +183,8 @@
                     </div>
                     <div class="card-body">
                         <img src="images/images1.jpg" alt="Scrabble" class="img-fluid mb-4" />
-                        <a href="#" class="btn btn-primary d-block">
-                            <i class="fas fa-shopping-cart mr-2"></i>Order</a
+                        <a href="/Details" class="btn btn-primary d-block">
+                            <i class="fas fa-shopping-cart mr-2"></i>Details</a
                         >
                     </div>
                 </div>
@@ -197,8 +197,8 @@
                     </div>
                     <div class="card-body">
                         <img src="images/images4.jpg" alt="Scrabble" class="img-fluid mb-4" />
-                        <a href="#" class="btn btn-primary d-block">
-                            <i class="fas fa-shopping-cart mr-2"></i>Order</a
+                        <a href="/Details" class="btn btn-primary d-block">
+                            <i class="fas fa-shopping-cart mr-2"></i>Details</a
                         >
                     </div>
                 </div>
@@ -213,8 +213,8 @@
                     </div>
                     <div class="card-body">
                         <img src="images/images3.jpg" alt="Monopoly" class="img-fluid mb-4" />
-                        <a href="#" class="btn btn-primary d-block">
-                            <i class="fas fa-shopping-cart mr-2"></i>Order</a
+                        <a href="/Details" class="btn btn-primary d-block">
+                            <i class="fas fa-shopping-cart mr-2"></i>Details</a
                         >
                     </div>
                 </div>
@@ -227,8 +227,8 @@
                     </div>
                     <div class="card-body">
                         <img src="images/images2.jpg" alt="Scrabble" class="img-fluid mb-4" />
-                        <a href="#" class="btn btn-primary d-block">
-                            <i class="fas fa-shopping-cart mr-2"></i>Order</a
+                        <a href="/Details" class="btn btn-primary d-block">
+                            <i class="fas fa-shopping-cart mr-2"></i>Details</a
                         >
                     </div>
                 </div>
@@ -241,8 +241,8 @@
                     </div>
                     <div class="card-body">
                         <img src="images/images4.jpg" alt="Scrabble" class="img-fluid mb-4" />
-                        <a href="#" class="btn btn-primary d-block">
-                            <i class="fas fa-shopping-cart mr-2"></i>Order</a>
+                        <a href="/Details" class="btn btn-primary d-block">
+                            <i class="fas fa-shopping-cart mr-2"></i>Details</a>
                     </div>
                 </div>
             </div>
