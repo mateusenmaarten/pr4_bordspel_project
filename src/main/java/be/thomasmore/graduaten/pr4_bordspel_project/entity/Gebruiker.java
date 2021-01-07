@@ -30,6 +30,7 @@ public class Gebruiker {
     private String achternaam;
     private String email;
     private String wachtwoord;
+    private String roles;
     private LocalDate geboorteDatum;
     private String woonplaats;
     private String postcode;
@@ -107,6 +108,14 @@ public class Gebruiker {
 
     public void setVoornaam(String voornaam) {
         this.voornaam = voornaam;
+    }
+
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
     }
 
     public String getWachtwoord(){return wachtwoord;}

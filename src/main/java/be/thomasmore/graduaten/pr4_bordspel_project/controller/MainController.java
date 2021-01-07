@@ -7,8 +7,10 @@ import be.thomasmore.graduaten.pr4_bordspel_project.service.GebruikerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import be.thomasmore.graduaten.pr4_bordspel_project.service.BordspelService;
+import org.springframework.web.bind.annotation.RestController;
 
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,7 +27,7 @@ public class MainController {
     @Autowired
     GebruikerService service;
 
-    @RequestMapping("/")
+    @GetMapping("/")
     public String index(Model model){
         List<Bordspel> spellen = bordspelService.getBordspellen();
         model.addAttribute("spellen",spellen);
@@ -33,13 +35,13 @@ public class MainController {
         return "index";
     }
 
-    @RequestMapping("/about")
+    @GetMapping("/about")
     public String about() {return "about";}
 
-    @RequestMapping("/login")
+    @GetMapping("/login")
     public String login() {return "login";}
 
-    @RequestMapping("/register")
+    @GetMapping("/register")
     public String register(Model model)
     {
 
@@ -50,22 +52,22 @@ public class MainController {
         return "register";
     }
 
-    @RequestMapping("/products")
+    @GetMapping("/products")
     public String products() {return "products";}
 
-    @RequestMapping("/productenAdmin")
+    @GetMapping("/productenAdmin")
     public String Producten() {return "productenAdmin";}
 
-    @RequestMapping("/createProduct")
+    @GetMapping("/createProduct")
     public String Create() {return "createProduct";}
 
-    @RequestMapping("/contact")
+    @GetMapping("/contact")
     public String contact() {return "contact";}
     //Maarten : zie Slides 8 Backend - slide 22
     //testversie voor te testen
 
 
-    @RequestMapping("/processRegisterForm")
+    @GetMapping("/processRegisterForm")
     public String processRegisterForm(HttpServletRequest request, Model model){
 
         Gebruiker gebruiker = new Gebruiker();
