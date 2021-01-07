@@ -94,7 +94,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="/processRegisterForm">
+                <form action="processRegisterForm">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -139,7 +139,7 @@
                                         id="<%=Gebruiker.EMAIL%>"
                                         name="<%=Gebruiker.EMAIL%>"
                                         value="<%=gebruiker.getEmail()== null ? "" : gebruiker.getEmail()%>"
-                                        required>
+                                        >
                                 <%
                                     if (gebruikerError.email != null) {
                                         out.print("<span style='color: red;'>" + gebruikerError.email + "</span>");
@@ -158,7 +158,7 @@
                                         id="<%=Gebruiker.WACHTWOORD%>"
                                         name="<%=Gebruiker.WACHTWOORD%>"
                                         value="<%=gebruiker.getWachtwoord()== null ? "" : gebruiker.getWachtwoord()%>"
-                                        required>
+                                        >
                                 <%
                                     if (gebruikerError.wachtwoord != null) {
                                         out.print("<span style='color: red;'>" + gebruikerError.wachtwoord + "</span>");
@@ -183,7 +183,8 @@
                                         type="text"
                                         id="<%=Gebruiker.GEBOORTEDATUM%>"
                                         name="<%=Gebruiker.GEBOORTEDATUM%>"
-                                        value="<%=gebruiker.getGeboorteDatum()== null ? "" : gebruiker.getGeboorteDatum()%>">
+                                        value="<%=gebruiker.getGeboorteDatum()== null ? "" : gebruiker.getGeboorteDatum()%>"
+                                        >
                                 <%
                                     if (gebruikerError.geboorteDatum != null) {
                                         out.print("<span style='color: red;'>" + gebruikerError.geboorteDatum + "</span>");
@@ -266,7 +267,7 @@
                             class="btn btn-primary btn-block"/>
                     <div class="form-group text-center">
                         <label class="mr-2 mt-2">Already have an account?</label>
-                        <a href="#">Sign in.</a>
+                        <a href="/login">Sign in.</a>
                     </div>
 
                 </form>

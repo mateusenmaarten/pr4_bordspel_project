@@ -15,5 +15,5 @@ public class GebruikerError {
     public String postcode;
     public String straat;
     public String huisnummer;
-    public String isAdmin;
+//    public String isAdmin;
 }
