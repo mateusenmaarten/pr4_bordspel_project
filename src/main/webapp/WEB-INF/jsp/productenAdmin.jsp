@@ -79,7 +79,7 @@
 <section class="m-3">
     <h1 class="text-info">Producten</h1>
     <p>
-        <a asp-action="Create" class="btn btn-success">Create New</a>
+        <a href="createProduct" class="btn btn-success">Create</a>
     </p>
     <table class="table table-bordered table-striped">
         <thead>
