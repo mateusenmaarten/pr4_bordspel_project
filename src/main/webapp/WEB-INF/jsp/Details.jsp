@@ -78,40 +78,65 @@
     </div>
 </section>
 
-<!-- LOGIN -->
-<section id="login">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 mx-auto">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Account Login</h4>
+<div>
+    <form>
+        <input asp-for="@Model.Product.ProductID" hidden />
+        <div class="container backgroundWhite pt-4">
+            <div class="card" style="border: 1px solid #DCDCDC;">
+                <div class="card-header bg-light text-dark ml-0 row container" style="border-radius: 0px;">
+                    <div class="col-12 col-md-6 font-italic font-weight-bolder">
+                        <h1>Naam</h1>
                     </div>
-                    <div class="card-body">
-                        <form action="/index">
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="text" class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" class="form-control" />
-                            </div>
-                            <input
-                                    type="submit"
-                                    value="Login"
-                                    class="btn btn-primary btn-block"/>
-                            <div id="register" class="form-group text-center">
-                    <label class="mr-2 mt-2">New User?</label>
-                    <a href="/register">Create an account.</a>
+                    <div class="col-12 col-md-6 text-md-right">
+                        <h1 class="text-dark">?Prijs?</h1>
                     </div>
-                        </form>
+                </div>
+                <div class="card-body">
+                    <div class="container rounded p-2">
+                        <div class="row">
+                            <div class="col-12 col-lg-4 p-1 text-center">
+                                <img src="" style="width:100%" class="rounded" />
+                            </div>
+                            <div class="col-12 col-lg-8">
+                                <div class="row pl-3">
+                                    <div class="col-12">
+                                        <p class="text-secondary">Description </p>
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="text-secondary">Description </p>
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="text-secondary">Description </p>
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="text-secondary">Description </p>
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="text-secondary">Description </p>
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="text-secondary">Description </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-light">
+                    <div class="row d-flex justify-content-md-end">
+                        <div class="col-3 pb-1 ">
+                            <a class="btn btn-primary form-control btn-lg" style="height:50px;">Kopen</a>
+                        </div>
+                        <div class="col-3 ">
+
+                            <a class="btn btn-primary form-control btn-lg" style="height:50px;">Huren</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </form>
+</div>
 
 <!-- FOOTER -->
 <footer id="main-footer" class="text-center p-3 fixed-bottom">
@@ -146,3 +171,4 @@
 </script>
 </body>
 </html>
+
