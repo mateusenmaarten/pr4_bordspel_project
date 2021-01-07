@@ -58,11 +58,11 @@
                         Content Management
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="nav-link text-dark" asp-controller="Product" asp-action="Index">Producten</a>
-                        <a class="nav-link text-dark" asp-controller="Bestelling" asp-action="Index">Bestellingen</a>
-                        <a class="nav-link text-dark" asp-controller="Categorie" asp-action="Index">Categorieën</a>
+                        <a href="/productenAdmin" class="nav-link text-dark" >Producten</a>
+                        <a class="nav-link text-dark" >Bestellingen</a>
+                        <a class="nav-link text-dark" >Categorieën</a>
                         <div class="dropdown-divider"></div>
-                        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Admin Aanmaken</a>
+                        <a class="nav-link text-dark">Admin Aanmaken</a>
                     </div>
                 </li>
             </ul>
