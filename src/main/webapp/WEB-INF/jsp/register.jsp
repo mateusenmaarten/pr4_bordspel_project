@@ -34,7 +34,7 @@
 
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a href="index.html" id="naam" class="navbar-brand">WebShop</a>
+        <a href="index.html" id="naam" class="navbar-brand">Board Games</a>
         <button
                 class="navbar-toggler"
                 data-toggle="collapse"

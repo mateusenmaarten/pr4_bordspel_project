@@ -30,7 +30,7 @@
 
 <body>
 
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container">
         <a href="/" id="naam" class="navbar-brand">Board Games</a>
         <button
