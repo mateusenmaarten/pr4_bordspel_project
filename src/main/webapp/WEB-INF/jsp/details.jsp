@@ -1,4 +1,4 @@
-<%--
+<%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Bordspel" %><%--
   Created by IntelliJ IDEA.
   User: wimst
   Date: 30/11/2020
@@ -72,6 +72,11 @@
     </div>
 </nav>
 
+<%
+
+    Bordspel bordspel = (Bordspel) request.getAttribute("bordspel");
+%>
+
 <!-- ACTIONS -->
 <section id="actions" class="mb-5 mt-5 bg-light">
     <div class="container">
@@ -81,42 +86,38 @@
 
 <div>
     <form>
-<%--        <input asp-for="@Model.Product.ProductID" hidden />--%>
         <div class="container backgroundWhite pt-4">
             <div class="card" style="border: 1px solid #DCDCDC;">
                 <div class="card-header bg-light text-dark ml-0 row container" style="border-radius: 0px;">
                     <div class="col-12 col-md-6 font-italic font-weight-bolder">
-                        <h1>Naam</h1>
+                        <h1><%=bordspel.getNaam()%>></h1>
                     </div>
                     <div class="col-12 col-md-6 text-md-right">
-                        <h1 class="text-dark">?Prijs?</h1>
+                        <h1 class="text-dark"><%=bordspel.getPrijs()%></h1>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="container rounded p-2">
                         <div class="row">
                             <div class="col-12 col-lg-4 p-1 text-center">
-                                <img src="" style="width:100%" class="rounded" />
+                                <img src="<%=bordspel.getImagePath()%>" style="width:100%" class="rounded" />
                             </div>
                             <div class="col-12 col-lg-8">
                                 <div class="row pl-3">
                                     <div class="col-12">
-                                        <p class="text-secondary">Description </p>
+                                        <p class="text-secondary"><%=bordspel.getAantalSpelers()%> </p>
                                     </div>
                                     <div class="col-12">
-                                        <p class="text-secondary">Description </p>
+                                        <p class="text-secondary"><%=bordspel.getMinLeeftijd()%> </p>
                                     </div>
                                     <div class="col-12">
-                                        <p class="text-secondary">Description </p>
+                                        <p class="text-secondary"><%=bordspel.getSpeelduur()%> </p>
                                     </div>
                                     <div class="col-12">
-                                        <p class="text-secondary">Description </p>
+                                        <p class="text-secondary"><%=bordspel.getTaal()%> </p>
                                     </div>
                                     <div class="col-12">
-                                        <p class="text-secondary">Description </p>
-                                    </div>
-                                    <div class="col-12">
-                                        <p class="text-secondary">Description </p>
+                                        <p class="text-secondary"><%=bordspel.getUitgever()%> </p>
                                     </div>
                                 </div>
                             </div>
