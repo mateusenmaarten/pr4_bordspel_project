@@ -80,7 +80,10 @@ public class MainController {
     }
 
     @RequestMapping("/products")
-    public String products() {return "products";}
+    public String products(Model model) {
+        List<Bordspel> spellen = bordspelService.getBordspellen();
+        model.addAttribute("spellen",spellen);
+        return "products";}
 
     @RequestMapping("/productenAdmin")
     public String Producten(Model model) {

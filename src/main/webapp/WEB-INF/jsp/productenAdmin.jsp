@@ -79,7 +79,7 @@
 <section class="m-3">
     <h1 class="text-info">Producten</h1>
     <p>
-        <a href="createProduct" class="btn btn-success">Create</a>
+        <a href="createProduct" class="btn btn-success">Create a new boardgame</a>
     </p>
     <table class="table table-bordered table-striped">
         <thead>
@@ -96,9 +96,9 @@
         <tbody>
         <tr>
             <%
-                List<Bordspel> spellenDelen = (List<Bordspel>) request.getAttribute("spellen");
+                List<Bordspel> spellen = (List<Bordspel>) request.getAttribute("spellen");
 
-                for(Bordspel spel: spellenDelen){
+                for(Bordspel spel: spellen){
                     out.print(("<td>" + spel.getNaam() + "</td>"));
                     out.print(("<td>" + spel.getPrijs() + "</td>"));
                     out.print(("<td>" + spel.getAantalSpelers() + "</td>"));

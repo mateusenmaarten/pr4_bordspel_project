@@ -1,3 +1,5 @@
+<%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Bordspel" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,182 +72,201 @@
 <section id="gallery" class="py-5">
     <div class="container">
         <div class="row mb-4 mt-5">
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <div class="card-header text-center">
-                        <h1>Monopoly</h1>
-                    </div>
-                    <div class="card-body">
-                        <img src="images/images2.jpg" alt="Monopoly" class="img-fluid mb-4" />
-                        <a href="/Details" class="btn btn-primary d-block">
-                            <i class="fas fa-shopping-cart mr-2"></i>
-                            Details
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <%
+                List<Bordspel> spellen = (List<Bordspel>) request.getAttribute("spellen");
 
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <div class="card-header text-center">
-                        <h1>Scrabble</h1>
-                    </div>
-                    <div class="card-body">
-                        <img src="images/images3.jpg" alt="Scrabble" class="img-fluid mb-4" />
-                        <a href="/Details" class="btn btn-primary d-block">
-                            <i class="fas fa-shopping-cart mr-2"></i>
-                            Details
-                        </a>
-                    </div>
-                </div>
-            </div>
+                for(Bordspel spel: spellen){
+                    out.print((" <div class=\"col-md-4\">\n" +
+                            "                <div class=\"card text-center\">\n" +
+                            "                    <div class=\"card-header text-center\">\n" +
+                                                    "<h1>"+ spel.getNaam() +"</h1>\n" +
+                            "                    </div>\n" +
+                            "                    <div class=\"card-body\">\n" +
+                                                "<img src=\"" + spel.getImagePath() + "\" alt=\""+ spel.getNaam()+"\" class=\"img-fluid mb-4\" />\n" +
+                            "                        <a href=\"/Details\" class=\"btn btn-primary d-block\">\n" +
+                            "                            <i class=\"fas fa-shopping-cart mr-2\"></i>\n" +
+                            "                            Details\n" +
+                            "                        </a>\n" +
+                            "                    </div>\n" +
+                            "                </div>\n" +
+                            "            </div>"));}
+            %>
+<%--            <div class="col-md-4">--%>
+<%--                <div class="card text-center">--%>
+<%--                    <div class="card-header text-center">--%>
+<%--                        <h1>Monopoly</h1>--%>
+<%--                    </div>--%>
+<%--                    <div class="card-body">--%>
+<%--                        <img src="images/images2.jpg" alt="Monopoly" class="img-fluid mb-4" />--%>
+<%--                        <a href="/Details" class="btn btn-primary d-block">--%>
+<%--                            <i class="fas fa-shopping-cart mr-2"></i>--%>
+<%--                            Details--%>
+<%--                        </a>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
 
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <div class="card-header text-center">
-                        <h1>De kolonisten</h1>
-                    </div>
-                    <div class="card-body">
-                        <img src="images/images3.jpg" alt="Scrabble" class="img-fluid mb-4" />
-                        <a href="/Details" class="btn btn-primary d-block">
-                            <i class="fas fa-shopping-cart mr-2"></i>
-                            Details
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+<%--            <div class="col-md-4">--%>
+<%--                <div class="card text-center">--%>
+<%--                    <div class="card-header text-center">--%>
+<%--                        <h1>Scrabble</h1>--%>
+<%--                    </div>--%>
+<%--                    <div class="card-body">--%>
+<%--                        <img src="images/images3.jpg" alt="Scrabble" class="img-fluid mb-4" />--%>
+<%--                        <a href="/Details" class="btn btn-primary d-block">--%>
+<%--                            <i class="fas fa-shopping-cart mr-2"></i>--%>
+<%--                            Details--%>
+<%--                        </a>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
 
-        <div class="row mb-4 mt-5">
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <div class="card-header text-center">
-                        <h1>Monopoly</h1>
-                    </div>
-                    <div class="card-body">
-                        <img src="images/images4.jpg" alt="Monopoly" class="img-fluid mb-4" />
-                        <a href="/Details" class="btn btn-primary d-block">
-                            <i class="fas fa-shopping-cart mr-2"></i>
-                            Details
-                        </a>
-                    </div>
-                </div>
-            </div>
+<%--            <div class="col-md-4">--%>
+<%--                <div class="card text-center">--%>
+<%--                    <div class="card-header text-center">--%>
+<%--                        <h1>De kolonisten</h1>--%>
+<%--                    </div>--%>
+<%--                    <div class="card-body">--%>
+<%--                        <img src="images/images3.jpg" alt="Scrabble" class="img-fluid mb-4" />--%>
+<%--                        <a href="/Details" class="btn btn-primary d-block">--%>
+<%--                            <i class="fas fa-shopping-cart mr-2"></i>--%>
+<%--                            Details--%>
+<%--                        </a>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
 
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <div class="card-header text-center">
-                        <h1>Monopoly</h1>
-                    </div>
-                    <div class="card-body">
-                        <img src="images/images5.jpg" alt="Monopoly" class="img-fluid mb-4" />
-                        <a href="/Details" class="btn btn-primary d-block">
-                            <i class="fas fa-shopping-cart mr-2"></i>Details</a
-                        >
-                    </div>
-                </div>
-            </div>
+<%--        <div class="row mb-4 mt-5">--%>
+<%--            <div class="col-md-4">--%>
+<%--                <div class="card text-center">--%>
+<%--                    <div class="card-header text-center">--%>
+<%--                        <h1>Monopoly</h1>--%>
+<%--                    </div>--%>
+<%--                    <div class="card-body">--%>
+<%--                        <img src="images/images4.jpg" alt="Monopoly" class="img-fluid mb-4" />--%>
+<%--                        <a href="/Details" class="btn btn-primary d-block">--%>
+<%--                            <i class="fas fa-shopping-cart mr-2"></i>--%>
+<%--                            Details--%>
+<%--                        </a>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
 
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <div class="card-header text-center">
-                        <h1>Monopoly</h1>
-                    </div>
-                    <div class="card-body">
-                        <img src="images/images5.jpg" alt="Monopoly" class="img-fluid mb-4" />
-                        <a href="/Details" class="btn btn-primary d-block">
-                            <i class="fas fa-shopping-cart mr-2"></i>Details</a
-                        >
-                    </div>
-                </div>
-            </div>
-        </div>
+<%--            <div class="col-md-4">--%>
+<%--                <div class="card text-center">--%>
+<%--                    <div class="card-header text-center">--%>
+<%--                        <h1>Monopoly</h1>--%>
+<%--                    </div>--%>
+<%--                    <div class="card-body">--%>
+<%--                        <img src="images/images5.jpg" alt="Monopoly" class="img-fluid mb-4" />--%>
+<%--                        <a href="/Details" class="btn btn-primary d-block">--%>
+<%--                            <i class="fas fa-shopping-cart mr-2"></i>Details</a--%>
+<%--                        >--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
 
-        <div class="row mb-4 mt-5">
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <div class="card-header text-center">
-                        <h1>Monopoly</h1>
-                    </div>
-                    <div class="card-body">
-                        <img src="images/images2.jpg" alt="Monopoly" class="img-fluid mb-4" />
-                        <a href="/Details" class="btn btn-primary d-block">
-                            <i class="fas fa-shopping-cart mr-2"></i>Details</a
-                        >
-                    </div>
-                </div>
-            </div>
+<%--            <div class="col-md-4">--%>
+<%--                <div class="card text-center">--%>
+<%--                    <div class="card-header text-center">--%>
+<%--                        <h1>Monopoly</h1>--%>
+<%--                    </div>--%>
+<%--                    <div class="card-body">--%>
+<%--                        <img src="images/images5.jpg" alt="Monopoly" class="img-fluid mb-4" />--%>
+<%--                        <a href="/Details" class="btn btn-primary d-block">--%>
+<%--                            <i class="fas fa-shopping-cart mr-2"></i>Details</a--%>
+<%--                        >--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
 
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <div class="card-header text-center">
-                        <h1>Scrabble</h1>
-                    </div>
-                    <div class="card-body">
-                        <img src="images/images1.jpg" alt="Scrabble" class="img-fluid mb-4" />
-                        <a href="/Details" class="btn btn-primary d-block">
-                            <i class="fas fa-shopping-cart mr-2"></i>Details</a
-                        >
-                    </div>
-                </div>
-            </div>
+<%--        <div class="row mb-4 mt-5">--%>
+<%--            <div class="col-md-4">--%>
+<%--                <div class="card text-center">--%>
+<%--                    <div class="card-header text-center">--%>
+<%--                        <h1>Monopoly</h1>--%>
+<%--                    </div>--%>
+<%--                    <div class="card-body">--%>
+<%--                        <img src="images/images2.jpg" alt="Monopoly" class="img-fluid mb-4" />--%>
+<%--                        <a href="/Details" class="btn btn-primary d-block">--%>
+<%--                            <i class="fas fa-shopping-cart mr-2"></i>Details</a--%>
+<%--                        >--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
 
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <div class="card-header text-center">
-                        <h1>De kolonisten</h1>
-                    </div>
-                    <div class="card-body">
-                        <img src="images/images4.jpg" alt="Scrabble" class="img-fluid mb-4" />
-                        <a href="/Details" class="btn btn-primary d-block">
-                            <i class="fas fa-shopping-cart mr-2"></i>Details</a
-                        >
-                    </div>
-                </div>
-            </div>
-        </div>
+<%--            <div class="col-md-4">--%>
+<%--                <div class="card text-center">--%>
+<%--                    <div class="card-header text-center">--%>
+<%--                        <h1>Scrabble</h1>--%>
+<%--                    </div>--%>
+<%--                    <div class="card-body">--%>
+<%--                        <img src="images/images1.jpg" alt="Scrabble" class="img-fluid mb-4" />--%>
+<%--                        <a href="/Details" class="btn btn-primary d-block">--%>
+<%--                            <i class="fas fa-shopping-cart mr-2"></i>Details</a--%>
+<%--                        >--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
 
-        <div class="row mb-4 mt-5">
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <div class="card-header text-center">
-                        <h1>Monopoly</h1>
-                    </div>
-                    <div class="card-body">
-                        <img src="images/images3.jpg" alt="Monopoly" class="img-fluid mb-4" />
-                        <a href="/Details" class="btn btn-primary d-block">
-                            <i class="fas fa-shopping-cart mr-2"></i>Details</a
-                        >
-                    </div>
-                </div>
-            </div>
+<%--            <div class="col-md-4">--%>
+<%--                <div class="card text-center">--%>
+<%--                    <div class="card-header text-center">--%>
+<%--                        <h1>De kolonisten</h1>--%>
+<%--                    </div>--%>
+<%--                    <div class="card-body">--%>
+<%--                        <img src="images/images4.jpg" alt="Scrabble" class="img-fluid mb-4" />--%>
+<%--                        <a href="/Details" class="btn btn-primary d-block">--%>
+<%--                            <i class="fas fa-shopping-cart mr-2"></i>Details</a--%>
+<%--                        >--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
 
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <div class="card-header text-center">
-                        <h1>Scrabble</h1>
-                    </div>
-                    <div class="card-body">
-                        <img src="images/images2.jpg" alt="Scrabble" class="img-fluid mb-4" />
-                        <a href="/Details" class="btn btn-primary d-block">
-                            <i class="fas fa-shopping-cart mr-2"></i>Details</a
-                        >
-                    </div>
-                </div>
-            </div>
+<%--        <div class="row mb-4 mt-5">--%>
+<%--            <div class="col-md-4">--%>
+<%--                <div class="card text-center">--%>
+<%--                    <div class="card-header text-center">--%>
+<%--                        <h1>Monopoly</h1>--%>
+<%--                    </div>--%>
+<%--                    <div class="card-body">--%>
+<%--                        <img src="images/images3.jpg" alt="Monopoly" class="img-fluid mb-4" />--%>
+<%--                        <a href="/Details" class="btn btn-primary d-block">--%>
+<%--                            <i class="fas fa-shopping-cart mr-2"></i>Details</a--%>
+<%--                        >--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
 
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <div class="card-header text-center">
-                        <h1>De kolonisten</h1>
-                    </div>
-                    <div class="card-body">
-                        <img src="images/images4.jpg" alt="Scrabble" class="img-fluid mb-4" />
-                        <a href="/Details" class="btn btn-primary d-block">
-                            <i class="fas fa-shopping-cart mr-2"></i>Details</a>
-                    </div>
-                </div>
-            </div>
+<%--            <div class="col-md-4">--%>
+<%--                <div class="card text-center">--%>
+<%--                    <div class="card-header text-center">--%>
+<%--                        <h1>Scrabble</h1>--%>
+<%--                    </div>--%>
+<%--                    <div class="card-body">--%>
+<%--                        <img src="images/images2.jpg" alt="Scrabble" class="img-fluid mb-4" />--%>
+<%--                        <a href="/Details" class="btn btn-primary d-block">--%>
+<%--                            <i class="fas fa-shopping-cart mr-2"></i>Details</a--%>
+<%--                        >--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+
+<%--            <div class="col-md-4">--%>
+<%--                <div class="card text-center">--%>
+<%--                    <div class="card-header text-center">--%>
+<%--                        <h1>De kolonisten</h1>--%>
+<%--                    </div>--%>
+<%--                    <div class="card-body">--%>
+<%--                        <img src="images/images4.jpg" alt="Scrabble" class="img-fluid mb-4" />--%>
+<%--                        <a href="/Details" class="btn btn-primary d-block">--%>
+<%--                            <i class="fas fa-shopping-cart mr-2"></i>Details</a>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
         </div>
     </div>
 </section>
