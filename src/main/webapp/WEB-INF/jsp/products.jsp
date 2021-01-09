@@ -62,7 +62,7 @@
                         <a class="nav-link text-dark" >Bestellingen</a>
                         <a class="nav-link text-dark" >Categorieën</a>
                         <div class="dropdown-divider"></div>
-                        <a class="nav-link text-dark">Admin Aanmaken</a>
+
                     </div>
                 </li>
             </ul>
@@ -86,7 +86,7 @@
                                                 "<img src=\"" + spel.getImagePath() + "\" alt=\""+ spel.getNaam()+"\" class=\"img-fluid mb-4\" />\n" +
                             "                        <a href=\"details\" class=\"btn btn-primary d-block\">\n" +
                             "                            <i class=\"fas fa-shopping-cart mr-2\"></i>\n" +
-                            "                            details\n" +
+                            "                            Details\n" +
                             "                        </a>\n" +
                             "                    </div>\n" +
                             "                </div>\n" +
