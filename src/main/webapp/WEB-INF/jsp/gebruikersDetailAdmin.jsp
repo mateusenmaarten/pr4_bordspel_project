@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: wimst
-  Date: 30/11/2020
-  Time: 20:53
+  User: Maarten
+  Date: 9/01/2021
+  Time: 15:21
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -25,7 +25,7 @@
             crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Details</title>
+    <title>Details gebruiker</title>
 </head>
 
 <body>
@@ -81,7 +81,7 @@
 
 <div>
     <form>
-<%--        <input asp-for="@Model.Product.ProductID" hidden />--%>
+        <%--        <input asp-for="@Model.Product.ProductID" hidden />--%>
         <div class="container backgroundWhite pt-4">
             <div class="card" style="border: 1px solid #DCDCDC;">
                 <div class="card-header bg-light text-dark ml-0 row container" style="border-radius: 0px;">
@@ -172,4 +172,3 @@
 </script>
 </body>
 </html>
-

@@ -103,6 +103,13 @@ public class MainController {
         return "gebruikersAdmin";
     }
 
+    @RequestMapping("/gebruikersDetailAdmin")
+    public String Gebruiker(Model model){
+        Gebruiker gebruiker = service.getGebruiker(16);
+        model.addAttribute("gebruiker", gebruiker);
+        return "gebruikersDetailAdmin";
+    }
+
     @RequestMapping("/createProduct")
     public String Create(Model model) {
 

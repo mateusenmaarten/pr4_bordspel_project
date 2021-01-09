@@ -19,6 +19,11 @@ public class GebruikerServiceImpl implements GebruikerService {
     }
 
     @Override
+    public Gebruiker getGebruiker(long id) {
+        return repository.findById(id);
+    }
+
+    @Override
     public Gebruiker addGebruiker(Gebruiker gebruiker) {
         return repository.save(gebruiker);
     }

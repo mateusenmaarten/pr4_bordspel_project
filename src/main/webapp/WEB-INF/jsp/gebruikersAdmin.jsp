@@ -109,7 +109,7 @@
                     out.print(("<td class=\"text-center\">\n" +
                             "                <div class=\"w-75 btn-group\" role=\"group\">\n" +
                             "                    <a\n" +
-                            "                            class=\"btn btn-primary mx-2\"\n" +
+                            "                         href=\"gebruikersDetailAdmin\"   class=\"btn btn-primary mx-2\"\n" +
                             "                    >Details</a>\n" +
                             "                </div>\n" +
                             "            </td>\n" +
