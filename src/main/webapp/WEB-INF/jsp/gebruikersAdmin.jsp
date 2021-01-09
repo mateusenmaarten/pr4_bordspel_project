@@ -88,20 +88,13 @@
 
 <section class="m-3">
     <h1 class="text-info">Gebruikers</h1>
-    <p>
-        <a href="createProduct" class="btn btn-success">Create a new boardgame</a>
-    </p>
+
     <table class="table table-bordered table-striped">
         <thead>
         <tr>
             <th>Voornaam</th>
             <th>Achternaam</th>
-            <th>Email</th>
-            <th>Geboortedatum</th>
-            <th>Woonplaats</th>
-            <th>Postcode</th>
-            <th>Straat</th>
-            <th>Huisnummer</th>
+
         </tr>
         </thead>
         <tbody>
@@ -111,26 +104,13 @@
 
                 for(Gebruiker gebruiker: gebruikers){
                     out.print(("<td>" + gebruiker.getVoornaam() + "</td>"));
-                    out.print(("<td>" + spel.getPrijs() + "</td>"));
-                    out.print(("<td>" + spel.getAantalSpelers() + "</td>"));
-                    out.print(("<td>" + spel.getMinLeeftijd() + "</td>"));
-                    out.print(("<td>" + spel.getSpeelduur() + "</td>"));
-                    out.print(("<td>" + spel.getTaal() + "</td>"));
-                    out.print(("<td>" + spel.getUitgever() + "</td>"));
+                    out.print(("<td>" + gebruiker.getAchternaam() + "</td>"));
+
                     out.print(("<td class=\"text-center\">\n" +
                             "                <div class=\"w-75 btn-group\" role=\"group\">\n" +
                             "                    <a\n" +
-                            "                            asp-action=\"Edit\"\n" +
-                            "                            asp-route-id=\"@item.ProductID\"\n" +
                             "                            class=\"btn btn-primary mx-2\"\n" +
-                            "                    ><i class=\"fas fa-edit\"></i\n" +
-                            "                    ></a>\n" +
-                            "                    <a\n" +
-                            "                            asp-action=\"Delete\"\n" +
-                            "                            asp-route-id=\"@item.ProductID\"\n" +
-                            "                            class=\"btn btn-danger mx-2\"\n" +
-                            "                    ><i class=\"far fa-trash-alt\"></i\n" +
-                            "                    ></a>\n" +
+                            "                    >Details</a>\n" +
                             "                </div>\n" +
                             "            </td>\n" +
                             "        </tr>"));
