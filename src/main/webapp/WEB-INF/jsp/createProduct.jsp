@@ -264,7 +264,7 @@
                             <input type="submit" class="btn btn-primary w-100" value="Create" />
                         </div>
                         <div class="col">
-                            <a asp-action="Index" class="btn btn-success w-100"><i class="fas fa-sign-out-alt"></i> Back</a>
+                            <a href="/productenAdmin" class="btn btn-success w-100"><i class="fas fa-sign-out-alt"></i> Back</a>
                         </div>
                     </div>
                 </div>

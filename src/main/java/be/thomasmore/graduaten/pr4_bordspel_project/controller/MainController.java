@@ -7,6 +7,7 @@ import be.thomasmore.graduaten.pr4_bordspel_project.service.GebruikerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import be.thomasmore.graduaten.pr4_bordspel_project.service.BordspelService;
 
@@ -17,6 +18,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
+
+
 @Controller
 public class MainController {
     @Autowired
@@ -24,6 +29,30 @@ public class MainController {
 
     @Autowired
     GebruikerService service;
+
+
+    public boolean tryParseDouble(String value) {
+        try {
+            Double.parseDouble(value);
+            return true;
+
+        } catch (NumberFormatException e) {
+
+            return false;
+        }
+    }
+    public boolean tryParseInt(String value) {
+        try {
+            Integer.parseInt(value);
+            return true;
+
+        } catch (NumberFormatException e) {
+
+            return false;
+        }
+    }
+
+
 
     @RequestMapping("/")
     public String index(Model model){
@@ -54,7 +83,10 @@ public class MainController {
     public String products() {return "products";}
 
     @RequestMapping("/productenAdmin")
-    public String Producten() {
+    public String Producten(Model model) {
+
+        List<Bordspel> spellen = bordspelService.getBordspellen();
+        model.addAttribute("spellen",spellen);
 
         return "productenAdmin";}
 
@@ -86,11 +118,23 @@ public class MainController {
         }
 
         String prijs = request.getParameter(Bordspel.PRIJS);
-        bordspel.setPrijs(Double.parseDouble(prijs));
-        if (prijs.isEmpty()) {
+        if(!prijs.isEmpty()){
+
+            if(tryParseDouble(prijs)){
+
+                bordspel.setPrijs(Double.parseDouble(prijs));
+            }
+            else{
+                bordspelError.prijs = "Vul een geldige prijs in";
+                bordspelError.hasErrors = true;
+            }
+
+        }
+        else{
             bordspelError.prijs = "Vul een prijs in";
             bordspelError.hasErrors = true;
         }
+
 
         String aantalSpelers = request.getParameter(Bordspel.AANTALSPELERS);
         bordspel.setAantalSpelers(aantalSpelers);
@@ -102,13 +146,22 @@ public class MainController {
         String foto = request.getParameter(Bordspel.FOTO);
         bordspel.setImagePath(foto);
         if (foto.isEmpty()) {
-            bordspelError.foto = "Vul het aantal spelers in";
+            bordspelError.foto = "Vul het foto path in (resources/images/[fotonaam].png";
             bordspelError.hasErrors = true;
         }
 
         String minimumLeeftijd = request.getParameter(Bordspel.MINIMUMLEEFTIJD);
-        bordspel.setMinLeeftijd(Integer.parseInt(minimumLeeftijd));
-        if (minimumLeeftijd.isEmpty()) {
+
+        if(!minimumLeeftijd.isEmpty()){
+            if(tryParseInt(minimumLeeftijd)){
+                bordspel.setMinLeeftijd(Integer.parseInt(minimumLeeftijd));
+            }
+            else{
+                bordspelError.minimumLeeftijd = "Vul een geldige leeftijd in";
+                bordspelError.hasErrors = true;
+            }
+        }
+        else{
             bordspelError.minimumLeeftijd = "Vul een minimum leeftijd in";
             bordspelError.hasErrors = true;
         }

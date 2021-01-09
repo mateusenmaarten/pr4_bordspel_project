@@ -12,9 +12,9 @@
             integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
             crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/css/style.css" />
-    <link rel="stylesheet" href="~/css/all.min.css" />
+<%--    <link rel="stylesheet" href="~/css/site.css" />--%>
+<%--    <link rel="stylesheet" href="~/css/style.css" />--%>
+<%--    <link rel="stylesheet" href="~/css/all.min.css" />--%>
     <link
             rel="stylesheet"
             href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
@@ -28,7 +28,7 @@
 <body>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a href="index.html" id="naam" class="navbar-brand">Board Games</a>
+        <a href="/" id="naam" class="navbar-brand">Board Games</a>
         <button
                 class="navbar-toggler"
                 data-toggle="collapse"
@@ -39,16 +39,16 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="/" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="about.html" class="nav-link">About Us</a>
+                    <a href="/about" class="nav-link">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a href="producten.html" class="nav-link">Producten</a>
+                    <a href="/products" class="nav-link">Producten</a>
                 </li>
                 <li class="nav-item">
-                    <a href="login.html" class="nav-link">Login</a>
+                    <a href="/login" class="nav-link">Login</a>
                 </li>
 
                 <li class="nav-item dropdown">
@@ -75,7 +75,13 @@
         </div>
     </div>
 </nav>
+<%
+    List<Bordspel> spellenLijst = (List<Bordspel>) request.getAttribute("spellen");
 
+    for(Bordspel spel: spellenLijst){
+        out.print(("<p>Naam spel: " + spel.getNaam() + "</p>"));
+    }
+%>
 <section class="m-3">
     <h1 class="text-info">Producten</h1>
     <p>
@@ -84,28 +90,49 @@
     <table class="table table-bordered table-striped">
         <thead>
         <tr>
-            <th>@Html.DisplayNameFor(model => model.Omschrijving)</th>
-            <th>@Html.DisplayNameFor(model => model.Prijs)</th>
-            <th>@Html.DisplayNameFor(model => model.AlcolholPercentage)</th>
-            <th>@Html.DisplayNameFor(model => model.Foto)</th>
-            <th>
-                @Html.DisplayNameFor(model =>
-                model.Categorie.CategorieOmschrijving)
-            </th>
-            <th></th>
+            <th>Naam</th>
+            <th>Prijs</th>
+            <th>Aantal spelers</th>
+            <th>Min. leeftijd</th>
+            <th>Speelduur</th>
+            <th>Taal</th>
+            <th>Uitgever</th>
         </tr>
         </thead>
         <tbody>
-        @foreach (var item in Model) {
         <tr>
-            <td>@Html.DisplayFor(modelItem => item.Omschrijving)</td>
-            <td>@Html.DisplayFor(modelItem => item.Prijs)</td>
-            <td>@Html.DisplayFor(modelItem => item.AlcolholPercentage)</td>
-            <td>@Html.DisplayFor(modelItem => item.Foto)</td>
-            <td>
-                @Html.DisplayFor(modelItem =>
-                item.Categorie.CategorieOmschrijving)
-            </td>
+            <%
+                List<Bordspel> spellenDelen = (List<Bordspel>) request.getAttribute("spellen");
+
+                for(Bordspel spel: spellenDelen){
+                    out.print(("<td>" + spel.getNaam() + "</td>"));
+                    out.print(("<td>" + spel.getPrijs() + "</td>"));
+                    out.print(("<td>" + spel.getAantalSpelers() + "</td>"));
+                    out.print(("<td>" + spel.getMinLeeftijd() + "</td>"));
+                    out.print(("<td>" + spel.getSpeelduur() + "</td>"));
+                    out.print(("<td>" + spel.getMinLeeftijd() + "</td>"));
+                    out.print(("<td>" + spel.getSpeelduur() + "</td>"));
+                    out.print(("<td>" + spel.getTaal() + "</td>"));
+                    out.print(("<td>" + spel.getUitgever() + "</td>"));
+                    out.print(("<td class=\"text-center\">\n" +
+                            "                <div class=\"w-75 btn-group\" role=\"group\">\n" +
+                            "                    <a\n" +
+                            "                            asp-action=\"Edit\"\n" +
+                            "                            asp-route-id=\"@item.ProductID\"\n" +
+                            "                            class=\"btn btn-primary mx-2\"\n" +
+                            "                    ><i class=\"fas fa-edit\"></i\n" +
+                            "                    ></a>\n" +
+                            "                    <a\n" +
+                            "                            asp-action=\"Delete\"\n" +
+                            "                            asp-route-id=\"@item.ProductID\"\n" +
+                            "                            class=\"btn btn-danger mx-2\"\n" +
+                            "                    ><i class=\"far fa-trash-alt\"></i\n" +
+                            "                    ></a>\n" +
+                            "                </div>\n" +
+                            "            </td>"));
+                }
+            %>
+
             <td class="text-center">
                 <div class="w-75 btn-group" role="group">
                     <a
@@ -139,21 +166,21 @@
     </div>
 </footer>
 
-<script
-        src="http://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"
-></script>
-<script
-        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"
-></script>
-<script
-        src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-        crossorigin="anonymous"
-></script>
+<%--<script--%>
+<%--        src="http://code.jquery.com/jquery-3.3.1.min.js"--%>
+<%--        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="--%>
+<%--        crossorigin="anonymous"--%>
+<%--></script>--%>
+<%--<script--%>
+<%--        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"--%>
+<%--        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"--%>
+<%--        crossorigin="anonymous"--%>
+<%--></script>--%>
+<%--<script--%>
+<%--        src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"--%>
+<%--        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"--%>
+<%--        crossorigin="anonymous"--%>
+<%--></script>--%>
 
 <script>
     // Get the current year for the copyright

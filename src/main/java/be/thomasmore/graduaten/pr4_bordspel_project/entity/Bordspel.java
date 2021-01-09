@@ -7,15 +7,15 @@ import java.util.List;
 public class Bordspel {
 
     public static final String NAME = "bordspel";
-    public static final String NAAM = "naam";
-    public static final String PRIJS = "prijs";
-    public static final String AANTALSPELERS = "aantalSpelers";
-    public static final String FOTO = "foto";
-    public static final String MINIMUMLEEFTIJD = "minimumLeeftijd";
-    public static final String SPEELDUUR = "speelduur";
-    public static final String TAAL = "taal";
-    public static final String BESCHRIJVING = "beschrijving";
-    public static final String UITGEVER = "uitgever";
+    public static final String NAAM = "Naam van het spel";
+    public static final String PRIJS = "Prijs";
+    public static final String AANTALSPELERS = "Aantal spelers";
+    public static final String FOTO = "Naam van foto in png";
+    public static final String MINIMUMLEEFTIJD = "Minimum leeftijd";
+    public static final String SPEELDUUR = "Speelduur";
+    public static final String TAAL = "Taal";
+    public static final String BESCHRIJVING = "Beschrijving";
+    public static final String UITGEVER = "Uitgever";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
