@@ -75,13 +75,7 @@
         </div>
     </div>
 </nav>
-<%
-    List<Bordspel> spellenLijst = (List<Bordspel>) request.getAttribute("spellen");
 
-    for(Bordspel spel: spellenLijst){
-        out.print(("<p>Naam spel: " + spel.getNaam() + "</p>"));
-    }
-%>
 <section class="m-3">
     <h1 class="text-info">Producten</h1>
     <p>
@@ -110,8 +104,6 @@
                     out.print(("<td>" + spel.getAantalSpelers() + "</td>"));
                     out.print(("<td>" + spel.getMinLeeftijd() + "</td>"));
                     out.print(("<td>" + spel.getSpeelduur() + "</td>"));
-                    out.print(("<td>" + spel.getMinLeeftijd() + "</td>"));
-                    out.print(("<td>" + spel.getSpeelduur() + "</td>"));
                     out.print(("<td>" + spel.getTaal() + "</td>"));
                     out.print(("<td>" + spel.getUitgever() + "</td>"));
                     out.print(("<td class=\"text-center\">\n" +
@@ -129,28 +121,28 @@
                             "                    ><i class=\"far fa-trash-alt\"></i\n" +
                             "                    ></a>\n" +
                             "                </div>\n" +
-                            "            </td>"));
+                            "            </td>\n" +
+                            "        </tr>"));
                 }
             %>
 
-            <td class="text-center">
-                <div class="w-75 btn-group" role="group">
-                    <a
-                            asp-action="Edit"
-                            asp-route-id="@item.ProductID"
-                            class="btn btn-primary mx-2"
-                    ><i class="fas fa-edit"></i
-                    ></a>
-                    <a
-                            asp-action="Delete"
-                            asp-route-id="@item.ProductID"
-                            class="btn btn-danger mx-2"
-                    ><i class="far fa-trash-alt"></i
-                    ></a>
-                </div>
-            </td>
-        </tr>
-        }
+<%--            <td class="text-center">--%>
+<%--                <div class="w-75 btn-group" role="group">--%>
+<%--                    <a--%>
+<%--                            asp-action="Edit"--%>
+<%--                            asp-route-id="@item.ProductID"--%>
+<%--                            class="btn btn-primary mx-2"--%>
+<%--                    ><i class="fas fa-edit"></i--%>
+<%--                    ></a>--%>
+<%--                    <a--%>
+<%--                            asp-action="Delete"--%>
+<%--                            asp-route-id="@item.ProductID"--%>
+<%--                            class="btn btn-danger mx-2"--%>
+<%--                    ><i class="far fa-trash-alt"></i--%>
+<%--                    ></a>--%>
+<%--                </div>--%>
+<%--            </td>--%>
+<%--        </tr>--%>
         </tbody>
     </table>
 </section>
