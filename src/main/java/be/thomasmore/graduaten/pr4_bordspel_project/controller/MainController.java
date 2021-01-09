@@ -2,22 +2,18 @@ package be.thomasmore.graduaten.pr4_bordspel_project.controller;
 
 
 import be.thomasmore.graduaten.pr4_bordspel_project.entity.*;
+import be.thomasmore.graduaten.pr4_bordspel_project.service.BordspelService;
 import be.thomasmore.graduaten.pr4_bordspel_project.service.GebruikerService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import be.thomasmore.graduaten.pr4_bordspel_project.service.BordspelService;
-
 
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-
-
 
 
 
@@ -28,6 +24,7 @@ public class MainController {
 
     @Autowired
     GebruikerService service;
+
 
 
     public boolean tryParseDouble(String value) {
@@ -79,8 +76,13 @@ public class MainController {
     }
 
     @RequestMapping("/details")
-    public String details(){
-        return "details"; }
+    public String details(HttpServletRequest request, Model model){
+
+        long id = Long.parseLong(request.getParameter("id"));
+        Bordspel bordspel = bordspelService.getBordspelById(id);
+        model.addAttribute("bordspel", bordspel);
+
+        return "details";}
 
     @RequestMapping("/products")
     public String products(Model model) {
@@ -103,6 +105,16 @@ public class MainController {
         return "gebruikersAdmin";
     }
 
+    @RequestMapping("/editproduct")
+    public String Edit(HttpServletRequest request, Model model){
+
+        long id = Long.parseLong(request.getParameter("id"));
+        Bordspel bordspel = bordspelService.getBordspelById(id);
+        model.addAttribute("bordspel", bordspel);
+
+        return "editproduct";}
+
+
     @RequestMapping("/createProduct")
     public String Create(Model model) {
 
@@ -115,6 +127,13 @@ public class MainController {
     public String contact() {return "contact";}
     //Maarten : zie Slides 8 Backend - slide 22
     //testversie voor te testen
+
+
+    @RequestMapping("/processEditProductForm")
+    public String processEditProductForm(HttpServletRequest request, Model model) {
+
+        return "/productenAdmin";
+    }
 
 
     @RequestMapping("/processCreateProductForm")
