@@ -44,12 +44,21 @@
                 <li class="nav-item active">
                     <a href="/" class="nav-link">Home</a>
                 </li>
+
                 <li class="nav-item">
                     <a href="/about" class="nav-link">About Us</a>
                 </li>
                 <li class="nav-item">
                     <a href="/products" class="nav-link">Producten</a>
                 </li>
+                <li class="nav-item">
+                    <a href="/products" class="nav-link">Producten</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="logout" class="nav-link">logout</a>
+                </li>
+
                 <li class="nav-item">
                     <a href="/login" class="nav-link">Login</a>
                 </li>

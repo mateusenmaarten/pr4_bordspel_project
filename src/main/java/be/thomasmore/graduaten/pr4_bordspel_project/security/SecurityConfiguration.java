@@ -33,12 +33,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/productenAdmin","/createProduct").hasRole("ADMIN")
                 .antMatchers("/about").hasAnyRole("ADMIN","USER")
                 .and()
-                .formLogin().loginPage("/login").permitAll();
-
+                .formLogin().loginPage("/login").permitAll()
+                ;
 
     }
 
     @Bean
     public PasswordEncoder getPasswordEncoder(){return NoOpPasswordEncoder.getInstance();}
+
 
 }
