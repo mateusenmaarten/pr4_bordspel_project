@@ -59,11 +59,11 @@
                         Content Management
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a href="/productenAdmin" class="nav-link text-dark" >Producten</a>
+                        <a href="productenAdmin" class="nav-link text-dark" >Producten</a>
                         <a class="nav-link text-dark" >Bestellingen</a>
                         <a class="nav-link text-dark" >Categorieën</a>
                         <div class="dropdown-divider"></div>
-                        <a class="nav-link text-dark">Admin Aanmaken</a>
+
                     </div>
                 </li>
             </ul>
@@ -80,7 +80,7 @@
 
 <div>
     <form>
-        <input asp-for="@Model.Product.ProductID" hidden />
+<%--        <input asp-for="@Model.Product.ProductID" hidden />--%>
         <div class="container backgroundWhite pt-4">
             <div class="card" style="border: 1px solid #DCDCDC;">
                 <div class="card-header bg-light text-dark ml-0 row container" style="border-radius: 0px;">

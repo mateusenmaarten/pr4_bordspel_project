@@ -83,7 +83,7 @@
                             "                    </div>\n" +
                             "                    <div class=\"card-body\">\n" +
                                                 "<img src=\"" + spel.getImagePath() + "\" alt=\""+ spel.getNaam()+"\" class=\"img-fluid mb-4\" />\n" +
-                            "                        <a href=\"/Details\" class=\"btn btn-primary d-block\">\n" +
+                            "                        <a href=\"Details\" class=\"btn btn-primary d-block\">\n" +
                             "                            <i class=\"fas fa-shopping-cart mr-2\"></i>\n" +
                             "                            Details\n" +
                             "                        </a>\n" +
