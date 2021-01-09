@@ -58,6 +58,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a href="/productenAdmin" class="nav-link text-dark" >Producten</a>
+                        <a href="/gebruikersAdmin" class="nav-link text-dark" >Gebruikers</a>
                         <a class="nav-link text-dark" >Bestellingen</a>
                         <a class="nav-link text-dark" >Categorieën</a>
                         <div class="dropdown-divider"></div>
@@ -83,9 +84,9 @@
                             "                    </div>\n" +
                             "                    <div class=\"card-body\">\n" +
                                                 "<img src=\"" + spel.getImagePath() + "\" alt=\""+ spel.getNaam()+"\" class=\"img-fluid mb-4\" />\n" +
-                            "                        <a href=\"Details\" class=\"btn btn-primary d-block\">\n" +
+                            "                        <a href=\"details\" class=\"btn btn-primary d-block\">\n" +
                             "                            <i class=\"fas fa-shopping-cart mr-2\"></i>\n" +
-                            "                            Details\n" +
+                            "                            details\n" +
                             "                        </a>\n" +
                             "                    </div>\n" +
                             "                </div>\n" +

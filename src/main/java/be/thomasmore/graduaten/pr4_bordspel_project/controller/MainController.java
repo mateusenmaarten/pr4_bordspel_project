@@ -7,7 +7,6 @@ import be.thomasmore.graduaten.pr4_bordspel_project.service.GebruikerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import be.thomasmore.graduaten.pr4_bordspel_project.service.BordspelService;
 
@@ -79,6 +78,10 @@ public class MainController {
         return "register";
     }
 
+    @RequestMapping("/details")
+    public String details(){
+        return "details"; }
+
     @RequestMapping("/products")
     public String products(Model model) {
         List<Bordspel> spellen = bordspelService.getBordspellen();
@@ -92,6 +95,13 @@ public class MainController {
         model.addAttribute("spellen",spellen);
 
         return "productenAdmin";}
+
+    @RequestMapping("/gebruikersAdmin")
+    public String Gebruikers(Model model){
+        List<Gebruiker> gebruikers = service.getGebruikers();
+        model.addAttribute("gebruikers", gebruikers);
+        return "gebruikersAdmin";
+    }
 
     @RequestMapping("/createProduct")
     public String Create(Model model) {
