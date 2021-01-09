@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Gebruiker" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,6 +30,8 @@
 </head>
 
 <body>
+
+
 
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container">
@@ -70,7 +73,6 @@
         </div>
     </div>
 </nav>
-
 <!-- ACTIONS -->
 <section id="actions" class="mb-5 mt-5 bg-light">
     <div class="container">
@@ -88,14 +90,14 @@
                         <h4>Account Login</h4>
                     </div>
                     <div class="card-body">
-                        <form action="/index">
+                        <form action="login" method="post">
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="text" class="form-control" />
+                                <label for="username">Email</label>
+                                <input id="username" name="username" placeholder="Email" class="form-control" required autofocus/>
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" />
+                                <input id="password" name="password" placeholder="Password" type="password" class="form-control" required/>
                             </div>
                             <input
                                     type="submit"
