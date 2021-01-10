@@ -89,10 +89,10 @@
             <div class="card" style="border: 1px solid #DCDCDC;">
                 <div class="card-header bg-light text-dark ml-0 row container" style="border-radius: 0px;">
                     <div class="col-12 col-md-6 font-italic font-weight-bolder">
-                        <h1><%=bordspel.getNaam()%>></h1>
+                        <h1><%=bordspel.getNaam()%></h1>
                     </div>
                     <div class="col-12 col-md-6 text-md-right">
-                        <h1 class="text-dark"><%=bordspel.getPrijs()%></h1>
+                        <h1 class="text-dark"><%=bordspel.getPrijs()%>€</h1>
                     </div>
                 </div>
                 <div class="card-body">
@@ -104,19 +104,19 @@
                             <div class="col-12 col-lg-8">
                                 <div class="row pl-3">
                                     <div class="col-12">
-                                        <p class="text-secondary"><%=bordspel.getAantalSpelers()%> </p>
+                                        <p class="text-secondary"><%=Bordspel.AANTALSPELERS%>: <%=bordspel.getAantalSpelers()%> </p>
                                     </div>
                                     <div class="col-12">
-                                        <p class="text-secondary"><%=bordspel.getMinLeeftijd()%> </p>
+                                        <p class="text-secondary"><%=Bordspel.MINIMUMLEEFTIJD%>: <%=bordspel.getMinLeeftijd()%> </p>
                                     </div>
                                     <div class="col-12">
-                                        <p class="text-secondary"><%=bordspel.getSpeelduur()%> </p>
+                                        <p class="text-secondary"><%=Bordspel.SPEELDUUR%>: <%=bordspel.getSpeelduur()%> </p>
                                     </div>
                                     <div class="col-12">
-                                        <p class="text-secondary"><%=bordspel.getTaal()%> </p>
+                                        <p class="text-secondary"><%=Bordspel.TAAL%>: <%=bordspel.getTaal()%> </p>
                                     </div>
                                     <div class="col-12">
-                                        <p class="text-secondary"><%=bordspel.getUitgever()%> </p>
+                                        <p class="text-secondary"><%=Bordspel.UITGEVER%>: <%=bordspel.getUitgever()%> </p>
                                     </div>
                                 </div>
                             </div>
