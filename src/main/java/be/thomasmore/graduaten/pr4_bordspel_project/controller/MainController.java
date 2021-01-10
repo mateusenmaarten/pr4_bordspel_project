@@ -4,11 +4,11 @@ package be.thomasmore.graduaten.pr4_bordspel_project.controller;
 import be.thomasmore.graduaten.pr4_bordspel_project.entity.*;
 import be.thomasmore.graduaten.pr4_bordspel_project.service.BordspelService;
 import be.thomasmore.graduaten.pr4_bordspel_project.service.GebruikerService;
+import org.apache.catalina.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -52,9 +52,7 @@ public class MainController {
 
     @RequestMapping("/")
     public String index(Model model){
-        List<Bordspel> spellen = bordspelService.getBordspellen();
-        model.addAttribute("spellen",spellen);
-        System.out.print(spellen.get(0).getNaam());
+
         return "index";
     }
 
@@ -78,8 +76,8 @@ public class MainController {
     @RequestMapping("/details")
     public String details(HttpServletRequest request, Model model){
 
-        long id = Long.parseLong(request.getParameter("id"));
-        Bordspel bordspel = bordspelService.getBordspelById(id);
+//        long id = Long.parseLong(request.getParameter("id"));
+        Bordspel bordspel = bordspelService.getBordspelById(5);
         model.addAttribute("bordspel", bordspel);
 
         return "details";}
@@ -98,11 +96,25 @@ public class MainController {
 
         return "productenAdmin";}
 
+
+
     @RequestMapping("/gebruikersAdmin")
     public String Gebruikers(Model model){
+
         List<Gebruiker> gebruikers = service.getGebruikers();
         model.addAttribute("gebruikers", gebruikers);
+
         return "gebruikersAdmin";
+    }
+
+    @RequestMapping("/gebruikersDetailAdmin")
+    public String Gebruiker(HttpServletRequest request, Model model){
+
+        long id = Long.parseLong(request.getParameter("id"));
+
+        Gebruiker gebruiker = service.getGebruiker(id);
+        model.addAttribute("selectedgebruiker", gebruiker);
+        return "gebruikersDetailAdmin";
     }
 
     @RequestMapping("/editproduct")

@@ -99,41 +99,30 @@
         </thead>
         <tbody>
         <tr>
+
                 <%
                 List<Gebruiker> gebruikers = (List<Gebruiker>) request.getAttribute("gebruikers");
 
                 for(Gebruiker gebruiker: gebruikers){
+
+
                     out.print(("<td>" + gebruiker.getVoornaam() + "</td>"));
                     out.print(("<td>" + gebruiker.getAchternaam() + "</td>"));
 
                     out.print(("<td class=\"text-center\">\n" +
                             "                <div class=\"w-75 btn-group\" role=\"group\">\n" +
                             "                    <a\n" +
-                            "                         href=\"gebruikersDetailAdmin\"   class=\"btn btn-primary mx-2\"\n" +
+                            "                         href=\"gebruikersDetailAdmin?id=" + gebruiker.getId()+"\"   class=\"btn btn-primary mx-2\"\n" +
                             "                    >Details</a>\n" +
                             "                </div>\n" +
                             "            </td>\n" +
                             "        </tr>"));
+
+
                 }
+
             %>
 
-            <%--            <td class="text-center">--%>
-            <%--                <div class="w-75 btn-group" role="group">--%>
-            <%--                    <a--%>
-            <%--                            asp-action="Edit"--%>
-            <%--                            asp-route-id="@item.ProductID"--%>
-            <%--                            class="btn btn-primary mx-2"--%>
-            <%--                    ><i class="fas fa-edit"></i--%>
-            <%--                    ></a>--%>
-            <%--                    <a--%>
-            <%--                            asp-action="Delete"--%>
-            <%--                            asp-route-id="@item.ProductID"--%>
-            <%--                            class="btn btn-danger mx-2"--%>
-            <%--                    ><i class="far fa-trash-alt"></i--%>
-            <%--                    ></a>--%>
-            <%--                </div>--%>
-            <%--            </td>--%>
-            <%--        </tr>--%>
         </tbody>
     </table>
 </section>

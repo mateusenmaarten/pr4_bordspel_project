@@ -1,4 +1,4 @@
-<%--
+<%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Gebruiker" %><%--
   Created by IntelliJ IDEA.
   User: Maarten
   Date: 9/01/2021
@@ -81,16 +81,17 @@
 
 <div>
     <form>
-        <%--        <input asp-for="@Model.Product.ProductID" hidden />--%>
+
         <div class="container backgroundWhite pt-4">
             <div class="card" style="border: 1px solid #DCDCDC;">
                 <div class="card-header bg-light text-dark ml-0 row container" style="border-radius: 0px;">
-                    <div class="col-12 col-md-6 font-italic font-weight-bolder">
-                        <h1>Naam</h1>
+                    <div class="col-md-12 font-italic font-weight-bolder text-center">
+                        <%
+                            Gebruiker gebruiker = (Gebruiker) request.getAttribute("selectedgebruiker");
+                            out.print("<h1>" + gebruiker.getVoornaam() + " " + gebruiker.getAchternaam() + "</h1>");
+                        %>
                     </div>
-                    <div class="col-12 col-md-6 text-md-right">
-                        <h1 class="text-dark">?Prijs?</h1>
-                    </div>
+
                 </div>
                 <div class="card-body">
                     <div class="container rounded p-2">
@@ -100,23 +101,24 @@
                             </div>
                             <div class="col-12 col-lg-8">
                                 <div class="row pl-3">
+
                                     <div class="col-12">
-                                        <p class="text-secondary">Description </p>
+                                        <p class="text-secondary"><% out.print(Gebruiker.EMAIL + ": " + gebruiker.getEmail());%> </p>
                                     </div>
                                     <div class="col-12">
-                                        <p class="text-secondary">Description </p>
+                                        <p class="text-secondary"><% out.print(Gebruiker.GEBOORTEDATUM + ": " + gebruiker.getGeboorteDatum());%> </p>
                                     </div>
                                     <div class="col-12">
-                                        <p class="text-secondary">Description </p>
+                                        <p class="text-secondary"><% out.print(Gebruiker.WOONPLAATS + ": " + gebruiker.getWoonplaats());%> </p>
                                     </div>
                                     <div class="col-12">
-                                        <p class="text-secondary">Description </p>
+                                        <p class="text-secondary"><% out.print(Gebruiker.POSTCODE + ": " + gebruiker.getPostcode());%> </p>
                                     </div>
                                     <div class="col-12">
-                                        <p class="text-secondary">Description </p>
+                                        <p class="text-secondary"><% out.print(Gebruiker.STRAAT + ": " + gebruiker.getStraat());%> </p>
                                     </div>
                                     <div class="col-12">
-                                        <p class="text-secondary">Description </p>
+                                        <p class="text-secondary"><% out.print(Gebruiker.HUISNUMMER + ": " + gebruiker.getHuisnummer());%> </p>
                                     </div>
                                 </div>
                             </div>
@@ -126,12 +128,9 @@
                 <div class="card-footer bg-light">
                     <div class="row d-flex justify-content-md-end">
                         <div class="col-3 pb-1 ">
-                            <a class="btn btn-primary form-control btn-lg" style="height:50px;">Kopen</a>
+                            <a href="/gebruikersAdmin" class="btn btn-primary form-control btn-lg" style="height:50px;">Terug naar overzicht</a>
                         </div>
-                        <div class="col-3 ">
 
-                            <a class="btn btn-primary form-control btn-lg" style="height:50px;">Huren</a>
-                        </div>
                     </div>
                 </div>
             </div>

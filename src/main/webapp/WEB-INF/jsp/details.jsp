@@ -73,8 +73,8 @@
 </nav>
 
 <%
-
     Bordspel bordspel = (Bordspel) request.getAttribute("bordspel");
+
 %>
 
 <!-- ACTIONS -->
