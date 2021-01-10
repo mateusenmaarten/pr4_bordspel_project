@@ -76,14 +76,15 @@ public class MainController {
     @RequestMapping("/details")
     public String details(HttpServletRequest request, Model model){
 
-//        long id = Long.parseLong(request.getParameter("id"));
-        Bordspel bordspel = bordspelService.getBordspelById(5);
+        long id = Long.parseLong(request.getParameter("id"));
+        Bordspel bordspel = bordspelService.getBordspelById(id);
         model.addAttribute("bordspel", bordspel);
 
         return "details";}
 
     @RequestMapping("/products")
     public String products(Model model) {
+        
         List<Bordspel> spellen = bordspelService.getBordspellen();
         model.addAttribute("spellen",spellen);
         return "products";}

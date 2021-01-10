@@ -3,6 +3,7 @@ package be.thomasmore.graduaten.pr4_bordspel_project.entity;
 import javax.persistence.*;
 
 @Entity
+@Table(name="Stock", schema = "java")
 public class Stock {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -10,7 +11,8 @@ public class Stock {
     private int aantalVerkoop;
     private int aantalVerhuur;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "bordspel_id", referencedColumnName = "id")
     private Bordspel bordspel;
 
     public Stock() {
