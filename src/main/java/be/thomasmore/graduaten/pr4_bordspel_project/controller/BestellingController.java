@@ -53,29 +53,48 @@ public class BestellingController {
     }
 
 
-
+    long returnKoopId;
     @RequestMapping("/koopSpel")
     public String koopSpel(HttpServletRequest request, Model model){
+        long id;
 
-        model.addAttribute(Besteld.NAME, new Besteld());
-        model.addAttribute(BesteldError.NAME, new BesteldError());
+        if(request.getParameter("id") !=null){
+            id = Long.parseLong(request.getParameter("id"));
+            returnKoopId = id;
+        }
+        else{
+            id = returnKoopId;
+        }
 
-        long id = Long.parseLong(request.getParameter("id"));
         Bordspel bordspel = bordspelService.getBordspelById(id);
         model.addAttribute("bordspel", bordspel);
+
+            model.addAttribute(Besteld.NAME, new Besteld());
+            model.addAttribute(BesteldError.NAME, new BesteldError());
+
 
         return "koopSpel";
     }
 
+    long returnHuurId;
     @RequestMapping("/huurSpel")
     public String huurSpel(HttpServletRequest request, Model model){
+        long id;
+
+        if(request.getParameter("id") != null){
+            id = Long.parseLong(request.getParameter("id"));
+            returnHuurId = id;
+        }
+        else{
+            id = returnHuurId;
+        }
+
+        Bordspel bordspel = bordspelService.getBordspelById(id);
+        model.addAttribute("bordspel", bordspel);
 
         model.addAttribute(Besteld.NAME, new Besteld());
         model.addAttribute(BesteldError.NAME, new BesteldError());
 
-        long id = Long.parseLong(request.getParameter("id"));
-        Bordspel bordspel = bordspelService.getBordspelById(id);
-        model.addAttribute("bordspel", bordspel);
 
 
         return "huurSpel";
@@ -133,9 +152,14 @@ public class BestellingController {
 
         //Controle en toevoegen aan DB met redirect
         if (besteldError.hasErrors) {
+
+            long id = ((Bordspel) request.getAttribute("bordspel")).getId();
+            Bordspel bordspel = bordspelService.getBordspelById(id);
+            model.addAttribute("bordspel", bordspel);
+
             model.addAttribute(Besteld.NAME, bestelling);
             model.addAttribute(BesteldError.NAME, besteldError);
-            model.addAttribute("bordspel");
+
             return "/koopSpel";
         }
 
@@ -143,7 +167,6 @@ public class BestellingController {
             bestellingService.addBestelling(bestelling);
             model.addAttribute("bestelling",bestelling);
             return "/bevestiging";
-
         }
 
     }

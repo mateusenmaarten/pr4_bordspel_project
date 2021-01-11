@@ -77,6 +77,7 @@
 <%
     Bordspel bordspel = (Bordspel) request.getAttribute("bordspel");
 
+
     Besteld bestelling = (Besteld) request.getAttribute(Besteld.NAME);
     BesteldError besteldError =  (BesteldError) request.getAttribute(BesteldError.NAME);
 %>
@@ -124,7 +125,7 @@
                                         <p class="text-secondary"><%=Bordspel.UITGEVER%>: <%=bordspel.getUitgever()%> </p>
                                     </div>
                                     <div>
-                                        <form action="koopProductForm">
+                                        <form action="koopProductForm" method="post">
 
                                             <label for="<%=Besteld.AFHAALDATUM%>"><%=Besteld.AFHAALDATUM%></label>
 
