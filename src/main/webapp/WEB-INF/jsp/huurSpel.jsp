@@ -1,8 +1,8 @@
 <%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Bordspel" %><%--
   Created by IntelliJ IDEA.
-  User: wimst
-  Date: 30/11/2020
-  Time: 20:53
+  User: Maarten
+  Date: 11/01/2021
+  Time: 11:34
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -25,7 +25,7 @@
             crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Details</title>
+    <title>Huur Spel</title>
 </head>
 
 <body>
@@ -99,7 +99,7 @@
                     <div class="container rounded p-2">
                         <div class="row">
                             <div class="col-12 col-lg-4 p-1 text-center">
-                                <img src="<%=bordspel.getImagePath()%>" style="width:100%" class="rounded" />
+                                <img src="../<%=bordspel.getImagePath()%>" style="width:100%" class="rounded" />
                             </div>
                             <div class="col-12 col-lg-8">
                                 <div class="row pl-3">
@@ -118,6 +118,18 @@
                                     <div class="col-12">
                                         <p class="text-secondary"><%=Bordspel.UITGEVER%>: <%=bordspel.getUitgever()%> </p>
                                     </div>
+                                    <div>
+<%--                                        <input class="form-control<%out.print(bordspelError.beschrijving != null ? " is-invalid" : "");%>"--%>
+<%--                                               type="text"--%>
+<%--                                               id="<%=Bordspel.BESCHRIJVING%>"--%>
+<%--                                               name="<%=Bordspel.BESCHRIJVING%>"--%>
+<%--                                               value="<%=bordspel.getBeschrijving() == null ? "" : bordspel.getBeschrijving()%>">--%>
+<%--                                        <%--%>
+<%--                                            if (bordspelError.beschrijving != null) {--%>
+<%--                                                out.print("<span style='color: red;'>" + bordspelError.beschrijving + "</span>");--%>
+<%--                                            }--%>
+<%--                                        %>--%>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -125,12 +137,9 @@
                 </div>
                 <div class="card-footer bg-light">
                     <div class="row d-flex justify-content-md-end">
-                        <div class="col-3 pb-1 ">
-                            <a href="/bestelling/koopSpel?id=<%=bordspel.getId()%>"  class="btn btn-primary form-control btn-lg" style="height:50px;">Kopen</a>
-                        </div>
                         <div class="col-3 ">
 
-                            <a href="/bestelling/huurSpel?id=<%=bordspel.getId()%>" class="btn btn-primary form-control btn-lg" style="height:50px;">Huren</a>
+                            <a type="submit" href="bevestiging" class="btn btn-primary form-control btn-lg" style="height:50px;">Huur bevestigen</a>
                         </div>
                     </div>
                 </div>

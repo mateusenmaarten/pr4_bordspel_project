@@ -2,7 +2,6 @@ package be.thomasmore.graduaten.pr4_bordspel_project.controller;
 import be.thomasmore.graduaten.pr4_bordspel_project.entity.*;
 import be.thomasmore.graduaten.pr4_bordspel_project.service.BordspelService;
 import be.thomasmore.graduaten.pr4_bordspel_project.service.GebruikerService;
-import org.apache.catalina.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

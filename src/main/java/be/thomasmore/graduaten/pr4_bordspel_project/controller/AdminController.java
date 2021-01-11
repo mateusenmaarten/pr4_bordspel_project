@@ -46,7 +46,7 @@ public class AdminController {
 
 
     @RequestMapping("/productenAdmin")
-    public String Producten(Model model) {
+    public String producten(Model model) {
 
         List<Bordspel> spellen = bordspelService.getBordspellen();
         model.addAttribute("spellen",spellen);
@@ -56,7 +56,7 @@ public class AdminController {
 
 
     @RequestMapping("/gebruikersAdmin")
-    public String Gebruikers(Model model){
+    public String gebruikers(Model model){
 
         List<Gebruiker> gebruikers = service.getGebruikers();
         model.addAttribute("gebruikers", gebruikers);
@@ -65,7 +65,7 @@ public class AdminController {
     }
 
     @RequestMapping("/gebruikersDetailAdmin")
-    public String Gebruiker(HttpServletRequest request, Model model){
+    public String gebruiker(HttpServletRequest request, Model model){
 
         long id = Long.parseLong(request.getParameter("id"));
 
@@ -75,7 +75,7 @@ public class AdminController {
     }
 
     @RequestMapping("/editproduct")
-    public String Edit(HttpServletRequest request, Model model){
+    public String edit(HttpServletRequest request, Model model){
 
         long id = Long.parseLong(request.getParameter("id"));
         Bordspel bordspel = bordspelService.getBordspelById(id);
@@ -85,7 +85,7 @@ public class AdminController {
 
 
     @RequestMapping("/createProduct")
-    public String Create(Model model) {
+    public String create(Model model) {
 
         model.addAttribute(Bordspel.NAME, new Bordspel());
 
