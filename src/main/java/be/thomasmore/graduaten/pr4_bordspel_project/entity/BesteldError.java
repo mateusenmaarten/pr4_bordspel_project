@@ -5,4 +5,5 @@ public class BesteldError {
     public boolean hasErrors;
 
     public String afhaaldatum;
+    public  String stock;
 }

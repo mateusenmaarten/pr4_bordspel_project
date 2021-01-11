@@ -1,4 +1,6 @@
-<%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Bordspel" %><%--
+<%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Bordspel" %>
+<%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.BesteldError" %>
+<%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Besteld" %><%--
   Created by IntelliJ IDEA.
   User: Maarten
   Date: 11/01/2021
@@ -74,6 +76,9 @@
 
 <%
     Bordspel bordspel = (Bordspel) request.getAttribute("bordspel");
+
+    Besteld bestelling = (Besteld) request.getAttribute(Besteld.NAME);
+    BesteldError besteldError = (BesteldError) request.getAttribute(BesteldError.NAME);
 %>
 
 <!-- ACTIONS -->
@@ -119,16 +124,21 @@
                                         <p class="text-secondary"><%=Bordspel.UITGEVER%>: <%=bordspel.getUitgever()%> </p>
                                     </div>
                                     <div>
-<%--                                        <input class="form-control<%out.print(bordspelError.beschrijving != null ? " is-invalid" : "");%>"--%>
-<%--                                               type="text"--%>
-<%--                                               id="<%=Bordspel.BESCHRIJVING%>"--%>
-<%--                                               name="<%=Bordspel.BESCHRIJVING%>"--%>
-<%--                                               value="<%=bordspel.getBeschrijving() == null ? "" : bordspel.getBeschrijving()%>">--%>
-<%--                                        <%--%>
-<%--                                            if (bordspelError.beschrijving != null) {--%>
-<%--                                                out.print("<span style='color: red;'>" + bordspelError.beschrijving + "</span>");--%>
-<%--                                            }--%>
-<%--                                        %>--%>
+                                        <form action="huurProductForm">
+
+                                            <label for="<%=Besteld.AFHAALDATUM%>"><%=Besteld.AFHAALDATUM%></label>
+
+                                            <input class="form-control<%out.print(besteldError.afhaaldatum != null ? " is-invalid" : "");%>"
+                                                   type="text"
+                                                   id="<%=Besteld.AFHAALDATUM%>"
+                                                   name="<%=Besteld.AFHAALDATUM%>"
+                                                   value="<%=bestelling.getAfhaalDatum() == null ? "" : bestelling.getAfhaalDatum()%>">
+                                            <%
+                                                if (besteldError.afhaaldatum != null) {
+                                                    out.print("<span style='color: red;'>" + besteldError.afhaaldatum + "</span>");
+                                                }
+                                            %>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -138,8 +148,7 @@
                 <div class="card-footer bg-light">
                     <div class="row d-flex justify-content-md-end">
                         <div class="col-3 ">
-
-                            <a type="submit" href="bevestiging" class="btn btn-primary form-control btn-lg" style="height:50px;">Huur bevestigen</a>
+                            <input type="submit"  class="btn btn-primary form-control btn-lg" style="height:50px;" value="Huur bevestigen"/>
                         </div>
                     </div>
                 </div>
