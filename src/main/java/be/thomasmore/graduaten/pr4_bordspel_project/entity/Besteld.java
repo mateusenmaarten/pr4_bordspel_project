@@ -4,7 +4,11 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@Table(name="Besteld", schema = "java")
 public class Besteld {
+    public static final String NAME = "besteld";
+    public static final String AFHAALDATUM = "Afhaaldatum: ";
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
