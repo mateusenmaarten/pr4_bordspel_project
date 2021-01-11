@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name="TypeBesteld", schema = "java")
 public class TypeBesteld {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,6 +13,7 @@ public class TypeBesteld {
 
     @OneToMany
     private List<Besteld> besteldList;
+
     public TypeBesteld() {
     }
 

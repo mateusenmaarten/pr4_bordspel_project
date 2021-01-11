@@ -95,8 +95,6 @@ public class BestellingController {
         model.addAttribute(Besteld.NAME, new Besteld());
         model.addAttribute(BesteldError.NAME, new BesteldError());
 
-
-
         return "huurSpel";
     }
 
@@ -138,7 +136,7 @@ public class BestellingController {
             bestelling.setAfhaalDatum(datum);
         }
         else{
-            besteldError.afhaaldatum = "Vul een afhaaldatum in (Maand/dag/jaar)";
+            besteldError.afhaalDatum = "Vul een afhaaldatum in (Maand/dag/jaar)";
             besteldError.hasErrors = true;
         }
 
@@ -146,8 +144,6 @@ public class BestellingController {
 
             besteldError.stock = "Dit spel is helaas niet beschikbaar";
             besteldError.hasErrors = true;
-
-
         }
 
         //Controle en toevoegen aan DB met redirect
@@ -162,9 +158,8 @@ public class BestellingController {
 
             return "/koopSpel";
         }
-
         else {
-            bestellingService.addBestelling(bestelling);
+//            bestellingService.addBestelling(bestelling);
             model.addAttribute("bestelling",bestelling);
             return "/bevestiging";
         }
@@ -199,31 +194,32 @@ public class BestellingController {
             bestelling.setAfhaalDatum(datum);
         }
         else{
-            besteldError.afhaaldatum = "Vul een afhaaldatum in (Maand/dag/jaar)";
+            besteldError.afhaalDatum = "Vul een afhaaldatum in (Maand/dag/jaar)";
             besteldError.hasErrors = true;
         }
 
+        if (!controleerHuurStock((Bordspel) request.getAttribute("bordspel"))){
+
+            besteldError.stock = "Dit spel is helaas niet beschikbaar";
+            besteldError.hasErrors = true;
+        }
 
         //Controle en toevoegen aan DB met redirect
         if (besteldError.hasErrors) {
+
+            long id = ((Bordspel) request.getAttribute("bordspel")).getId();
+            Bordspel bordspel = bordspelService.getBordspelById(id);
+            model.addAttribute("bordspel", bordspel);
+
             model.addAttribute(Besteld.NAME, bestelling);
             model.addAttribute(BesteldError.NAME, besteldError);
-            return "huurSpel";
+
+            return "/huurSpel";
         }
         else {
-            //Stock aantal_verkoop controleren -> niet meer in stock = uitverkocht melding anders koop ok
-            if (controleerHuurStock((Bordspel) request.getAttribute("bordspel"))){
-
-                bestellingService.addBestelling(bestelling);
-                model.addAttribute("bestelling",bestelling);
-                return "bevestiging";
-
-            }
-            else{
-                besteldError.stock = "Dit spel is helaas niet beschikbaar";
-                besteldError.hasErrors = true;
-                return "huurSpel";
-            }
+//            bestellingService.addBestelling(bestelling);
+            model.addAttribute("bestelling",bestelling);
+            return "/bevestiging";
         }
     }
 }

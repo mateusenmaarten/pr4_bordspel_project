@@ -1,8 +1,10 @@
 package be.thomasmore.graduaten.pr4_bordspel_project.controller;
 
+import be.thomasmore.graduaten.pr4_bordspel_project.entity.Besteld;
 import be.thomasmore.graduaten.pr4_bordspel_project.entity.Bordspel;
 import be.thomasmore.graduaten.pr4_bordspel_project.entity.BordspelError;
 import be.thomasmore.graduaten.pr4_bordspel_project.entity.Gebruiker;
+import be.thomasmore.graduaten.pr4_bordspel_project.service.BesteldService;
 import be.thomasmore.graduaten.pr4_bordspel_project.service.BordspelService;
 import be.thomasmore.graduaten.pr4_bordspel_project.service.GebruikerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +46,9 @@ public class AdminController {
     @Autowired
     GebruikerService service;
 
+    @Autowired
+    BesteldService bestellingService;
+
 
     @RequestMapping("/productenAdmin")
     public String producten(Model model) {
@@ -72,6 +77,14 @@ public class AdminController {
         Gebruiker gebruiker = service.getGebruiker(id);
         model.addAttribute("selectedgebruiker", gebruiker);
         return "gebruikersDetailAdmin";
+    }
+
+    @RequestMapping("/bestellingenAdmin")
+    public String bestellingen(Model model){
+        List<Besteld> bestellingen = bestellingService.getBestellingen();
+        model.addAttribute("bestellingen", bestellingen);
+
+        return "bestellingenAdmin";
     }
 
     @RequestMapping("/editproduct")

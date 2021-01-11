@@ -1,14 +1,15 @@
 <%--
   Created by IntelliJ IDEA.
   User: Maarten
-  Date: 9/01/2021
-  Time: 13:06
+  Date: 11/01/2021
+  Time: 20:38
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Bordspel" %>
 <%@ page import="java.util.List" %>
 <%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Gebruiker" %>
 <%@ page import="org.springframework.web.bind.annotation.GetMapping" %>
+<%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Besteld" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -87,13 +88,16 @@
 </nav>
 
 <section class="m-3">
-    <h1 class="text-info">Gebruikers</h1>
+    <h1 class="text-info">Bestellingen</h1>
 
     <table class="table table-bordered table-striped">
         <thead>
         <tr>
-            <th>Voornaam</th>
-            <th>Achternaam</th>
+            <th>Id</th>
+            <th>Type bestelling</th>
+            <th>Gebruiker Id</th>
+            <th>Bordspel Id</th>
+            <th>Afhaal datum</th>
 
         </tr>
         </thead>
@@ -101,28 +105,21 @@
         <tr>
 
                 <%
-                List<Gebruiker> gebruikers = (List<Gebruiker>) request.getAttribute("gebruikers");
+                List<Besteld> bestellingen = (List<Besteld>) request.getAttribute("bestellingen");
 
-                for(Gebruiker gebruiker: gebruikers){
+                for(Besteld bestelling: bestellingen){
 
 
-                    out.print(("<td>" + gebruiker.getVoornaam() + "</td>"));
-                    out.print(("<td>" + gebruiker.getAchternaam() + "</td>"));
-
-                    out.print(("<td class=\"text-center\">\n" +
-                            "                <div class=\"w-75 btn-group\" role=\"group\">\n" +
-                            "                    <a\n" +
-                            "                         href=\"gebruikersDetailAdmin?id=" + gebruiker.getId()+"\"   class=\"btn btn-primary mx-2\"\n" +
-                            "                    >Details</a>\n" +
-                            "                </div>\n" +
-                            "            </td>\n" +
-                            "        </tr>"));
-
+                    out.print(("<td>" + bestelling.getId() + "</td>"));
+                    out.print(("<td>" + bestelling.getTypeBesteld() + "</td>"));
+                    out.print(("<td>" + bestelling.getGebruiker() + "</td>"));
+                    out.print(("<td>" + bestelling.getBordspel() + "</td>"));
+                    out.print(("<td>" + bestelling.getAfhaalDatum() + "</td>"));
 
                 }
 
             %>
-
+        </tr>
         </tbody>
     </table>
 </section>

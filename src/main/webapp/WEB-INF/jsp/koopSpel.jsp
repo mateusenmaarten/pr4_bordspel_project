@@ -61,9 +61,9 @@
                         Content Management
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a href="admin/productenAdmin" class="nav-link text-dark" >Producten</a>
-                        <a href="admin/gebruikersAdmin" class="nav-link text-dark" >Gebruikers</a>
-                        <a class="nav-link text-dark" >Bestellingen</a>
+                        <a href="/admin/productenAdmin" class="nav-link text-dark" >Producten</a>
+                        <a href="/admin/gebruikersAdmin" class="nav-link text-dark" >Gebruikers</a>
+                        <a href="/admin/bestellingenAdmin" class="nav-link text-dark" >Bestellingen</a>
                         <a class="nav-link text-dark" >Categorieën</a>
                         <div class="dropdown-divider"></div>
 
@@ -125,21 +125,20 @@
                                         <p class="text-secondary"><%=Bordspel.UITGEVER%>: <%=bordspel.getUitgever()%> </p>
                                     </div>
                                     <div>
-                                        <form action="koopProductForm" method="post">
-
+                                        <form action="koopProductForm">
+                                            <div class="form-group">
                                             <label for="<%=Besteld.AFHAALDATUM%>"><%=Besteld.AFHAALDATUM%></label>
-
-                                            <input class="form-control<%out.print(besteldError.afhaaldatum != null ? " is-invalid" : "");%>"
+                                            <input class="form-control<%out.print(besteldError.afhaalDatum != null ? " is-invalid" : "");%>"
                                                    type="text"
                                                    id="<%=Besteld.AFHAALDATUM%>"
                                                    name="<%=Besteld.AFHAALDATUM%>"
                                                    value="<%=bestelling.getAfhaalDatum() == null ? "" : bestelling.getAfhaalDatum()%>">
                                             <%
-                                                if (besteldError.afhaaldatum != null) {
-                                                    out.print("<span style='color: red;'>" + besteldError.afhaaldatum + "</span>");
+                                                if (besteldError.afhaalDatum != null) {
+                                                    out.print("<span style='color: red;'>" + besteldError.afhaalDatum + "</span>");
                                                 }
                                             %>
-
+                                            </div>
                                         </form>
 
                                     </div>

@@ -4,6 +4,6 @@ public class BesteldError {
     public static final String NAME = "besteld_error";
     public boolean hasErrors;
 
-    public String afhaaldatum;
+    public String afhaalDatum;
     public  String stock;
 }
