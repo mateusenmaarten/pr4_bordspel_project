@@ -59,8 +59,8 @@
                         Content Management
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a href="productenAdmin" class="nav-link text-dark" >Producten</a>
-                        <a href="/gebruikersAdmin" class="nav-link text-dark" >Gebruikers</a>
+                        <a href="admin/productenAdmin" class="nav-link text-dark" >Producten</a>
+                        <a href="admin/gebruikersAdmin" class="nav-link text-dark" >Gebruikers</a>
                         <a class="nav-link text-dark" >Bestellingen</a>
                         <a class="nav-link text-dark" >Categorieën</a>
                         <div class="dropdown-divider"></div>

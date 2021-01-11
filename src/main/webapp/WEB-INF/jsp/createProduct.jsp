@@ -65,8 +65,8 @@
                         Content Management
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a href="/productenAdmin" class="nav-link text-dark" >Producten</a>
-                        <a href="/gebruikersAdmin" class="nav-link text-dark" >Gebruikers</a>
+                        <a href="/admin/productenAdmin" class="nav-link text-dark" >Producten</a>
+                        <a href="/admin/gebruikersAdmin" class="nav-link text-dark" >Gebruikers</a>
                         <a class="nav-link text-dark" >Bestellingen</a>
                         <a class="nav-link text-dark" >Categorieën</a>
                         <div class="dropdown-divider"></div>
@@ -265,7 +265,7 @@
                             <input type="submit" class="btn btn-primary w-100" value="Create" />
                         </div>
                         <div class="col">
-                            <a href="/productenAdmin" class="btn btn-success w-100"><i class="fas fa-sign-out-alt"></i> Back</a>
+                            <a href="productenAdmin" class="btn btn-success w-100"><i class="fas fa-sign-out-alt"></i> Back</a>
                         </div>
                     </div>
                 </div>
