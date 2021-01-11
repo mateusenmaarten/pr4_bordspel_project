@@ -141,7 +141,7 @@ public class AdminController {
         String foto = request.getParameter(Bordspel.FOTO);
         bordspel.setImagePath(foto);
         if (foto.isEmpty()) {
-            bordspelError.foto = "Vul het foto path in (resources/images/[fotonaam].png";
+            bordspelError.foto = "Vul het foto path in (images/[fotonaam].png";
             bordspelError.hasErrors = true;
         }
 

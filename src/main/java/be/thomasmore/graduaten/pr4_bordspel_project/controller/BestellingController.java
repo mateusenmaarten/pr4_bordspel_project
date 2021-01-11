@@ -135,7 +135,7 @@ public class BestellingController {
         if (besteldError.hasErrors) {
             model.addAttribute(Besteld.NAME, bestelling);
             model.addAttribute(BesteldError.NAME, besteldError);
-
+            model.addAttribute("bordspel");
             return "/koopSpel";
         }
 
