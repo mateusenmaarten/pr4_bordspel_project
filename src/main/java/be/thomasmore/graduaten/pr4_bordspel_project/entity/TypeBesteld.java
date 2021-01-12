@@ -11,7 +11,8 @@ public class TypeBesteld {
     private long id;
     private String beschrijving;
 
-    @OneToMany
+
+    @OneToMany(mappedBy = "typeBesteld")
     private List<Besteld> besteldList;
 
     public TypeBesteld() {

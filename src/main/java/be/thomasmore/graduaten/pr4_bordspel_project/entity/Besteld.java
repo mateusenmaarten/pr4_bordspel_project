@@ -13,11 +13,10 @@ public class Besteld {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-
     private LocalDate afhaalDatum;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "type_besteld_id", referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "type_besteld_id")
     private TypeBesteld typeBesteld;
 
     @ManyToOne
