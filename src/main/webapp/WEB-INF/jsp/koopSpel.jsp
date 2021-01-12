@@ -31,7 +31,7 @@
 </head>
 
 <body>
-
+<jsp:include page="navigatiebar.jsp"/>
 <%
     Bordspel bordspel = (Bordspel) request.getAttribute("bordspel");
 

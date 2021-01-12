@@ -31,16 +31,13 @@
 </head>
 
 <body>
-
 <jsp:include page="navigatiebar.jsp"/>
-
 <%
     Bordspel bordspel = (Bordspel) request.getAttribute("bordspel");
 
     Besteld bestelling = (Besteld) request.getAttribute(Besteld.NAME);
     BesteldError besteldError = (BesteldError) request.getAttribute(BesteldError.NAME);
 %>
-
 <!-- ACTIONS -->
 <section id="actions" class="mb-5 mt-5 bg-light">
     <div class="container">
