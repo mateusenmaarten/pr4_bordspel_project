@@ -11,6 +11,7 @@
     <title>Bevestiging</title>
 </head>
 <body>
+<jsp:include page="navigatiebar.jsp"/>
     BEVESTIGING
 </body>
 </html>
