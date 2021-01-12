@@ -1,8 +1,10 @@
-<%--
+<%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Bordspel" %>
+<%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.BesteldError" %>
+<%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Besteld" %><%--
   Created by IntelliJ IDEA.
-  User: wimst
-  Date: 30/11/2020
-  Time: 20:53
+  User: Maarten
+  Date: 11/01/2021
+  Time: 11:34
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -25,7 +27,7 @@
             crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Login</title>
+    <title>Huur Spel</title>
 </head>
 
 <body>
@@ -54,23 +56,30 @@
                 <li class="nav-item">
                     <a href="/login" class="nav-link">Login</a>
                 </li>
-
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Content Management
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a href="/productenAdmin" class="nav-link text-dark" >Producten</a>
-                        <a class="nav-link text-dark" >Bestellingen</a>
+                        <a href="admin/productenAdmin" class="nav-link text-dark" >Producten</a>
+                        <a href="admin/gebruikersAdmin" class="nav-link text-dark" >Gebruikers</a>
+                        <a href="/admin/bestellingenAdmin" class="nav-link text-dark" >Bestellingen</a>
                         <a class="nav-link text-dark" >Categorieën</a>
                         <div class="dropdown-divider"></div>
-                        <a class="nav-link text-dark">Admin Aanmaken</a>
+
                     </div>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+
+<%
+    Bordspel bordspel = (Bordspel) request.getAttribute("bordspel");
+
+    Besteld bestelling = (Besteld) request.getAttribute(Besteld.NAME);
+    BesteldError besteldError = (BesteldError) request.getAttribute(BesteldError.NAME);
+%>
 
 <!-- ACTIONS -->
 <section id="actions" class="mb-5 mt-5 bg-light">
@@ -81,42 +90,55 @@
 
 <div>
     <form>
-        <input asp-for="@Model.Product.ProductID" hidden />
         <div class="container backgroundWhite pt-4">
             <div class="card" style="border: 1px solid #DCDCDC;">
                 <div class="card-header bg-light text-dark ml-0 row container" style="border-radius: 0px;">
                     <div class="col-12 col-md-6 font-italic font-weight-bolder">
-                        <h1>Naam</h1>
+                        <h1><%=bordspel.getNaam()%></h1>
                     </div>
                     <div class="col-12 col-md-6 text-md-right">
-                        <h1 class="text-dark">?Prijs?</h1>
+                        <h1 class="text-dark"><%=bordspel.getPrijs()%>€</h1>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="container rounded p-2">
                         <div class="row">
                             <div class="col-12 col-lg-4 p-1 text-center">
-                                <img src="" style="width:100%" class="rounded" />
+                                <img src="../<%=bordspel.getImagePath()%>" style="width:100%" class="rounded" />
                             </div>
                             <div class="col-12 col-lg-8">
                                 <div class="row pl-3">
                                     <div class="col-12">
-                                        <p class="text-secondary">Description </p>
+                                        <p class="text-secondary"><%=Bordspel.AANTALSPELERS%>: <%=bordspel.getAantalSpelers()%> </p>
                                     </div>
                                     <div class="col-12">
-                                        <p class="text-secondary">Description </p>
+                                        <p class="text-secondary"><%=Bordspel.MINIMUMLEEFTIJD%>: <%=bordspel.getMinLeeftijd()%> </p>
                                     </div>
                                     <div class="col-12">
-                                        <p class="text-secondary">Description </p>
+                                        <p class="text-secondary"><%=Bordspel.SPEELDUUR%>: <%=bordspel.getSpeelduur()%> </p>
                                     </div>
                                     <div class="col-12">
-                                        <p class="text-secondary">Description </p>
+                                        <p class="text-secondary"><%=Bordspel.TAAL%>: <%=bordspel.getTaal()%> </p>
                                     </div>
                                     <div class="col-12">
-                                        <p class="text-secondary">Description </p>
+                                        <p class="text-secondary"><%=Bordspel.UITGEVER%>: <%=bordspel.getUitgever()%> </p>
                                     </div>
-                                    <div class="col-12">
-                                        <p class="text-secondary">Description </p>
+                                    <div>
+                                        <form action="huurProductForm">
+
+                                            <label for="<%=Besteld.AFHAALDATUM%>"><%=Besteld.AFHAALDATUM%></label>
+
+                                            <input class="form-control<%out.print(besteldError.afhaalDatum != null ? " is-invalid" : "");%>"
+                                                   type="text"
+                                                   id="<%=Besteld.AFHAALDATUM%>"
+                                                   name="<%=Besteld.AFHAALDATUM%>"
+                                                   value="<%=bestelling.getAfhaalDatum() == null ? "" : bestelling.getAfhaalDatum()%>">
+                                            <%
+                                                if (besteldError.afhaalDatum != null) {
+                                                    out.print("<span style='color: red;'>" + besteldError.afhaalDatum + "</span>");
+                                                }
+                                            %>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -125,12 +147,8 @@
                 </div>
                 <div class="card-footer bg-light">
                     <div class="row d-flex justify-content-md-end">
-                        <div class="col-3 pb-1 ">
-                            <a class="btn btn-primary form-control btn-lg" style="height:50px;">Kopen</a>
-                        </div>
                         <div class="col-3 ">
-
-                            <a class="btn btn-primary form-control btn-lg" style="height:50px;">Huren</a>
+                            <input type="submit"  class="btn btn-primary form-control btn-lg" style="height:50px;" value="Huur bevestigen"/>
                         </div>
                     </div>
                 </div>

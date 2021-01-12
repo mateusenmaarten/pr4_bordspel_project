@@ -4,7 +4,11 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@Table(name="Besteld", schema = "java")
 public class Besteld {
+    public static final String NAME = "Besteld";
+    public static final String AFHAALDATUM = "Afhaal Datum: ";
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -12,7 +16,8 @@ public class Besteld {
 
     private LocalDate afhaalDatum;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "type_besteld_id", referencedColumnName = "id")
     private TypeBesteld typeBesteld;
 
     @ManyToOne
