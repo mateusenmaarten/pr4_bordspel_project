@@ -29,16 +29,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests().antMatchers("/login").permitAll()
-                .antMatchers("/","index","/css/*","/js/*").permitAll()
-                .antMatchers("/admin/productenAdmin","/admin/createProduct","/admin/gebruikersAdmin","/admin/gebruikersDetailAdmin").hasRole("ADMIN")
-                .antMatchers("/about").hasAnyRole("ADMIN","USER")
+                .antMatchers("/","index","/css/*","/js/*","/register").permitAll()
+                .antMatchers("/admin/*").hasRole("ADMIN")
+                .antMatchers("/bestelling/*").hasAnyRole("ADMIN","USER")
                 .and()
-                .formLogin().loginPage("/login").permitAll();
-
+                .formLogin().loginPage("/login").permitAll()
+                ;
 
     }
-
     @Bean
     public PasswordEncoder getPasswordEncoder(){return NoOpPasswordEncoder.getInstance();}
+
 
 }

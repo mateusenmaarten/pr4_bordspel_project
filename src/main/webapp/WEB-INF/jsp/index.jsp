@@ -1,5 +1,8 @@
 <%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Bordspel" %>
+<%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.BesteldError" %>
 <%@ page import="java.util.List" %>
+
+<%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Gebruiker" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,51 +31,7 @@
 </head>
 
 <body>
-
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-    <div class="container">
-        <a href="/" id="naam" class="navbar-brand">Board Games</a>
-        <button
-                class="navbar-toggler"
-                data-toggle="collapse"
-                data-target="#navbarCollapse"
-        >
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a href="/" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/about" class="nav-link">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/products" class="nav-link">Producten</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/login" class="nav-link">Login</a>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Content Management
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a href="/admin/productenAdmin" class="nav-link text-dark" >Producten</a>
-                        <a href="/admin/gebruikersAdmin" class="nav-link text-dark" >Gebruikers</a>
-                        <a href="/admin/bestellingenAdmin" class="nav-link text-dark" >Bestellingen</a>
-                        <a class="nav-link text-dark" >Categorieën</a>
-                        <div class="dropdown-divider"></div>
-
-                    </div>
-                </li>
-
-            </ul>
-        </div>
-    </div>
-</nav>
-
+<jsp:include page="navigatiebar.jsp"/>
 <!-- SHOWCASE SLIDER -->
 <section id="showcase">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
