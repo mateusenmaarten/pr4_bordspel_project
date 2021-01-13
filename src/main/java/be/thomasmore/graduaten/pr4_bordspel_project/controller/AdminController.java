@@ -44,7 +44,7 @@ public class AdminController {
     BordspelService bordspelService;
 
     @Autowired
-    GebruikerService service;
+    GebruikerService gebruikerService;
 
     @Autowired
     BesteldService bestellingService;
@@ -63,7 +63,7 @@ public class AdminController {
     @RequestMapping("/gebruikersAdmin")
     public String gebruikers(Model model){
 
-        List<Gebruiker> gebruikers = service.getGebruikers();
+        List<Gebruiker> gebruikers = gebruikerService.getGebruikers();
         model.addAttribute("gebruikers", gebruikers);
 
         return "gebruikersAdmin";
@@ -74,7 +74,7 @@ public class AdminController {
 
         long id = Long.parseLong(request.getParameter("id"));
 
-        Gebruiker gebruiker = service.getGebruiker(id);
+        Gebruiker gebruiker = gebruikerService.getGebruiker(id);
         model.addAttribute("selectedgebruiker", gebruiker);
         return "gebruikersDetailAdmin";
     }
@@ -94,7 +94,7 @@ public class AdminController {
         Bordspel bordspel = bordspelService.getBordspelById(id);
         model.addAttribute("bordspel", bordspel);
 
-        return "editproduct";}
+        return "editProduct";}
 
 
     @RequestMapping("/createProduct")

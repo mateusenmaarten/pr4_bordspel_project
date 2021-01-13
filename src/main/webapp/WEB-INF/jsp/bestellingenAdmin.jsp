@@ -40,9 +40,10 @@
 
 <section class="m-3">
 
+    <h1 class="text-info">Bestellingen</h1>
 
     <table class="table table-bordered table-striped">
-        <h1 class="text-info">Bestellingen</h1>
+
         <thead>
         <tr>
             <th>Id bestelling</th>

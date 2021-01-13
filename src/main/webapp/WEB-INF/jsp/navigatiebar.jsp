@@ -1,3 +1,7 @@
+<%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Gebruiker" %>
+<%@ page import="org.springframework.security.core.context.SecurityContextHolder" %>
+<%@ page import="org.springframework.security.core.userdetails.UserDetails" %>
+<%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.security.MyUserDetails" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
@@ -33,6 +37,30 @@
                         <a href="logout" class="nav-link">logout</a>
                     </li>
                 </sec:authorize>
+
+
+
+
+                <sec:authorize access="hasRole('USER')">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownKlant" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Mijn gegevens
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <%
+                                Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+                                if(principal instanceof MyUserDetails){
+                                    long userId = ((MyUserDetails)principal).getId();
+                                    out.print("<a href=\"/klant/mijnGegevens?id=" +userId + "\" class=\"nav-link text-dark\" >Mijn gegevens</a>");
+                                }
+                            %>
+
+                            <div class="dropdown-divider"></div>
+
+                        </div>
+                    </li>
+                </sec:authorize>
                 <sec:authorize access="hasRole('ADMIN')">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -43,7 +71,6 @@
                             <a href="/admin/productenAdmin" class="nav-link text-dark" >Producten</a>
                             <a href="/admin/gebruikersAdmin" class="nav-link text-dark" >Gebruikers</a>
                             <a href="/admin/bestellingenAdmin" class="nav-link text-dark" >Bestellingen</a>
-                            <a class="nav-link text-dark" >Categorieën</a>
                             <div class="dropdown-divider"></div>
 
                         </div>

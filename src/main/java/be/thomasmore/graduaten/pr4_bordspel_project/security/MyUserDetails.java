@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class MyUserDetails implements UserDetails {
+    private long id;
     private String eMail;
     private String wachtwoord;
     private List<GrantedAuthority> authorities;
@@ -22,6 +23,7 @@ public class MyUserDetails implements UserDetails {
     }
 
     public MyUserDetails(Gebruiker gebruiker) {
+        this.id = gebruiker.getId();
         this.eMail = gebruiker.getEmail();
         this.wachtwoord = gebruiker.getWachtwoord();
         this.authorities = Arrays.stream(gebruiker.getRoles().split(","))
@@ -31,6 +33,9 @@ public class MyUserDetails implements UserDetails {
     public MyUserDetails() {
 
     }
+
+
+    public long getId()  {return id;}
 
     @Override
     public String getPassword() {
