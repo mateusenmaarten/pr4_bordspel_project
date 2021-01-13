@@ -39,38 +39,41 @@
 <jsp:include page="navigatiebar.jsp"/>
 
 <section class="m-3">
-    <h1 class="text-info">Bestellingen</h1>
+
 
     <table class="table table-bordered table-striped">
+        <h1 class="text-info">Bestellingen</h1>
         <thead>
         <tr>
-            <th>Id</th>
+            <th>Id bestelling</th>
             <th>Type bestelling</th>
-            <th>Gebruiker Id</th>
-            <th>Bordspel Id</th>
-            <th>Afhaal datum</th>
+            <th>Klant naam</th>
+            <th>Klant voornaam</th>
+            <th>Bordspel</th>
+            <th>Datum afgehaald</th>
 
         </tr>
         </thead>
         <tbody>
-        <tr>
+
 
                 <%
                 List<Besteld> bestellingen = (List<Besteld>) request.getAttribute("bestellingen");
 
                 for(Besteld bestelling: bestellingen){
 
-
+                    out.print("<tr>");
                     out.print(("<td>" + bestelling.getId() + "</td>"));
-                    out.print(("<td>" + bestelling.getTypeBesteld() + "</td>"));
-                    out.print(("<td>" + bestelling.getGebruiker() + "</td>"));
-                    out.print(("<td>" + bestelling.getBordspel() + "</td>"));
+                    out.print(("<td>" + bestelling.getTypeBesteld().getBeschrijving() + "</td>"));
+                    out.print(("<td>" + bestelling.getGebruiker().getAchternaam() + "</td>"));
+                    out.print(("<td>" + bestelling.getGebruiker().getVoornaam() + "</td>"));
+                    out.print(("<td>" + bestelling.getBordspel().getNaam() + "</td>"));
                     out.print(("<td>" + bestelling.getAfhaalDatum() + "</td>"));
-
+                    out.print("</tr>");
                 }
 
             %>
-        </tr>
+
         </tbody>
     </table>
 </section>
