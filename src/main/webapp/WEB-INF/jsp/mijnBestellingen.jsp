@@ -46,6 +46,7 @@
         <tr>
             <th>Bordspel</th>
             <th>Datum bestelling</th>
+            <th>Type bestelling</th>
 
         </tr>
         </thead>
@@ -59,6 +60,7 @@
                         out.print("<tr>");
                             out.print(("<td>" + bestelling.getBordspel().getNaam() + "</td>"));
                             out.print(("<td>" + bestelling.getAfhaalDatum() + "</td>"));
+                            out.print(("<td>" + bestelling.getTypeBesteld().getBeschrijving() + "</td>"));
                         out.print("<tr>");
                 }
 
