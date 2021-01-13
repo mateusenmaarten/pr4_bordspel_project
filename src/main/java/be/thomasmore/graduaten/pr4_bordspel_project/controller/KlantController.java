@@ -26,7 +26,7 @@ public class KlantController {
     long userId;
 
     @RequestMapping("/mijnGegevens")
-    public String gebruiker(HttpServletRequest request, Model model){
+    public String klantGegevens(HttpServletRequest request, Model model){
 
         GebruikerError gebruikerError = new GebruikerError();
         model.addAttribute("gebruikerError", gebruikerError);
@@ -39,6 +39,20 @@ public class KlantController {
         model.addAttribute("loggedInGebruiker", gebruiker);
 
         return "mijnGegevens";
+    }
+
+    @RequestMapping("/mijnBestellingen")
+    public String klantBestellingen(HttpServletRequest request, Model model){
+
+        long id = Long.parseLong(request.getParameter("id"));
+        userId = id;
+        Gebruiker gebruiker = gebruikerService.getGebruiker(id);
+        model.addAttribute("loggedInGebruiker", gebruiker);
+
+        List<Besteld> mijnBestellingen = gebruiker.getBesteldList();
+        model.addAttribute("mijnBestellingen", mijnBestellingen);
+
+        return "mijnBestellingen";
     }
 
     @RequestMapping("/processGegevensForm")

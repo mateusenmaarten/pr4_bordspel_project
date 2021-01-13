@@ -22,7 +22,7 @@
             crossorigin="anonymous"
     />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <title>Index</title>
+    <title>Producten</title>
 </head>
 
 <body>

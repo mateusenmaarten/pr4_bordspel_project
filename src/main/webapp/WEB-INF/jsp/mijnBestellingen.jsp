@@ -1,14 +1,15 @@
 <%--
   Created by IntelliJ IDEA.
   User: Maarten
-  Date: 9/01/2021
-  Time: 13:06
+  Date: 13/01/2021
+  Time: 18:39
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Bordspel" %>
 <%@ page import="java.util.List" %>
 <%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Gebruiker" %>
 <%@ page import="org.springframework.web.bind.annotation.GetMapping" %>
+<%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Besteld" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,45 +32,34 @@
             crossorigin="anonymous"
     />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <title>Gebruikers</title>
+    <title>Mijn Bestellingen</title>
 </head>
 
 <body>
 <jsp:include page="navigatiebar.jsp"/>
 
 <section class="m-3">
-    <h1 class="text-info">Gebruikers</h1>
+    <h1 class="text-info">Bestellingen</h1>
 
     <table class="table table-bordered table-striped">
         <thead>
         <tr>
-            <th>Voornaam</th>
-            <th>Achternaam</th>
+            <th>Bordspel</th>
+            <th>Datum bestelling</th>
 
         </tr>
         </thead>
         <tbody>
-        <tr>
+
 
                 <%
-                List<Gebruiker> gebruikers = (List<Gebruiker>) request.getAttribute("gebruikers");
+                List<Besteld> mijnBestellingen = (List<Besteld>)request.getAttribute("mijnBestellingen");
 
-                for(Gebruiker gebruiker: gebruikers){
-
-
-                    out.print(("<td>" + gebruiker.getVoornaam() + "</td>"));
-                    out.print(("<td>" + gebruiker.getAchternaam() + "</td>"));
-
-                    out.print(("<td class=\"text-center\">\n" +
-                            "                <div class=\"w-75 btn-group\" role=\"group\">\n" +
-                            "                    <a\n" +
-                            "                         href=\"gebruikersDetailAdmin?id=" + gebruiker.getId()+"\"   class=\"btn btn-primary mx-2\"\n" +
-                            "                    >Details</a>\n" +
-                            "                </div>\n" +
-                            "            </td>\n" +
-                            "        </tr>"));
-
-
+                    for(Besteld bestelling: mijnBestellingen){
+                        out.print("<tr>");
+                            out.print(("<td>" + bestelling.getBordspel().getNaam() + "</td>"));
+                            out.print(("<td>" + bestelling.getAfhaalDatum() + "</td>"));
+                        out.print("<tr>");
                 }
 
             %>

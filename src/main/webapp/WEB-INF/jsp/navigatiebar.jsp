@@ -53,6 +53,7 @@
                                 if(principal instanceof MyUserDetails){
                                     long userId = ((MyUserDetails)principal).getId();
                                     out.print("<a href=\"/klant/mijnGegevens?id=" +userId + "\" class=\"nav-link text-dark\" >Mijn gegevens</a>");
+                                    out.print("<a href=\"/klant/mijnBestellingen?id=" +userId + "\" class=\"nav-link text-dark\" >Mijn bestellingen</a>");
                                 }
                             %>
 

@@ -41,7 +41,8 @@ public class Gebruiker {
     @OneToMany
     private List<Review> reviewList;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "gebruiker_id")
     private List<Besteld> besteldList;
 
 
