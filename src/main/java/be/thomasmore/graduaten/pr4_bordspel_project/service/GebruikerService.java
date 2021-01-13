@@ -8,4 +8,5 @@ public interface GebruikerService {
     List<Gebruiker> getGebruikers();
     Gebruiker addGebruiker(Gebruiker gebruiker);
     Gebruiker getGebruiker(long id);
+
 }

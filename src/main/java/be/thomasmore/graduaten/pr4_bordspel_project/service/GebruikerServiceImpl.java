@@ -27,4 +27,6 @@ public class GebruikerServiceImpl implements GebruikerService {
     public Gebruiker addGebruiker(Gebruiker gebruiker) {
         return repository.save(gebruiker);
     }
+
+
 }

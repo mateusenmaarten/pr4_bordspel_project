@@ -23,6 +23,8 @@ public class KlantController {
     @Autowired
     GebruikerService gebruikerService;
 
+    long userId;
+
     @RequestMapping("/mijnGegevens")
     public String gebruiker(HttpServletRequest request, Model model){
 
@@ -30,8 +32,10 @@ public class KlantController {
         model.addAttribute("gebruikerError", gebruikerError);
 
         long id = Long.parseLong(request.getParameter("id"));
-
+        userId = id;
         Gebruiker gebruiker = gebruikerService.getGebruiker(id);
+
+
         model.addAttribute("loggedInGebruiker", gebruiker);
 
         return "mijnGegevens";
@@ -40,14 +44,12 @@ public class KlantController {
     @RequestMapping("/processGegevensForm")
     public String processGegevensForm(HttpServletRequest request, Model model) {
 
-        Gebruiker gebruiker = new Gebruiker();
+
+        Gebruiker gebruiker = gebruikerService.getGebruiker(userId);
+
         GebruikerError gebruikerError = new GebruikerError();
+        model.addAttribute("gebruikerError", gebruikerError);
 
-        List<Review> reviews = new ArrayList<>();
-        List<Besteld> bestellingen = new ArrayList<>();
-
-        gebruiker.setBesteldList(bestellingen);
-        gebruiker.setReviewList(reviews);
 
         String voornaam = request.getParameter(Gebruiker.VOORNAAM);
         gebruiker.setVoornaam(voornaam);
