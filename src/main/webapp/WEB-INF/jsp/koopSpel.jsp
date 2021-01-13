@@ -33,7 +33,7 @@
 <body>
 <jsp:include page="navigatiebar.jsp"/>
 <%
-    Bordspel bordspel = (Bordspel) request.getAttribute("bordspel");
+    Bordspel bordspel = (Bordspel) request.getAttribute("teKopenSpel");
 
 
     Besteld bestelling = (Besteld) request.getAttribute(Besteld.NAME);
@@ -48,7 +48,7 @@
 </section>
 
 <div>
-    <form>
+    <form action="koopProductForm">
         <div class="container backgroundWhite pt-4">
             <div class="card" style="border: 1px solid #DCDCDC;">
                 <div class="card-header bg-light text-dark ml-0 row container" style="border-radius: 0px;">
@@ -83,7 +83,7 @@
                                         <p class="text-secondary"><%=Bordspel.UITGEVER%>: <%=bordspel.getUitgever()%> </p>
                                     </div>
                                     <div>
-                                        <form action="koopProductForm">
+
                                             <div class="form-group">
                                             <label for="<%=Besteld.AFHAALDATUM%>"><%=Besteld.AFHAALDATUM%></label>
                                             <input class="form-control<%out.print(besteldError.afhaalDatum != null ? " is-invalid" : "");%>"
@@ -97,7 +97,7 @@
                                                 }
                                             %>
                                             </div>
-                                        </form>
+
 
                                     </div>
                                 </div>

@@ -33,7 +33,7 @@
 <body>
 <jsp:include page="navigatiebar.jsp"/>
 <%
-    Bordspel bordspel = (Bordspel) request.getAttribute("bordspel");
+    Bordspel bordspel = (Bordspel) request.getAttribute("teHurenSpel");
 
     Besteld bestelling = (Besteld) request.getAttribute(Besteld.NAME);
     BesteldError besteldError = (BesteldError) request.getAttribute(BesteldError.NAME);
@@ -46,7 +46,7 @@
 </section>
 
 <div>
-    <form>
+    <form action="huurProductForm">
         <div class="container backgroundWhite pt-4">
             <div class="card" style="border: 1px solid #DCDCDC;">
                 <div class="card-header bg-light text-dark ml-0 row container" style="border-radius: 0px;">
@@ -81,7 +81,7 @@
                                         <p class="text-secondary"><%=Bordspel.UITGEVER%>: <%=bordspel.getUitgever()%> </p>
                                     </div>
                                     <div>
-                                        <form action="huurProductForm">
+
 
                                             <label for="<%=Besteld.AFHAALDATUM%>"><%=Besteld.AFHAALDATUM%></label>
 
@@ -95,7 +95,12 @@
                                                     out.print("<span style='color: red;'>" + besteldError.afhaalDatum + "</span>");
                                                 }
                                             %>
-                                        </form>
+                                            <%
+                                                if (besteldError.stock != null) {
+                                                    out.print("<span style='color: red;'>" + besteldError.stock + "</span>");
+                                                }
+                                            %>
+
                                     </div>
                                 </div>
                             </div>
@@ -109,6 +114,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </form>

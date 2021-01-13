@@ -1,11 +1,13 @@
 package be.thomasmore.graduaten.pr4_bordspel_project.controller;
 
 import be.thomasmore.graduaten.pr4_bordspel_project.entity.*;
+import be.thomasmore.graduaten.pr4_bordspel_project.security.MyUserDetails;
 import be.thomasmore.graduaten.pr4_bordspel_project.service.BesteldService;
 import be.thomasmore.graduaten.pr4_bordspel_project.service.BordspelService;
 import be.thomasmore.graduaten.pr4_bordspel_project.service.GebruikerService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,26 +33,17 @@ public class BestellingController {
 
     //TypeBesteld : 1 = verkoop, 2 = verhuur
 
-    public boolean controleerKoopStock(Bordspel spel){
-        Stock stock = spel.getStock();
-        if(stock.getAantalVerkoop() > 0){
-            stock.setAantalVerkoop(stock.getAantalVerkoop() - 1);
-            return true;
+
+
+    public long getLoggedInUserId(){
+        long userId = 0;
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(principal instanceof MyUserDetails) {
+            userId = ((MyUserDetails) principal).getId();
         }
-        else{
-            return false;
-        }
+        return userId;
     }
-    public boolean controleerHuurStock(Bordspel spel){
-        Stock stock = spel.getStock();
-        if(stock.getAantalVerhuur() > 0){
-            stock.setAantalVerhuur(stock.getAantalVerhuur() - 1);
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
+
 
 
     long returnKoopId;
@@ -66,10 +59,11 @@ public class BestellingController {
             id = returnKoopId;
         }
 
-        Bordspel bordspel = bordspelService.getBordspelById(id);
-        model.addAttribute("bordspel", bordspel);
+        Bordspel teKopenSpel = bordspelService.getBordspelById(id);
+        model.addAttribute("teKopenSpel", teKopenSpel);
 
             model.addAttribute(Besteld.NAME, new Besteld());
+
             model.addAttribute(BesteldError.NAME, new BesteldError());
 
 
@@ -89,8 +83,8 @@ public class BestellingController {
             id = returnHuurId;
         }
 
-        Bordspel bordspel = bordspelService.getBordspelById(id);
-        model.addAttribute("bordspel", bordspel);
+        Bordspel teHurenSpel = bordspelService.getBordspelById(id);
+        model.addAttribute("teHurenSpel", teHurenSpel);
 
         model.addAttribute(Besteld.NAME, new Besteld());
         model.addAttribute(BesteldError.NAME, new BesteldError());
@@ -109,8 +103,6 @@ public class BestellingController {
     @RequestMapping("/koopProductForm")
     public String koopProductForm(HttpServletRequest request, Model model) {
 
-
-
         Besteld bestelling = new Besteld();
         BesteldError besteldError = new BesteldError();
 
@@ -121,11 +113,13 @@ public class BestellingController {
 
         bestelling.setTypeBesteld(bestellingsType);
 
+        Bordspel teKopenSpel = bordspelService.getBordspelById(returnKoopId);
 
-        bestelling.setBordspel((Bordspel) request.getAttribute("bordspel"));
+        bestelling.setBordspel(teKopenSpel);
 
         //Gebruiker ophalen die is ingelogd
-
+        Gebruiker koper = service.getGebruiker(getLoggedInUserId());
+        bestelling.setGebruiker(koper);
 
         //afhaal datum ophalen uit formulier
         String afhaaldatum = request.getParameter(Besteld.AFHAALDATUM);
@@ -140,7 +134,7 @@ public class BestellingController {
             besteldError.hasErrors = true;
         }
 
-        if (!controleerKoopStock((Bordspel) request.getAttribute("bordspel"))){
+        if (!controleerKoopStock(teKopenSpel)){
 
             besteldError.stock = "Dit spel is helaas niet beschikbaar";
             besteldError.hasErrors = true;
@@ -149,9 +143,8 @@ public class BestellingController {
         //Controle en toevoegen aan DB met redirect
         if (besteldError.hasErrors) {
 
-            long id = ((Bordspel) request.getAttribute("bordspel")).getId();
-            Bordspel bordspel = bordspelService.getBordspelById(id);
-            model.addAttribute("bordspel", bordspel);
+
+            model.addAttribute("teKopenSpel", teKopenSpel);
 
             model.addAttribute(Besteld.NAME, bestelling);
             model.addAttribute(BesteldError.NAME, besteldError);
@@ -159,8 +152,9 @@ public class BestellingController {
             return "/koopSpel";
         }
         else {
-//            bestellingService.addBestelling(bestelling);
+            bestellingService.addBestelling(bestelling);
             model.addAttribute("bestelling",bestelling);
+            model.addAttribute("bordspel", teKopenSpel);
             return "/bevestiging";
         }
 
@@ -179,11 +173,14 @@ public class BestellingController {
 
         bestelling.setTypeBesteld(bestellingsType);
 
-        bestelling.setBordspel((Bordspel) request.getAttribute("bordspel"));
+        Bordspel teHurenSpel = bordspelService.getBordspelById(returnHuurId);
+
+        bestelling.setBordspel(teHurenSpel);
 
 
         //Gebruiker ophalen die is ingelogd
-
+        Gebruiker koper = service.getGebruiker(getLoggedInUserId());
+        bestelling.setGebruiker(koper);
 
         //afhaal datum ophalen uit formulier
         String afhaaldatum = request.getParameter(Besteld.AFHAALDATUM);
@@ -191,6 +188,7 @@ public class BestellingController {
         if (!afhaaldatum.isEmpty()) {
             DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("M/d/yyyy");
             LocalDate datum = LocalDate.parse(afhaaldatum, dateFormat);
+
             bestelling.setAfhaalDatum(datum);
         }
         else{
@@ -198,7 +196,7 @@ public class BestellingController {
             besteldError.hasErrors = true;
         }
 
-        if (!controleerHuurStock((Bordspel) request.getAttribute("bordspel"))){
+        if (!controleerHuurStock(teHurenSpel)){
 
             besteldError.stock = "Dit spel is helaas niet beschikbaar";
             besteldError.hasErrors = true;
@@ -207,9 +205,7 @@ public class BestellingController {
         //Controle en toevoegen aan DB met redirect
         if (besteldError.hasErrors) {
 
-            long id = ((Bordspel) request.getAttribute("bordspel")).getId();
-            Bordspel bordspel = bordspelService.getBordspelById(id);
-            model.addAttribute("bordspel", bordspel);
+            model.addAttribute("teHurenSpel", teHurenSpel);
 
             model.addAttribute(Besteld.NAME, bestelling);
             model.addAttribute(BesteldError.NAME, besteldError);
@@ -217,9 +213,31 @@ public class BestellingController {
             return "/huurSpel";
         }
         else {
-//            bestellingService.addBestelling(bestelling);
+            bestellingService.addBestelling(bestelling);
+            model.addAttribute("bordspel", teHurenSpel);
             model.addAttribute("bestelling",bestelling);
             return "/bevestiging";
+        }
+    }
+
+    public boolean controleerKoopStock(Bordspel spel){
+        Stock stock = spel.getStock();
+        if(stock.getAantalVerkoop() > 0){
+            stock.setAantalVerkoop(stock.getAantalVerkoop() - 1);
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public boolean controleerHuurStock(Bordspel spel){
+        Stock stock = spel.getStock();
+        if(stock.getAantalVerhuur() > 0){
+            stock.setAantalVerhuur(stock.getAantalVerhuur() - 1);
+            return true;
+        }
+        else{
+            return false;
         }
     }
 }
