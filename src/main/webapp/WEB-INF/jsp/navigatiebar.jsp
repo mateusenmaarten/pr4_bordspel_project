@@ -33,7 +33,7 @@
                         <a href="logout" class="nav-link">logout</a>
                     </li>
                 </sec:authorize>
-                <sec:authorize access="hasRole('Admin')">
+                <sec:authorize access="hasRole('ADMIN')">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Content Management

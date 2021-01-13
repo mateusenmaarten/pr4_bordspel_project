@@ -3,8 +3,8 @@ package be.thomasmore.graduaten.pr4_bordspel_project.entity;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
-@Table(name="TypeBesteld", schema = "java")
+@Entity(name = "TypeBesteld")
+@Table(name= "Type", schema = "java")
 public class TypeBesteld {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -3,7 +3,7 @@ package be.thomasmore.graduaten.pr4_bordspel_project.entity;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity
+@Entity(name = "Besteld")
 @Table(name="Besteld", schema = "java")
 public class Besteld {
     public static final String NAME = "Besteld";
@@ -16,7 +16,7 @@ public class Besteld {
     private LocalDate afhaalDatum;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "type_besteld_id")
+    @JoinColumn(name = "type_id")
     private TypeBesteld typeBesteld;
 
     @ManyToOne
