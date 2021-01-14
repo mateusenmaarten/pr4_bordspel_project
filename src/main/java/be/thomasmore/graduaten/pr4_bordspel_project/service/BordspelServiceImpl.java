@@ -30,4 +30,9 @@ public class BordspelServiceImpl implements BordspelService {
     {
         return bordspelRepository.save(bordspel);
     }
+
+    @Override
+    public void deleteBordspel(Bordspel bordspel) {
+        bordspelRepository.delete(bordspel);
+    }
 }

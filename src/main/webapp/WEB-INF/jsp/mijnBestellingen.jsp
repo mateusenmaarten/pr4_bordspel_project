@@ -39,7 +39,7 @@
 <jsp:include page="navigatiebar.jsp"/>
 
 <section class="m-3">
-    <h1 class="text-info">Bestellingen</h1>
+    <h1 class="text-info">Mijn Bestellingen</h1>
 
     <table class="table table-bordered table-striped">
         <thead>
