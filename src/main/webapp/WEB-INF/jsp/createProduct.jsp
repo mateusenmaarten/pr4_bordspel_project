@@ -33,6 +33,9 @@
     Bordspel bordspel = (Bordspel) request.getAttribute(Bordspel.NAME);
     BordspelError bordspelError = (BordspelError) request.getAttribute(BordspelError.NAME);
 %>
+
+
+
 <form action="processCreateProductForm">
     <div class="text-danger"></div>
     <div class="m-5">
