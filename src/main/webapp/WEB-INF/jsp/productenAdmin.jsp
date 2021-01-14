@@ -28,11 +28,6 @@
 <body>
 <jsp:include page="navigatiebar.jsp"/>
 
-<section id="actions" class="mb-5 mt-5 bg-light">
-    <div class="container">
-        <div class="row"></div>
-    </div>
-</section>
 
 <section class="m-3">
     <h1 class="text-info">Producten</h1>
