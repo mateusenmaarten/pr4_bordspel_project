@@ -31,12 +31,6 @@
 <body>
 <jsp:include page="navigatiebar.jsp"/>
 
-<!-- ACTIONS -->
-<section id="actions" class="mb-5 mt-5 bg-light">
-    <div class="container">
-        <div class="row"></div>
-    </div>
-</section>
 <%
     Gebruiker gebruiker = (Gebruiker) request.getAttribute("loggedInGebruiker");
     GebruikerError gebruikerError = (GebruikerError) request.getAttribute("gebruikerError");
@@ -223,8 +217,9 @@
         </div>
     </div>
 
+
     <!-- FOOTER -->
-    <footer id="main-footer" class="text-center p-3 fixed-bottom">
+    <footer id="main-footer" class="text-center p-3">
         <div class="container">
             <div class="row">
                 <div class="col">

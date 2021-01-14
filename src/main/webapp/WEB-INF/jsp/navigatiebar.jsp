@@ -81,3 +81,9 @@
         </div>
     </div>
 </nav>
+
+<section id="actions" class="mb-5 mt-5 bg-light">
+    <div class="container">
+        <div class="row"></div>
+    </div>
+</section>
