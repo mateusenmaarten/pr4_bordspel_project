@@ -1,12 +1,10 @@
 package be.thomasmore.graduaten.pr4_bordspel_project.controller;
 
-import be.thomasmore.graduaten.pr4_bordspel_project.entity.Besteld;
-import be.thomasmore.graduaten.pr4_bordspel_project.entity.Bordspel;
-import be.thomasmore.graduaten.pr4_bordspel_project.entity.BordspelError;
-import be.thomasmore.graduaten.pr4_bordspel_project.entity.Gebruiker;
+import be.thomasmore.graduaten.pr4_bordspel_project.entity.*;
 import be.thomasmore.graduaten.pr4_bordspel_project.service.BesteldService;
 import be.thomasmore.graduaten.pr4_bordspel_project.service.BordspelService;
 import be.thomasmore.graduaten.pr4_bordspel_project.service.GebruikerService;
+import be.thomasmore.graduaten.pr4_bordspel_project.service.StockService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,6 +46,9 @@ public class AdminController {
 
     @Autowired
     BesteldService bestellingService;
+
+    @Autowired
+    StockService stockService;
 
 
     @RequestMapping("/productenAdmin")
@@ -108,6 +109,24 @@ public class AdminController {
 
     @RequestMapping("/processEditProductForm")
     public String processEditProductForm(HttpServletRequest request, Model model) {
+
+        return "/productenAdmin";
+    }
+
+    @RequestMapping("/deleteProduct")
+    public String deleteProduct(HttpServletRequest request, Model model){
+        long id = Long.parseLong(request.getParameter("id"));
+
+        Bordspel spelTeDeleten = bordspelService.getBordspelById(id);
+
+        //Stock nog deleten!
+        Stock stockTeDeleten = spelTeDeleten.getStock();
+        stockService.deleteStock(stockTeDeleten);
+
+        bordspelService.deleteBordspel(spelTeDeleten);
+
+        List<Bordspel> spellen = bordspelService.getBordspellen();
+        model.addAttribute("spellen",spellen);
 
         return "/productenAdmin";
     }

@@ -62,14 +62,11 @@
                     out.print(("<td class=\"text-center\">\n" +
                             "                <div class=\"w-75 btn-group\" role=\"group\">\n" +
                             "                    <a\n" +
-                            "                            asp-action=\"Edit\"\n" +
-                            "                            asp-route-id=\"@item.ProductID\"\n" +
                             "                            class=\"btn btn-primary mx-2\"\n" +
                             "                    ><i class=\"fas fa-edit\"></i\n" +
                             "                    ></a>\n" +
-                            "                    <a\n" +
-                            "                            asp-action=\"Delete\"\n" +
-                            "                            asp-route-id=\"@item.ProductID\"\n" +
+
+                            "                    <a\n" + "href=\"deleteProduct?id="+ spel.getId() +"\"" +
                             "                            class=\"btn btn-danger mx-2\"\n" +
                             "                    ><i class=\"far fa-trash-alt\"></i\n" +
                             "                    ></a>\n" +
