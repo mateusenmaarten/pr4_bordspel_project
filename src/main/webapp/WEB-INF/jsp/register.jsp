@@ -142,6 +142,7 @@
                                 <input
                                         class="form-control<%out.print(gebruikerError.geboorteDatum != null ? " is-invalid" : "");%>"
                                         type="text"
+                                        placeholder="MM/DD/YYYY"
                                         id="<%=Gebruiker.GEBOORTEDATUM%>"
                                         name="<%=Gebruiker.GEBOORTEDATUM%>"
                                         value="<%=gebruiker.getGeboorteDatum()== null ? "" : gebruiker.getGeboorteDatum()%>"

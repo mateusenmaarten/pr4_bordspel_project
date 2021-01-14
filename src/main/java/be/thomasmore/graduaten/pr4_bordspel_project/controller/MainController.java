@@ -3,6 +3,7 @@ import be.thomasmore.graduaten.pr4_bordspel_project.entity.*;
 import be.thomasmore.graduaten.pr4_bordspel_project.service.BordspelService;
 import be.thomasmore.graduaten.pr4_bordspel_project.service.GebruikerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,8 @@ public class MainController {
 
     @Autowired
     GebruikerService service;
+
+
 
     @RequestMapping("/")
     public String index(){
@@ -88,9 +91,9 @@ public class MainController {
                 gebruikerError.hasErrors = true;
             }
 
-        String achternnaam = request.getParameter(Gebruiker.ACHTERNAAM);
-            gebruiker.setAchternaam(achternnaam);
-            if (achternnaam.isEmpty()) {
+        String achternaam = request.getParameter(Gebruiker.ACHTERNAAM);
+            gebruiker.setAchternaam(achternaam);
+            if (achternaam.isEmpty()) {
                 gebruikerError.achternaam = "U moet een achternaam invullen!";
                 gebruikerError.hasErrors = true;
             }
@@ -110,7 +113,6 @@ public class MainController {
 
         String geboortedatum = request.getParameter(Gebruiker.GEBOORTEDATUM);
         if(!geboortedatum.isEmpty()){
-
             DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("M/d/yyyy");
             LocalDate datum = LocalDate.parse(geboortedatum, dateFormat);
             gebruiker.setGeboorteDatum(datum);
@@ -149,8 +151,9 @@ public class MainController {
             gebruikerError.hasErrors = true;
         }
 
+
         String wachtwoord = request.getParameter(Gebruiker.WACHTWOORD);
-        gebruiker.setWachtwoord(wachtwoord);
+        gebruiker.setWachtwoord(new BCryptPasswordEncoder().encode(wachtwoord));
         if (wachtwoord.isEmpty()){
             gebruikerError.wachtwoord = "U moet een wachtwoord invullen";
             gebruikerError.hasErrors = true;

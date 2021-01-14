@@ -30,13 +30,11 @@
 </head>
 <body>
 <jsp:include page="navigatiebar.jsp"/>
-
 <%
     Gebruiker gebruiker = (Gebruiker) request.getAttribute("loggedInGebruiker");
     GebruikerError gebruikerError = (GebruikerError) request.getAttribute("gebruikerError");
 %>
 <!-- LOGIN -->
-
 <div id="gegevens">
     <div class="container">
         <div class="card col-md-6 mx-auto">
