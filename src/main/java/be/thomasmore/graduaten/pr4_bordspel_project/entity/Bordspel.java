@@ -30,13 +30,13 @@ public class Bordspel {
     private String beschrijving;
     private String uitgever;
 
-    @OneToMany
+    @OneToMany(mappedBy = "bordspel")
     private List<Review> reviewList;
 
-    @OneToMany
+    @OneToMany(mappedBy = "bordspel")
     private List<Besteld> besteldList;
 
-    @OneToMany
+    @OneToMany(mappedBy = "categorie")
     private List<BordspelCategorie> bordspelCategorieList;
 
     @OneToOne(cascade = CascadeType.ALL)
