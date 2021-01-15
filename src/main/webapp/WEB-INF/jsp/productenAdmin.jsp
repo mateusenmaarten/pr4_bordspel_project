@@ -61,7 +61,7 @@
                     out.print(("<td>" + spel.getUitgever() + "</td>"));
                     out.print(("<td class=\"text-center\">\n" +
                             "                <div class=\"w-75 btn-group\" role=\"group\">\n" +
-                            "                    <a\n" + "href=\"editProduct?id="+ spel.getId() +"\"" +
+                            "                    <a\n" + "href=\"editProductAdmin?id="+ spel.getId() +"\"" +
                             "                            class=\"btn btn-primary mx-2\"\n" +
                             "                    ><i class=\"fas fa-edit\"></i\n" +
                             "                    ></a>\n" +
