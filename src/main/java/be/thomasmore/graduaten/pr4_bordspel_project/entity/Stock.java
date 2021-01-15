@@ -5,6 +5,11 @@ import javax.persistence.*;
 @Entity
 @Table(name="Stock", schema = "java")
 public class Stock {
+
+    public static final String NAME = "stock";
+    public static final String AANTALVERKOOP = "Aantal voor verkoop";
+    public static final String AANTALVERHUUR = "Aantal voor verhuur";
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

@@ -32,7 +32,7 @@
 <section class="m-3">
     <h1 class="text-info">Producten</h1>
     <p>
-        <a href="createProduct" class="btn btn-success">Create a new boardgame</a>
+        <a href="createProductAdmin" class="btn btn-success">Create a new boardgame</a>
     </p>
     <table class="table table-bordered table-striped">
         <thead>
@@ -61,7 +61,7 @@
                     out.print(("<td>" + spel.getUitgever() + "</td>"));
                     out.print(("<td class=\"text-center\">\n" +
                             "                <div class=\"w-75 btn-group\" role=\"group\">\n" +
-                            "                    <a\n" +
+                            "                    <a\n" + "href=\"editProduct?id="+ spel.getId() +"\"" +
                             "                            class=\"btn btn-primary mx-2\"\n" +
                             "                    ><i class=\"fas fa-edit\"></i\n" +
                             "                    ></a>\n" +

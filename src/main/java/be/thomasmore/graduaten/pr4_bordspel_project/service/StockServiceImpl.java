@@ -13,6 +13,11 @@ public class StockServiceImpl implements StockService{
     StockRepository stockRepository;
 
     @Override
+    public void addStock(Stock stock) {
+        stockRepository.save(stock);
+    }
+
+    @Override
     public void deleteStock(Stock stock) {
         stockRepository.delete(stock);
     }

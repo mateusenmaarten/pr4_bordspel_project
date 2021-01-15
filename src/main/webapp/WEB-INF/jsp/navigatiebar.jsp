@@ -47,7 +47,7 @@
                             Mijn gegevens
                         </a>
 
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownKlant">
                             <%
                                 Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
                                 if(principal instanceof MyUserDetails){

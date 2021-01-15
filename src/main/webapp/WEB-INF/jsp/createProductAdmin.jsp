@@ -1,6 +1,8 @@
 <%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Bordspel" %>
 <%@ page import="java.util.List" %>
 <%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.BordspelError" %>
+<%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Stock" %>
+<%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.StockError" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,6 +34,9 @@
 <%
     Bordspel bordspel = (Bordspel) request.getAttribute(Bordspel.NAME);
     BordspelError bordspelError = (BordspelError) request.getAttribute(BordspelError.NAME);
+
+    Stock stock = (Stock) request.getAttribute(Stock.NAME);
+    StockError stockError = (StockError) request.getAttribute(StockError.NAME);
 %>
 
 
@@ -212,6 +217,44 @@
                         </div>
 
                     </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label for="<%=Stock.AANTALVERKOOP%>"><%=Stock.AANTALVERKOOP%></label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control<%out.print(stockError.aantalVerkoop != null ? " is-invalid" : "");%>"
+                               type="text"
+                               id="<%=Stock.AANTALVERKOOP%>"
+                               name="<%=Stock.AANTALVERKOOP%>"
+                               value="<%=stock.getAantalVerkoop() == 0 ? "" : stock.getAantalVerkoop()%>">
+                        <%
+                            if (stockError.aantalVerkoop != null) {
+                                out.print("<span style='color: red;'>" + stockError.aantalVerkoop + "</span>");
+                            }
+                        %>
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label for="<%=Stock.AANTALVERHUUR%>"><%=Stock.AANTALVERHUUR%></label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control<%out.print(stockError.aantalVerhuur != null ? " is-invalid" : "");%>"
+                               type="text"
+                               id="<%=Stock.AANTALVERHUUR%>"
+                               name="<%=Stock.AANTALVERHUUR%>"
+                               value="<%=stock.getAantalVerhuur() == 0 ? "" : stock.getAantalVerhuur()%>">
+                        <%
+                            if (stockError.aantalVerhuur != null) {
+                                out.print("<span style='color: red;'>" + stockError.aantalVerhuur + "</span>");
+                            }
+                        %>
+                    </div>
+
+                </div>
 
                 <div class="form-group row">
                     <div class="col-8 offset-4 row">

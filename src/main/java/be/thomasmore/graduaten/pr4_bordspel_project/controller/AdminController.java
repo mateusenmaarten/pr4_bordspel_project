@@ -98,17 +98,30 @@ public class AdminController {
         return "editProduct";}
 
 
-    @RequestMapping("/createProduct")
+    @RequestMapping("/createProductAdmin")
     public String create(Model model) {
 
         model.addAttribute(Bordspel.NAME, new Bordspel());
-
         model.addAttribute(BordspelError.NAME, new BordspelError());
-        return "createProduct";}
+
+        model.addAttribute(Stock.NAME, new Stock());
+        model.addAttribute(StockError.NAME, new StockError());
+        return "createProductAdmin";}
 
 
     @RequestMapping("/processEditProductForm")
     public String processEditProductForm(HttpServletRequest request, Model model) {
+
+        return "/productenAdmin";
+    }
+
+    @RequestMapping("/editProductAdmin")
+    public String editProduct(HttpServletRequest request, Model model){
+
+        long id = Long.parseLong(request.getParameter("id"));
+        Bordspel spelTeEditten = bordspelService.getBordspelById(id);
+
+
 
         return "/productenAdmin";
     }
@@ -136,6 +149,9 @@ public class AdminController {
 
         Bordspel bordspel = new Bordspel();
         BordspelError bordspelError = new BordspelError();
+
+        Stock stock = new Stock();
+        StockError stockError = new StockError();
 
         String naam = request.getParameter(Bordspel.NAAM);
         bordspel.setNaam(naam);
@@ -221,13 +237,53 @@ public class AdminController {
             bordspelError.hasErrors = true;
         }
 
-        if (bordspelError.hasErrors) {
+        //Stock
+        String aantalVerkoop = request.getParameter(Stock.AANTALVERKOOP);
+        if(!aantalVerkoop.isEmpty()){
+            if(tryParseInt(aantalVerkoop)){
+                stock.setAantalVerkoop(Integer.parseInt(aantalVerkoop));
+            }
+            else{
+                stockError.aantalVerkoop = "Vul een geldige stock voor verkoop in";
+                stockError.hasErrors = true;
+            }
+        }
+        else {
+            stockError.aantalVerkoop = "Vul een stock voor verkoop in";
+            stockError.hasErrors = true;
+        }
+
+        String aantalVerhuur = request.getParameter(Stock.AANTALVERHUUR);
+        if(!aantalVerhuur.isEmpty()){
+            if(tryParseInt(aantalVerhuur)){
+                stock.setAantalVerhuur(Integer.parseInt(aantalVerhuur));
+            }
+            else{
+                stockError.aantalVerhuur = "Vul een geldige stock voor verhuur in";
+                stockError.hasErrors = true;
+            }
+        }
+        else {
+            stockError.aantalVerhuur = "Vul een stock voor verhuur in";
+            stockError.hasErrors = true;
+        }
+
+
+        if (bordspelError.hasErrors || stockError.hasErrors) {
             model.addAttribute(Bordspel.NAME, bordspel);
             model.addAttribute(BordspelError.NAME, bordspelError);
-            return "/createProduct";
+            model.addAttribute(Stock.NAME, stock);
+            model.addAttribute(StockError.NAME, stockError);
+            return "createProductAdmin";
         } else {
+
+
+            stock.setBordspel(bordspel);
+            stockService.addStock(stock);
+            bordspel.setStock(stock);
             bordspelService.addBordspel(bordspel);
-            model.addAttribute("bordspellen", bordspelService.getBordspellen());
+
+            model.addAttribute("spellen", bordspelService.getBordspellen());
             return "/productenAdmin";
         }
 
