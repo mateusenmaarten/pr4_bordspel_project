@@ -44,6 +44,8 @@
             <th>Speelduur</th>
             <th>Taal</th>
             <th>Uitgever</th>
+            <th>Stock verkoop</th>
+            <th>Stock verhuur</th>
         </tr>
         </thead>
         <tbody>
@@ -59,6 +61,8 @@
                     out.print(("<td>" + spel.getSpeelduur() + "</td>"));
                     out.print(("<td>" + spel.getTaal() + "</td>"));
                     out.print(("<td>" + spel.getUitgever() + "</td>"));
+                    out.print(("<td>" + spel.getStock().getAantalVerkoop() + "</td>"));
+                    out.print(("<td>" + spel.getStock().getAantalVerhuur() + "</td>"));
                     out.print(("<td class=\"text-center\">\n" +
                             "                <div class=\"w-75 btn-group\" role=\"group\">\n" +
                             "                    <a\n" + "href=\"editProductAdmin?id="+ spel.getId() +"\"" +
