@@ -34,7 +34,7 @@
                 </sec:authorize>
                 <sec:authorize access="isAuthenticated()">
                     <li class="nav-item">
-                        <a href="logout" class="nav-link">logout</a>
+                        <a href="/logout" class="nav-link">logout</a>
                     </li>
                 </sec:authorize>
 

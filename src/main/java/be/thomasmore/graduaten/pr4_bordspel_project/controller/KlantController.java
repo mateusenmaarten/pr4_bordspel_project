@@ -4,8 +4,10 @@ import be.thomasmore.graduaten.pr4_bordspel_project.entity.Besteld;
 import be.thomasmore.graduaten.pr4_bordspel_project.entity.Gebruiker;
 import be.thomasmore.graduaten.pr4_bordspel_project.entity.GebruikerError;
 import be.thomasmore.graduaten.pr4_bordspel_project.entity.Review;
+import be.thomasmore.graduaten.pr4_bordspel_project.security.MyUserDetails;
 import be.thomasmore.graduaten.pr4_bordspel_project.service.GebruikerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,7 +36,6 @@ public class KlantController {
         long id = Long.parseLong(request.getParameter("id"));
         userId = id;
         Gebruiker gebruiker = gebruikerService.getGebruiker(id);
-
 
         model.addAttribute("loggedInGebruiker", gebruiker);
 
@@ -96,8 +97,15 @@ public class KlantController {
         if (!geboortedatum.isEmpty()) {
 
             DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("M/d/yyyy");
-            LocalDate datum = LocalDate.parse(geboortedatum, dateFormat);
-            gebruiker.setGeboorteDatum(datum);
+            try{
+                LocalDate datum = LocalDate.parse(geboortedatum, dateFormat);
+                gebruiker.setGeboorteDatum(datum);
+            }
+            catch(Exception e){
+                gebruikerError.geboorteDatum = "U moet een geboortedatum invullen (Maand/dag/jaar)";
+                gebruikerError.hasErrors = true;
+            }
+
 
         } else {
             gebruikerError.geboorteDatum = "U moet een geboortedatum invullen (Maand/dag/jaar)";
@@ -142,6 +150,10 @@ public class KlantController {
         if (gebruikerError.hasErrors) {
             model.addAttribute(Gebruiker.NAME, gebruiker);
             model.addAttribute(GebruikerError.NAME, gebruikerError);
+
+            gebruiker = gebruikerService.getGebruiker(userId);
+            model.addAttribute("loggedInGebruiker", gebruiker);
+
             return "/mijnGegevens";
         } else {
             gebruikerService.addGebruiker(gebruiker);

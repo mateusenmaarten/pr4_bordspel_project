@@ -128,7 +128,7 @@
                                         type="text"
                                         id="<%=Gebruiker.GEBOORTEDATUM%>"
                                         name="<%=Gebruiker.GEBOORTEDATUM%>"
-                                        value="<%=gebruiker.getGeboorteDatum()== null ? "" : gebruiker.getGeboorteDatum()%>"
+                                        value="<%=gebruiker.getGeboorteDatum()== null ? "" : gebruiker.getGeboorteDatum() %>"
                                 >
                                 <%
                                     if (gebruikerError.geboorteDatum != null) {
