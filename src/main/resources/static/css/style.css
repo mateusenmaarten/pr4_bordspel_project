@@ -63,3 +63,7 @@ body {
 #login {
     min-height: 750px;
 }
+
+a:hover{
+    text-decoration: none;
+}
