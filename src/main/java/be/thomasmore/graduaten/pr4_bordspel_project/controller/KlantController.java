@@ -96,8 +96,15 @@ public class KlantController {
         if (!geboortedatum.isEmpty()) {
 
             DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("M/d/yyyy");
-            LocalDate datum = LocalDate.parse(geboortedatum, dateFormat);
-            gebruiker.setGeboorteDatum(datum);
+            try{
+                LocalDate datum = LocalDate.parse(geboortedatum, dateFormat);
+                gebruiker.setGeboorteDatum(datum);
+            }
+            catch (Exception e){
+                gebruikerError.geboorteDatum = "geboortedatum invullen als (Maand/dag/jaar) aub";
+                gebruikerError.hasErrors = true;
+            }
+
 
         } else {
             gebruikerError.geboorteDatum = "U moet een geboortedatum invullen (Maand/dag/jaar)";
@@ -142,6 +149,10 @@ public class KlantController {
         if (gebruikerError.hasErrors) {
             model.addAttribute(Gebruiker.NAME, gebruiker);
             model.addAttribute(GebruikerError.NAME, gebruikerError);
+
+            gebruiker = gebruikerService.getGebruiker(userId);
+            model.addAttribute("loggedInGebruiker", gebruiker);
+
             return "/mijnGegevens";
         } else {
             gebruikerService.addGebruiker(gebruiker);
