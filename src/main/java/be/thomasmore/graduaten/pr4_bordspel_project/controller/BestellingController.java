@@ -126,8 +126,15 @@ public class BestellingController {
 
         if (!afhaaldatum.isEmpty()) {
             DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("M/d/yyyy");
-            LocalDate datum = LocalDate.parse(afhaaldatum, dateFormat);
-            bestelling.setAfhaalDatum(datum);
+            try{
+                LocalDate datum = LocalDate.parse(afhaaldatum, dateFormat);
+                bestelling.setAfhaalDatum(datum);
+            }
+            catch(Exception e){
+                besteldError.afhaalDatum = "afhaaldatum invullan als (Maand/dag/jaar) aub";
+                besteldError.hasErrors = true;
+            }
+
         }
         else{
             besteldError.afhaalDatum = "Vul een afhaaldatum in (Maand/dag/jaar)";
@@ -187,9 +194,15 @@ public class BestellingController {
 
         if (!afhaaldatum.isEmpty()) {
             DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("M/d/yyyy");
-            LocalDate datum = LocalDate.parse(afhaaldatum, dateFormat);
+            try{
+                LocalDate datum = LocalDate.parse(afhaaldatum, dateFormat);
+                bestelling.setAfhaalDatum(datum);
+            }
+            catch(Exception e){
+                besteldError.afhaalDatum = "afhaaldatum invullen als (Maand/dag/jaar) aub";
+                besteldError.hasErrors = true;
+            }
 
-            bestelling.setAfhaalDatum(datum);
         }
         else{
             besteldError.afhaalDatum = "Vul een afhaaldatum in (Maand/dag/jaar)";

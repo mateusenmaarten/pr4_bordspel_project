@@ -114,8 +114,15 @@ public class MainController {
         String geboortedatum = request.getParameter(Gebruiker.GEBOORTEDATUM);
         if(!geboortedatum.isEmpty()){
             DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("M/d/yyyy");
-            LocalDate datum = LocalDate.parse(geboortedatum, dateFormat);
-            gebruiker.setGeboorteDatum(datum);
+            try{
+                LocalDate datum = LocalDate.parse(geboortedatum, dateFormat);
+                gebruiker.setGeboorteDatum(datum);
+            }
+            catch(Exception e){
+                gebruikerError.geboorteDatum = "geboortedatum invullen als (Maand/dag/jaar) aub";
+                gebruikerError.hasErrors = true;
+            }
+
 
         }
         else{
