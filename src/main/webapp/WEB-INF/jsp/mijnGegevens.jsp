@@ -21,7 +21,9 @@
             integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
             crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>
+
+
     <title>Mijn Gegevens</title>
 </head>
 <body>
@@ -40,7 +42,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="processGegevensForm">
+                <form action="processGegevensForm" method="post">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">

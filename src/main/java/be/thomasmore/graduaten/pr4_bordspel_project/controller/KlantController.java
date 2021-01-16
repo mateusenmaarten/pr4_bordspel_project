@@ -3,17 +3,13 @@ package be.thomasmore.graduaten.pr4_bordspel_project.controller;
 import be.thomasmore.graduaten.pr4_bordspel_project.entity.Besteld;
 import be.thomasmore.graduaten.pr4_bordspel_project.entity.Gebruiker;
 import be.thomasmore.graduaten.pr4_bordspel_project.entity.GebruikerError;
-import be.thomasmore.graduaten.pr4_bordspel_project.entity.Review;
 import be.thomasmore.graduaten.pr4_bordspel_project.service.GebruikerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -54,6 +50,11 @@ public class KlantController {
 
         return "mijnBestellingen";
     }
+    @RequestMapping(method = RequestMethod.GET)
+    public String index(){
+
+        return "index";
+    }
 
     @RequestMapping("/processGegevensForm")
     public String processGegevensForm(HttpServletRequest request, Model model) {
@@ -84,7 +85,7 @@ public class KlantController {
             return "/mijnGegevens";
         } else {
             gebruikerService.addGebruiker(gebruiker);
-            return "/index";
+            return "redirect:/";
         }
     }
 }

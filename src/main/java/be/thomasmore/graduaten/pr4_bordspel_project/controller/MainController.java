@@ -16,6 +16,7 @@ import java.util.List;
 
 
 @Controller
+@RequestMapping("/")
 public class MainController {
     @Autowired
     BordspelService bordspelService;
