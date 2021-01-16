@@ -97,6 +97,11 @@
                                                     out.print("<span style='color: red;'>" + besteldError.afhaalDatum + "</span>");
                                                 }
                                             %>
+                                                <%
+                                                    if (besteldError.stock != null) {
+                                                        out.print("<span style='color: red;'>" + besteldError.stock + "</span>");
+                                                    }
+                                                %>
                                             </div>
 
 
