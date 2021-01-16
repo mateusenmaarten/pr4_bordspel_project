@@ -231,9 +231,15 @@ public class AdminController {
             model.addAttribute(BordspelError.NAME, bordspelError);
             model.addAttribute(Stock.NAME, stock);
             model.addAttribute(StockError.NAME, stockError);
-            return "createProductAdmin";
-        } else {
 
+            Bordspel aanTePassenBordspel = bordspelService.getBordspelById(spelId);
+            model.addAttribute("aanTePassenBordspel", aanTePassenBordspel);
+
+            Stock aanTePassenBordspelStock = aanTePassenBordspel.getStock();
+            model.addAttribute("aanTePassenStock", aanTePassenBordspelStock);
+
+            return "editProductAdmin";
+        } else {
 
             stock.setBordspel(bordspel);
             stockService.addStock(stock);
@@ -257,14 +263,11 @@ public class AdminController {
 
         long id = Long.parseLong(request.getParameter("id"));
         spelId = id;
-        Bordspel aanTePassenBordspel = bordspelService.getBordspelById(id);
-
+        Bordspel aanTePassenBordspel = bordspelService.getBordspelById(spelId);
         model.addAttribute("aanTePassenBordspel", aanTePassenBordspel);
 
         Stock stock = aanTePassenBordspel.getStock();
         model.addAttribute("aanTePassenStock", stock);
-
-
 
         return "/editProductAdmin";
     }
