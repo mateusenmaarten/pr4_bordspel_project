@@ -114,7 +114,7 @@
 <!-- PHOTO GALLERY -->
 <section id="gallery" class="py-5">
     <div class="container">
-        <h1 class="text-center"> Foto's</h1>
+
 
         <div class="row mb-4">
             <div class="col-md-4">
