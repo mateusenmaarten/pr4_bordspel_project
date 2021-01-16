@@ -77,18 +77,19 @@
 <!--HOME ICON SECTION  -->
 <section id="home-icons" class="py-5">
     <div class="container">
+        <a href="/products" style="color: #333333">
         <div class="row">
-            <div class="col-md-4 mb-4 text-center">
+            <div class="col-md-4 offset-md-2 mb-4 text-center">
                 <i class="fas fa-chess-knight fa-3x mb-2"></i>
                 <h3>Board Games</h3>
             </div>
 
             <div class="col-md-4 mb-4 text-center">
                 <i class="fas fa-cart-plus fa-3x mb-2"></i>
-
                 <h3>Koop of Huur</h3>
             </div>
         </div>
+        </a>
     </div>
 </section>
 
@@ -99,7 +100,7 @@
             <div class="col">
                 <div class="container pt-5">
                     <a href="/register" >
-                        <h1>Klaar om te starten?</h1>
+                        <h1 style="color: white">Klaar om te starten?</h1>
                     </a>
 
                 </div>
