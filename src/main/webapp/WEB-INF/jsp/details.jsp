@@ -82,14 +82,15 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="card-footer bg-light">
                     <div class="row d-flex justify-content-md-end">
                         <div class="col-3 pb-1 ">
-                            <a href="/bestelling/koopSpel?id=<%=bordspel.getId()%>"  class="btn btn-primary form-control btn-lg" style="height:50px;">Kopen</a>
+                            <a href="/bestelling/koopSpel?id=<%=bordspel.getId()%>"  class="btn btn-primary form-control" style="height:50px;">Kopen</a>
                         </div>
                         <div class="col-3 ">
 
-                            <a href="/bestelling/huurSpel?id=<%=bordspel.getId()%>" class="btn btn-primary form-control btn-lg" style="height:50px;">Huren</a>
+                            <a href="/bestelling/huurSpel?id=<%=bordspel.getId()%>" class="btn btn-primary form-control" style="height:50px;">Huren</a>
                         </div>
                     </div>
                 </div>
