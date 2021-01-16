@@ -40,7 +40,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/klant/*").hasRole("USER")
                 .antMatchers("/bestelling/*").hasAnyRole("ADMIN","USER")
                 .and()
-                .formLogin().loginPage("/login").permitAll()
+                .formLogin().loginPage("/login")
+                .permitAll()
                 ;
 
     }
