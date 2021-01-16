@@ -55,7 +55,7 @@
                 <div class="card-footer bg-light">
                     <div class="row d-flex justify-content-md-end">
                         <div class="col-3 pb-1 ">
-                            <a href="/products"  class="btn btn-primary form-control btn-lg" style="height:50px;">Terug naar producten overzicht</a>
+                            <a href="/products"  class="btn btn-primary form-control btn-lg" style="height:50px;">Back</a>
                         </div>
                     </div>
                 </div>

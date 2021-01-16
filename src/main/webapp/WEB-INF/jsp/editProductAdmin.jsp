@@ -1,6 +1,7 @@
 <%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Bordspel" %>
-<%@ page import="java.util.List" %>
 <%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.BordspelError" %>
+<%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.StockError" %>
+<%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Stock" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,9 +31,12 @@
 <jsp:include page="navigatiebar.jsp"/>
 
 <%
-    Bordspel bordspel = (Bordspel) request.getAttribute("bordspel");
+    Bordspel bordspel = (Bordspel) request.getAttribute("aanTePassenBordspel");
+    BordspelError bordspelError = (BordspelError) request.getAttribute("bordspelError");
+    Stock stock = (Stock) request.getAttribute("aanTePassenStock");
+    StockError stockError = (StockError) request.getAttribute("stockError");
 %>
-<form action="/processEditProductForm">
+<form action="processEditProductForm">
     <div class="text-danger"></div>
     <div class="m-5">
         <div class="form-group row">
@@ -43,15 +47,19 @@
             <div class="col-8">
                 <div class="form-group row">
                     <div class="col-4">
-                        <label for="<%=bordspel.NAAM%>"><%=bordspel.NAAM%></label>
+                        <label for="<%=Bordspel.NAAM%>"><%=Bordspel.NAAM%></label>
                     </div>
                     <div class="col-8">
-                        <input class="form-control"
+                        <input class="form-control<%out.print(bordspelError.naam != null ? " is-invalid" : "");%>"
                                type="text"
-                               id="<%=bordspel.NAAM%>"
-                               name="<%=bordspel.NAAM%>"
+                               id="<%=Bordspel.NAAM%>"
+                               name="<%=Bordspel.NAAM%>"
                                value="<%=bordspel.getNaam() == null ? "" : bordspel.getNaam()%>">
-
+                        <%
+                            if (bordspelError.naam != null) {
+                                out.print("<span style='color: red;'>" + bordspelError.naam + "</span>");
+                            }
+                        %>
 
                     </div>
 
@@ -61,12 +69,16 @@
                         <label for="<%=Bordspel.PRIJS%>"><%=Bordspel.PRIJS%></label>
                     </div>
                     <div class="col-8">
-                        <input class="form-control"
+                        <input class="form-control<%out.print(bordspelError.prijs != null ? " is-invalid" : "");%>"
                                type="text"
                                id="<%=Bordspel.PRIJS%>"
                                name="<%=Bordspel.PRIJS%>"
                                value="<%=bordspel.getPrijs() == 0.0 ? "" : bordspel.getPrijs()%>">
-
+                        <%
+                            if (bordspelError.prijs != null) {
+                                out.print("<span style='color: red;'>" + bordspelError.prijs + "</span>");
+                            }
+                        %>
                     </div>
 
                 </div>
@@ -75,12 +87,16 @@
                         <label for="<%=Bordspel.AANTALSPELERS%>"><%=Bordspel.AANTALSPELERS%></label>
                     </div>
                     <div class="col-8">
-                        <input class="form-control"
+                        <input class="form-control<%out.print(bordspelError.aantalSpelers != null ? " is-invalid" : "");%>"
                                type="text"
                                id="<%=Bordspel.AANTALSPELERS%>"
                                name="<%=Bordspel.AANTALSPELERS%>"
                                value="<%=bordspel.getAantalSpelers() == null ? "" : bordspel.getAantalSpelers()%>">
-
+                        <%
+                            if (bordspelError.aantalSpelers != null) {
+                                out.print("<span style='color: red;'>" + bordspelError.aantalSpelers + "</span>");
+                            }
+                        %>
                     </div>
 
                 </div>
@@ -89,12 +105,16 @@
                         <label for="<%=Bordspel.FOTO%>"><%=Bordspel.FOTO%></label>
                     </div>
                     <div class="col-8">
-                        <input class="form-control"
+                        <input class="form-control<%out.print(bordspelError.foto != null ? " is-invalid" : "");%>"
                                type="text"
                                id="<%=Bordspel.FOTO%>"
                                name="<%=Bordspel.FOTO%>"
                                value="<%=bordspel.getImagePath() == null ? "" : bordspel.getImagePath()%>">
-
+                        <%
+                            if (bordspelError.foto != null) {
+                                out.print("<span style='color: red;'>" + bordspelError.foto + "</span>");
+                            }
+                        %>
                     </div>
 
                 </div>
@@ -103,12 +123,16 @@
                         <label for="<%=Bordspel.MINIMUMLEEFTIJD%>"><%=Bordspel.MINIMUMLEEFTIJD%></label>
                     </div>
                     <div class="col-8">
-                        <input class="form-control"
+                        <input class="form-control<%out.print(bordspelError.minimumLeeftijd != null ? " is-invalid" : "");%>"
                                type="text"
                                id="<%=Bordspel.MINIMUMLEEFTIJD%>"
                                name="<%=Bordspel.MINIMUMLEEFTIJD%>"
                                value="<%=bordspel.getMinLeeftijd() == 0 ? "" : bordspel.getMinLeeftijd()%>">
-                        <
+                        <%
+                            if (bordspelError.minimumLeeftijd != null) {
+                                out.print("<span style='color: red;'>" + bordspelError.minimumLeeftijd + "</span>");
+                            }
+                        %>
                     </div>
 
                 </div>
@@ -118,12 +142,16 @@
                         <label for="<%=Bordspel.SPEELDUUR%>"><%=Bordspel.SPEELDUUR%></label>
                     </div>
                     <div class="col-8">
-                        <input class="form-control"
+                        <input class="form-control<%out.print(bordspelError.speelduur != null ? " is-invalid" : "");%>"
                                type="text"
                                id="<%=Bordspel.SPEELDUUR%>"
                                name="<%=Bordspel.SPEELDUUR%>"
                                value="<%=bordspel.getSpeelduur() == null ? "" : bordspel.getSpeelduur()%>">
-
+                        <%
+                            if (bordspelError.speelduur != null) {
+                                out.print("<span style='color: red;'>" + bordspelError.speelduur + "</span>");
+                            }
+                        %>
                     </div>
 
                 </div>
@@ -133,12 +161,16 @@
                         <label for="<%=Bordspel.TAAL%>"><%=Bordspel.TAAL%></label>
                     </div>
                     <div class="col-8">
-                        <input class="form-control"
+                        <input class="form-control<%out.print(bordspelError.taal != null ? " is-invalid" : "");%>"
                                type="text"
                                id="<%=Bordspel.TAAL%>"
                                name="<%=Bordspel.TAAL%>"
                                value="<%=bordspel.getTaal() == null ? "" : bordspel.getTaal()%>">
-
+                        <%
+                            if (bordspelError.taal != null) {
+                                out.print("<span style='color: red;'>" + bordspelError.taal + "</span>");
+                            }
+                        %>
                     </div>
                 </div>
 
@@ -148,12 +180,16 @@
                         <label for="<%=Bordspel.BESCHRIJVING%>"><%=Bordspel.BESCHRIJVING%></label>
                     </div>
                     <div class="col-8">
-                        <input class="form-control"
+                        <input class="form-control<%out.print(bordspelError.beschrijving != null ? " is-invalid" : "");%>"
                                type="text"
                                id="<%=Bordspel.BESCHRIJVING%>"
                                name="<%=Bordspel.BESCHRIJVING%>"
                                value="<%=bordspel.getBeschrijving() == null ? "" : bordspel.getBeschrijving()%>">
-
+                        <%
+                            if (bordspelError.beschrijving != null) {
+                                out.print("<span style='color: red;'>" + bordspelError.beschrijving + "</span>");
+                            }
+                        %>
                     </div>
 
                 </div>
@@ -163,12 +199,54 @@
                         <label for="<%=Bordspel.UITGEVER%>"><%=Bordspel.UITGEVER%></label>
                     </div>
                     <div class="col-8">
-                        <input class="form-control"
+                        <input class="form-control<%out.print(bordspelError.uitgever != null ? " is-invalid" : "");%>"
                                type="text"
                                id="<%=Bordspel.UITGEVER%>"
                                name="<%=Bordspel.UITGEVER%>"
                                value="<%=bordspel.getUitgever() == null ? "" : bordspel.getUitgever()%>">
+                        <%
+                            if (bordspelError.uitgever != null) {
+                                out.print("<span style='color: red;'>" + bordspelError.uitgever + "</span>");
+                            }
+                        %>
+                    </div>
 
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label for="<%=Stock.AANTALVERKOOP%>"><%=Stock.AANTALVERKOOP%></label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control<%out.print(stockError.aantalVerkoop != null ? " is-invalid" : "");%>"
+                               type="text"
+                               id="<%=Stock.AANTALVERKOOP%>"
+                               name="<%=Stock.AANTALVERKOOP%>"
+                               value="<%=stock.getAantalVerkoop() == 0 ? "" : stock.getAantalVerkoop()%>">
+                        <%
+                            if (stockError.aantalVerkoop != null) {
+                                out.print("<span style='color: red;'>" + stockError.aantalVerkoop + "</span>");
+                            }
+                        %>
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label for="<%=Stock.AANTALVERHUUR%>"><%=Stock.AANTALVERHUUR%></label>
+                    </div>
+                    <div class="col-8">
+                        <input class="form-control<%out.print(stockError.aantalVerhuur != null ? " is-invalid" : "");%>"
+                               type="text"
+                               id="<%=Stock.AANTALVERHUUR%>"
+                               name="<%=Stock.AANTALVERHUUR%>"
+                               value="<%=stock.getAantalVerhuur() == 0 ? "" : stock.getAantalVerhuur()%>">
+                        <%
+                            if (stockError.aantalVerhuur != null) {
+                                out.print("<span style='color: red;'>" + stockError.aantalVerhuur + "</span>");
+                            }
+                        %>
                     </div>
 
                 </div>
@@ -177,10 +255,10 @@
                     <div class="col-8 offset-4 row">
 
                         <div class="col">
-                            <input type="submit" class="btn btn-primary w-100" value="Create" />
+                            <input type="submit" class="btn btn-primary w-100" value="Edit" />
                         </div>
                         <div class="col">
-                            <a href="/admin/productenAdmin" class="btn btn-success w-100"><i class="fas fa-sign-out-alt"></i> Back</a>
+                            <a href="productenAdmin" class="btn btn-success w-100"><i class="fas fa-sign-out-alt"></i> Back</a>
                         </div>
                     </div>
                 </div>

@@ -32,7 +32,7 @@
 <section class="m-3">
     <h1 class="text-info">Producten</h1>
     <p>
-        <a href="createProduct" class="btn btn-success">Create a new boardgame</a>
+        <a href="createProductAdmin" class="btn btn-success">Create a new boardgame</a>
     </p>
     <table class="table table-bordered table-striped">
         <thead>
@@ -44,6 +44,8 @@
             <th>Speelduur</th>
             <th>Taal</th>
             <th>Uitgever</th>
+            <th>Stock verkoop</th>
+            <th>Stock verhuur</th>
         </tr>
         </thead>
         <tbody>
@@ -59,9 +61,11 @@
                     out.print(("<td>" + spel.getSpeelduur() + "</td>"));
                     out.print(("<td>" + spel.getTaal() + "</td>"));
                     out.print(("<td>" + spel.getUitgever() + "</td>"));
+                    out.print(("<td>" + spel.getStock().getAantalVerkoop() + "</td>"));
+                    out.print(("<td>" + spel.getStock().getAantalVerhuur() + "</td>"));
                     out.print(("<td class=\"text-center\">\n" +
                             "                <div class=\"w-75 btn-group\" role=\"group\">\n" +
-                            "                    <a\n" +
+                            "                    <a\n" + "href=\"editProductAdmin?id="+ spel.getId() +"\"" +
                             "                            class=\"btn btn-primary mx-2\"\n" +
                             "                    ><i class=\"fas fa-edit\"></i\n" +
                             "                    ></a>\n" +
