@@ -118,7 +118,7 @@
                                         type="password"
                                         id="<%=Gebruiker.WACHTWOORD%>"
                                         name="<%=Gebruiker.WACHTWOORD%>"
-                                        value="<%=gebruiker.getWachtwoord()== null ? "" : gebruiker.getWachtwoord()%>"
+                                        value="<%=gebruiker.getWachtwoord()== null ? "" : ""%>"
                                         >
                                 <%
                                     if (gebruikerError.wachtwoord != null) {

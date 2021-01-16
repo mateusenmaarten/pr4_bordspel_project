@@ -31,9 +31,6 @@ public class MainController {
         return "index";
     }
 
-    @RequestMapping("/about")
-    public String about() {return "about";}
-
     @RequestMapping("/login")
     public String login() {return "login";}
 
@@ -84,19 +81,42 @@ public class MainController {
         gebruiker.setBesteldList(bestellingen);
         gebruiker.setReviewList(reviews);
 
+        getUserData(request, gebruiker, gebruikerError);
+
+        String wachtwoord = request.getParameter(Gebruiker.WACHTWOORD);
+        gebruiker.setWachtwoord(new BCryptPasswordEncoder().encode(wachtwoord));
+
+        if (wachtwoord.isEmpty()){
+            gebruikerError.wachtwoord = "U moet een wachtwoord invullen";
+            gebruikerError.hasErrors = true;
+        }
+
+        if (gebruikerError.hasErrors) {
+            model.addAttribute(Gebruiker.NAME, gebruiker);
+            model.addAttribute(GebruikerError.NAME, gebruikerError);
+            return "/register";
+        } else {
+            service.addGebruiker(gebruiker);
+            model.addAttribute("gebruikers", service.getGebruikers());
+            return "/index";
+        }
+
+    }
+
+    static void getUserData(HttpServletRequest request, Gebruiker gebruiker, GebruikerError gebruikerError) {
         String voornaam = request.getParameter(Gebruiker.VOORNAAM);
-            gebruiker.setVoornaam(voornaam);
-            if (voornaam.isEmpty()) {
-                gebruikerError.voornaam = "U moet een voornaam invullen!";
-                gebruikerError.hasErrors = true;
-            }
+        gebruiker.setVoornaam(voornaam);
+        if (voornaam.isEmpty()) {
+            gebruikerError.voornaam = "U moet een voornaam invullen!";
+            gebruikerError.hasErrors = true;
+        }
 
         String achternaam = request.getParameter(Gebruiker.ACHTERNAAM);
-            gebruiker.setAchternaam(achternaam);
-            if (achternaam.isEmpty()) {
-                gebruikerError.achternaam = "U moet een achternaam invullen!";
-                gebruikerError.hasErrors = true;
-            }
+        gebruiker.setAchternaam(achternaam);
+        if (achternaam.isEmpty()) {
+            gebruikerError.achternaam = "U moet een achternaam invullen!";
+            gebruikerError.hasErrors = true;
+        }
 
         String email = request.getParameter(Gebruiker.EMAIL);
         gebruiker.setEmail(email);
@@ -122,8 +142,6 @@ public class MainController {
                 gebruikerError.geboorteDatum = "geboortedatum invullen als (Maand/dag/jaar) aub";
                 gebruikerError.hasErrors = true;
             }
-
-
         }
         else{
             gebruikerError.geboorteDatum = "U moet een geboortedatum invullen (Maand/dag/jaar)";
@@ -156,24 +174,6 @@ public class MainController {
         if (huisnummer.isEmpty()){
             gebruikerError.huisnummer = "U moet een huisnummer invullen";
             gebruikerError.hasErrors = true;
-        }
-
-
-        String wachtwoord = request.getParameter(Gebruiker.WACHTWOORD);
-        gebruiker.setWachtwoord(new BCryptPasswordEncoder().encode(wachtwoord));
-        if (wachtwoord.isEmpty()){
-            gebruikerError.wachtwoord = "U moet een wachtwoord invullen";
-            gebruikerError.hasErrors = true;
-        }
-
-        if (gebruikerError.hasErrors) {
-            model.addAttribute(Gebruiker.NAME, gebruiker);
-            model.addAttribute(GebruikerError.NAME, gebruikerError);
-            return "/register";
-        } else {
-            service.addGebruiker(gebruiker);
-            model.addAttribute("gebruikers", service.getGebruikers());
-            return "/index";
         }
 
     }
