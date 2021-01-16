@@ -77,23 +77,7 @@
                 }
             %>
 
-<%--            <td class="text-center">--%>
-<%--                <div class="w-75 btn-group" role="group">--%>
-<%--                    <a--%>
-<%--                            asp-action="Edit"--%>
-<%--                            asp-route-id="@item.ProductID"--%>
-<%--                            class="btn btn-primary mx-2"--%>
-<%--                    ><i class="fas fa-edit"></i--%>
-<%--                    ></a>--%>
-<%--                    <a--%>
-<%--                            asp-action="Delete"--%>
-<%--                            asp-route-id="@item.ProductID"--%>
-<%--                            class="btn btn-danger mx-2"--%>
-<%--                    ><i class="far fa-trash-alt"></i--%>
-<%--                    ></a>--%>
-<%--                </div>--%>
-<%--            </td>--%>
-<%--        </tr>--%>
+
         </tbody>
     </table>
 </section>
