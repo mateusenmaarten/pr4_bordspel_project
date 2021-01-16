@@ -38,14 +38,14 @@
                 List<Bordspel> spellen = (List<Bordspel>) request.getAttribute("spellen");
 
                 for(Bordspel spel: spellen){
-                    out.print((" <div class=\"col-md-4\">\n" +
+                    out.print((" <div class=\"col-md-4 d-flex align-items-stretch mb-4\">\n" +
                             "                <div class=\"card text-center\">\n" +
                             "                    <div class=\"card-header text-center\">\n" +
                                                     "<h1>"+ spel.getNaam() +"</h1>\n" +
                             "                    </div>\n" +
                             "                    <div class=\"card-body\">\n" +
                                                 "<img src=\"" + spel.getImagePath() + "\" alt=\""+ spel.getNaam()+"\" class=\"img-fluid mb-4\" />\n" +
-                            "                        <a href=\"details?id="+ spel.getId() +"\" class=\"btn btn-primary d-block\">\n" +
+                            "                        <a href=\"details?id="+ spel.getId() +"\" class=\"btn btn-primary d-block align-self-end w-75 mb-1 ml-3\">\n" +
                             "                            <i class=\"fas fa-shopping-cart mr-2\"></i>\n" +
                             "                            Details\n" +
                             "                        </a>\n" +

@@ -67,3 +67,8 @@ body {
 a:hover{
     text-decoration: none;
 }
+
+.align-self-end {
+    position:absolute;
+    bottom:0;
+}
