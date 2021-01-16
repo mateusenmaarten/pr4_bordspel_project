@@ -45,7 +45,7 @@
         <tr>
             <th>Voornaam</th>
             <th>Achternaam</th>
-
+            <th style="width: 10%"></th>
         </tr>
         </thead>
         <tbody>
@@ -61,7 +61,7 @@
                     out.print(("<td>" + gebruiker.getAchternaam() + "</td>"));
 
                     out.print(("<td class=\"text-center\">\n" +
-                            "                <div class=\"w-75 btn-group\" role=\"group\">\n" +
+                            "                <div class=\"w-35 btn-group\" role=\"group\">\n" +
                             "                    <a\n" +
                             "                         href=\"gebruikersDetailAdmin?id=" + gebruiker.getId()+"\"   class=\"btn btn-primary mx-2\"\n" +
                             "                    >Details</a>\n" +
