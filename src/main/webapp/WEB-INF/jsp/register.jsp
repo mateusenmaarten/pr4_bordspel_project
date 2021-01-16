@@ -51,7 +51,7 @@
         <div class="card col-md-6 mx-auto">
             <div class="row">
                 <div class="card-header col-md-12 text-center">
-                    <h4>Register Your Account</h4>
+                    <h4>Registreer uw account</h4>
                 </div>
             </div>
             <div class="card-body">
@@ -225,11 +225,11 @@
                     </div>
                     <input
                             type="submit"
-                            value="Sign up"
+                            value="Registreer!"
                             class="btn btn-primary btn-block"/>
                     <div class="form-group text-center">
-                        <label class="mr-2 mt-2">Already have an account?</label>
-                        <a href="/login">Sign in.</a>
+                        <label class="mr-2 mt-2">Heeft u al een account?</label>
+                        <a href="/login">Login</a>
                     </div>
 
                 </form>

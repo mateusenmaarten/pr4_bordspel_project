@@ -21,10 +21,6 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="/about" class="nav-link">About Us</a>
-                </li>
-
-                <li class="nav-item">
                     <a href="/products" class="nav-link">Producten</a>
                 </li>
                 <sec:authorize access="isAnonymous()">

@@ -81,27 +81,12 @@
             <div class="col-md-4 mb-4 text-center">
                 <i class="fas fa-chess-knight fa-3x mb-2"></i>
                 <h3>Board Games</h3>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero,
-                    veniam.
-                </p>
             </div>
-            <div class="col-md-4 mb-4 text-center">
-                <i class="fas fa-dice fa-3x mb-2"></i>
-                <h3>Dice Games</h3>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero,
-                    veniam.
-                </p>
 
-            </div>
             <div class="col-md-4 mb-4 text-center">
                 <i class="fas fa-cart-plus fa-3x mb-2"></i>
-                <h3>Buy or Rent</h3>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero,
-                    veniam.
-                </p>
+
+                <h3>Koop of Huur</h3>
             </div>
         </div>
     </div>
@@ -113,12 +98,10 @@
         <div class="row">
             <div class="col">
                 <div class="container pt-5">
-                    <h1>Are You Ready To Get Started?</h1>
-                    <p class="d-none d-md-block">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est
-                        eaque magni sit dolores. Nisi, dolor nam modi perspiciatis
-                        consequatur soluta.
-                    </p>
+                    <a href="/register" >
+                        <h1>Klaar om te starten?</h1>
+                    </a>
+
                 </div>
             </div>
         </div>
@@ -128,8 +111,8 @@
 <!-- PHOTO GALLERY -->
 <section id="gallery" class="py-5">
     <div class="container">
-        <h1 class="text-center">Photo Gallery</h1>
-        <p class="text-center">Check out our photos</p>
+        <h1 class="text-center"> Foto's</h1>
+
         <div class="row mb-4">
             <div class="col-md-4">
                 <img src="images/images1.jpg" alt="" class="img-fluid" />

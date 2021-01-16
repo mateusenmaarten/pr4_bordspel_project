@@ -1,6 +1,6 @@
 <%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Bordspel" %>
 <%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.BesteldError" %>
-<%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Besteld" %><%--
+<%@ page import="be.thomasmore.graduaten.pr4_bordspel_project.entity.Besteld" %>
   Created by IntelliJ IDEA.
   User: Maarten
   Date: 11/01/2021
@@ -26,6 +26,7 @@
             integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
             crossorigin="anonymous"
     />
+
     <link rel="stylesheet" href="css/style.css" />
     <title>Huur Spel</title>
 </head>

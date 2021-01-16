@@ -58,16 +58,16 @@
 
                             </div>
                             <div class="form-group">
-                                <label for="password">Password</label>
-                                <input id="password" name="password" placeholder="Password" type="password" class="form-control" required/>
+                                <label for="password">Wachtwoord</label>
+                                <input id="password" name="password" placeholder="Wachtwoord" type="password" class="form-control" required/>
                             </div>
                             <input
                                     type="submit"
                                     value="Login"
                                     class="btn btn-primary btn-block"/>
                             <div id="register" class="form-group text-center">
-                    <label class="mr-2 mt-2">New User?</label>
-                    <a href="/register">Create an account.</a>
+                    <label class="mr-2 mt-2">Nieuwe gebruiker?</label>
+                    <a href="/register">Maak een account.</a>
                     </div>
                         </form>
                     </div>
